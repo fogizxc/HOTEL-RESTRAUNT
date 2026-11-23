@@ -1,276 +1,70 @@
 {
-  "package": "HospitalityOS Engineering Handoff",
-  "version": "0.1.0",
-  "status": "Specification baseline; frontend export and implementation verification pending",
-  "file_count": 48,
-  "files": [
-    {
-      "path": ".gitignore",
-      "size_bytes": 162,
-      "sha256": "861bc8143be300416eeb7399a756cfdd4fe55840b6ba12cb197d2ad9cd835240"
-    },
-    {
-      "path": "CLAUDE_MASTER_IMPLEMENTATION_PROMPT.md",
-      "size_bytes": 8501,
-      "sha256": "8251150c6bd25afbaa002b49767b5626e9f1eddc2300c41030ade6dc19f2a340"
-    },
-    {
-      "path": "GITHUB-PUSH-STATUS.md",
-      "size_bytes": 1240,
-      "sha256": "19cc8c1d9470ba9fc8005f81e20264d8b78e05a7a83c052a1f33b549c93439a4"
-    },
-    {
-      "path": "LICENSE-NOTICE.md",
-      "size_bytes": 1008,
-      "sha256": "9312a3a4f92c3864c060ac5c5ba867dbef4979c56aca30b2f5c9e6b06a1f5bd7"
-    },
-    {
-      "path": "README.md",
-      "size_bytes": 5533,
-      "sha256": "2ac6fa70b92ba4506fd53fc15a8405563743cd31935ad03f833fa42f439e8f98"
-    },
-    {
-      "path": "contracts/openapi.yaml",
-      "size_bytes": 20512,
-      "sha256": "80885d890496a71352ba599542546327d46ea9c7e75db4cbb44df2025f9100c8"
-    },
-    {
-      "path": "decisions/OPEN-DECISIONS-REGISTER.md",
-      "size_bytes": 4459,
-      "sha256": "2f9dd21cc97132b78e619762a53becf22ad35d33160df8802808ae42665fa63b"
-    },
-    {
-      "path": "docs/00-PRODUCT-SCOPE-BASELINE.md",
-      "size_bytes": 3505,
-      "sha256": "60ee52717e39ba2dc71c7c6def4626e8cde83cfc3590efba8e4b3f2d7f82b04d"
-    },
-    {
-      "path": "docs/01-SYSTEM-ARCHITECTURE.md",
-      "size_bytes": 3074,
-      "sha256": "b88e3bd370ce6ec3c53506ad39ef65ee1cf3a63dcbb10ac9a3431e1378c59d5f"
-    },
-    {
-      "path": "docs/02-TENANCY-IDENTITY-AND-RBAC.md",
-      "size_bytes": 3242,
-      "sha256": "0d9db7c692afb463c25c0fdc9bdab3814c94f5cfcf14a30e01bcf4edd2e46324"
-    },
-    {
-      "path": "docs/03-DOMAIN-OWNERSHIP-AND-EVENTS.md",
-      "size_bytes": 3249,
-      "sha256": "0e8d3da444249066ab31c5a6e899a9a0f0679df0940dd859ca60c64c170ec95a"
-    },
-    {
-      "path": "docs/04-DATABASE-MODEL-AND-INVARIANTS.md",
-      "size_bytes": 7961,
-      "sha256": "8c3d3dc2b4c895f201f6baee29cb7105c56d53bb7aa3c53494f6f9b5f38839c9"
-    },
-    {
-      "path": "docs/05-API-CONTRACTS.md",
-      "size_bytes": 4651,
-      "sha256": "a4cb924e6fb79315af4478fb6d671eda6163d1938ef2323a165bc29ac3755517"
-    },
-    {
-      "path": "docs/06-CROSS-PANEL-WORKFLOWS.md",
-      "size_bytes": 3934,
-      "sha256": "cc4b13f925806f6d1334e658b035d36584795e86b749b29e01dce377a2e4259b"
-    },
-    {
-      "path": "docs/07-SUPPORTING-SCREENS-AND-GLOBAL-UTILITIES.md",
-      "size_bytes": 7448,
-      "sha256": "7e415ee0dcd5b6f90b7ed3afa3c01e0ce102f4fd52fc43edf691f232d3164ebe"
-    },
-    {
-      "path": "docs/DECISION-LOG-TEMPLATE.md",
-      "size_bytes": 595,
-      "sha256": "333f1548cd3653ab71766f9299abea2168a74a61ef359aa8f06dc5a0a0c037d6"
-    },
-    {
-      "path": "docs/IMPLEMENTATION-STATUS-TEMPLATE.md",
-      "size_bytes": 1563,
-      "sha256": "f2a52c3fb9794208cce42dc0a9dd25f39cae4b2b3b1d6b5cc17ba26c58eadaba"
-    },
-    {
-      "path": "docs/REQUIREMENT-TRACEABILITY-TEMPLATE.csv",
-      "size_bytes": 237,
-      "sha256": "b33b158c66933603ef0b2c2960fd6eb195de2a45101d697dec7ef052e40c4673"
-    },
-    {
-      "path": "engines/01-SUBSCRIPTION-AND-ENTITLEMENTS.md",
-      "size_bytes": 4342,
-      "sha256": "8e1230a887bbb3c2c58e098106655e196f507856d435365101beba136ec82ec0"
-    },
-    {
-      "path": "engines/02-UNIVERSAL-QR-ENGINE.md",
-      "size_bytes": 5350,
-      "sha256": "4865c9c11614d87044c8f3931910189246c55192e9ea58cddcb790db74d6de54"
-    },
-    {
-      "path": "engines/03-ORDER-KOT-AND-BILLING-ENGINE.md",
-      "size_bytes": 3566,
-      "sha256": "a0eb673b95b25ad8ec6829e2ea1fcc0ba574152e2e06e54983cdb88a6185dcdd"
-    },
-    {
-      "path": "engines/04-PAYMENTS-REFUNDS-AND-FOLIO.md",
-      "size_bytes": 4120,
-      "sha256": "2ceb4b7c97b9e4965ce79d45f239819dc114f4751d6cdd51711d25a15a896933"
-    },
-    {
-      "path": "engines/05-INVENTORY-RECIPE-COSTING.md",
-      "size_bytes": 3920,
-      "sha256": "4ab3e8fc962817cbb6a9ebe50b4d42c4b3e10fde6503353ad1979f8706341918"
-    },
-    {
-      "path": "engines/06-CRM-IDENTITY-CONSENT-LOYALTY.md",
-      "size_bytes": 3240,
-      "sha256": "c27225b5606b18a297c8f5f93696bdd0ee2890876b8a9cb2bd385b2b228954a1"
-    },
-    {
-      "path": "frontend/SCREEN-TRACEABILITY-TEMPLATE.csv",
-      "size_bytes": 427,
-      "sha256": "3a38a5f2cae65564be1acc187ba78443abf525f9cfeca7ebea70c512ef1183ff"
-    },
-    {
-      "path": "frontend/SCREEN-TRACEABILITY.md",
-      "size_bytes": 2005,
-      "sha256": "0cdf90cb4a8f99ea2b2c06c0f05cc2a4d861bcabf4714d52b26a8d484bcaaa67"
-    },
-    {
-      "path": "frontend/STITCH-IMPORT-INSTRUCTIONS.md",
-      "size_bytes": 3296,
-      "sha256": "17b79682e2382b6e7ee182a3349106046344ab39d2918896c338bc0bc47ef438"
-    },
-    {
-      "path": "frontend/source/PLACE_STITCH_EXPORT_HERE.md",
-      "size_bytes": 407,
-      "sha256": "fbe9cdc3a6626d349e9d05a2b4c27aa3bd38789895a66ca18599684a89ab88e6"
-    },
-    {
-      "path": "operations/DATABASE-MIGRATION-RUNBOOK.md",
-      "size_bytes": 3030,
-      "sha256": "98edf55781e6af0845e47f87972376bcb19c8f56bad7faa68843f16b2613e0b7"
-    },
-    {
-      "path": "operations/DEPLOYMENT-AND-ENVIRONMENT-RUNBOOK.md",
-      "size_bytes": 4120,
-      "sha256": "16ff1c2350576fd21ccdb8fc13e3180c63831b0d0809ea2975a4b6cad100d87f"
-    },
-    {
-      "path": "operations/INTEGRATIONS-AND-PROVIDER-ADAPTERS.md",
-      "size_bytes": 4159,
-      "sha256": "d1c3d2f008b8dbbae3788442ad3354c4b8a5e9814e6b1a3a341e3664fd172724"
-    },
-    {
-      "path": "operations/OBSERVABILITY-INCIDENTS-AND-RUNBOOKS.md",
-      "size_bytes": 4650,
-      "sha256": "5517975971021c58c61175241fbcb72c9278ddccbf5d30faa7076ec7d0c85440"
-    },
-    {
-      "path": "panels/01-SAAS-SUPER-ADMIN.md",
-      "size_bytes": 8561,
-      "sha256": "f5ee14aa92d4623a49f75472c4293c6f217b41afe0a73a5dd5dabc6699aef55e"
-    },
-    {
-      "path": "panels/02-ORGANISATION-OWNER-MANAGEMENT.md",
-      "size_bytes": 7103,
-      "sha256": "a2a50e685fd33e4c37d853c9edec4c1a3a3f35371e96b32aaed9e0aca93c8a16"
-    },
-    {
-      "path": "panels/03-HOTEL-PMS-FRONT-DESK.md",
-      "size_bytes": 6906,
-      "sha256": "5239e0db8affd1288bd00e9cac0eedc65e24f88e778db0e65d814a0adaa5f409"
-    },
-    {
-      "path": "panels/04-RESTAURANT-POS-FLOOR-MANAGEMENT.md",
-      "size_bytes": 6736,
-      "sha256": "2ff4cdeb4f61cb76a4523b13578458fb424f5138f168a9cfee5b9aea07928218"
-    },
-    {
-      "path": "panels/05-KITCHEN-DISPLAY-SYSTEM.md",
-      "size_bytes": 4233,
-      "sha256": "6b4dacca59cbdda0991ccf6d4adf47fec85f0b33e5ebb1275cd52de57073d787"
-    },
-    {
-      "path": "panels/06-HOUSEKEEPING-MAINTENANCE.md",
-      "size_bytes": 5013,
-      "sha256": "431674df612bfcaee80a2e230e4e8984d20ac1a6d08e4bed0f3a5f33edaad300"
-    },
-    {
-      "path": "panels/07-INVENTORY-PROCUREMENT.md",
-      "size_bytes": 6275,
-      "sha256": "daa1fcaf9bbb933604fdc6ae5d6fbf5050fb10bce68e86bf5eb531e87be03cb1"
-    },
-    {
-      "path": "panels/08-FINANCE-ACCOUNTS.md",
-      "size_bytes": 6398,
-      "sha256": "75ac7a931504736c8046fc8e7331564f7a699b2c8db53c585cd066b3bb8fc689"
-    },
-    {
-      "path": "panels/09-HR-EMPLOYEE-MANAGEMENT.md",
-      "size_bytes": 6101,
-      "sha256": "8540a417a85ba79b5fbc91228eda1b5774079011b33e514bb922a425d2e48fa5"
-    },
-    {
-      "path": "panels/10-CRM-GUEST-RELATIONSHIPS.md",
-      "size_bytes": 5900,
-      "sha256": "3eaff4023e5c3657d3dd8d22cb434c301f43160780749790891e958ac453743e"
-    },
-    {
-      "path": "panels/11-REPORTS-BUSINESS-INTELLIGENCE.md",
-      "size_bytes": 4705,
-      "sha256": "f9d9dc156341efa161af809eff67c491fcfc43ee327bbc6542822e3757d09564"
-    },
-    {
-      "path": "panels/12-CUSTOMER-GUEST-PORTAL.md",
-      "size_bytes": 6096,
-      "sha256": "2e87593613eb3408fcaab519dcbd2813845f74b7b9557aa9534c5ea0e700fdf0"
-    },
-    {
-      "path": "security/ROLE-PERMISSION-MATRIX-TEMPLATE.csv",
-      "size_bytes": 1115,
-      "sha256": "6b9648d6ad8a0fb4fe30cf9690a44dfcf8d02fb289a08e0053b02dc987a67ed6"
-    },
-    {
-      "path": "security/SECURITY-THREAT-MODEL.md",
-      "size_bytes": 7090,
-      "sha256": "91258b236d7d3df2fa5727ac139670f5371f2bf5fad20768345ed158e78fb602"
-    },
-    {
-      "path": "testing/TEST-PLAN-AND-RELEASE-GATES.md",
-      "size_bytes": 6245,
-      "sha256": "a428e085c98c5561f5d79513dcd895a497519173c4b53d1090f9f88fa5f55f43"
-    },
-    {
-      "path": "testing/WORKFLOW-ACCEPTANCE-MATRIX.csv",
-      "size_bytes": 3802,
-      "sha256": "e5b2f8ca75a854e4421317093c897a45f312809cd2cd0ad88ef1570bf1e5bdaf"
-    }
-  ],
+  "package": "HospitalityOS Complete Frontend and Engineering Handoff",
+  "version": "1.0.0",
+  "status": "Original Stitch design source and 12-panel engineering specification are imported; application implementation and production verification remain pending.",
+  "repository": "fogizxc/HOTEL-RESTRAUNT",
+  "default_branch": "main",
+  "last_verified_source_import_commit": "8c341b60816b9c988bd878f0e8b8f82fc7086d44",
+  "verified_repository_inventory": {
+    "total_git_blobs": 286,
+    "frontend_files": 238,
+    "handoff_files": 44,
+    "html_screen_exports": 233,
+    "markdown_files_in_repository": 43,
+    "panel_specifications": 12,
+    "shared_engine_specifications": 6
+  },
   "frontend_source": {
+    "original_filename": "stitch_hospitalityos_design_system.zip",
+    "original_zip_size_bytes": 971203,
+    "original_zip_sha256": "25e258f98a84424c0a414dcd99eead4b2ddcfc2f4c37b5c74b497b8a4ee1f198",
+    "original_zip_integrity": "passed",
     "extracted_root": "frontend/stitch-export/stitch_hospitalityos_design_system/",
-    "design_system": "frontend/stitch-export/stitch_hospitalityos_design_system/hospitalityos_design_system.md",
-    "screen_count": 233,
+    "screen_html_count": 233,
     "screen_folder_count": 233,
-    "workspace_counts": {
-      "CRM & Guest Relationships": 15,
-      "Customer & Guest Portal": 16,
-      "Finance & Accounts": 18,
-      "HR & Employee Management": 15,
-      "Hotel PMS & Front Desk": 26,
-      "Housekeeping & Maintenance": 21,
-      "Inventory & Procurement": 18,
-      "Kitchen Display System": 21,
-      "Organisation Owner & Management": 18,
-      "Reports & Business Intelligence": 14,
-      "Restaurant POS & Floor Management": 20,
-      "SaaS Super Admin": 18,
-      "Shared Supporting Pages": 13
-    },
+    "design_system_file": "frontend/stitch-export/stitch_hospitalityos_design_system/hospitalityos_design_system.md",
     "inventory_csv": "frontend/SCREEN-INVENTORY.csv",
     "traceability_csv": "frontend/SCREEN-TRACEABILITY.csv",
-    "source_zip_sha256": "25e258f98a84424c0a414dcd99eead4b2ddcfc2f4c37b5c74b497b8a4ee1f198",
-    "source_zip_size_bytes": 971203,
-    "integrity": "zipfile.testzip passed; each screen code.html inventoried and SHA-256 recorded",
-    "source_archive_handling": "Original uploaded ZIP was integrity-checked, extracted, and individually inventoried; redundant archive container is not duplicated in this delivery package."
+    "traceability_note": "Route, role, domain owner, API operation, permission and E2E fields remain intentionally unassigned where the real application repository must be inspected first.",
+    "workspace_counts": {
+      "01 SaaS Super Admin": 18,
+      "02 Organisation Owner and Management": 18,
+      "03 Hotel PMS and Front Desk": 26,
+      "04 Restaurant POS and Floor Management": 20,
+      "05 Kitchen Display System": 21,
+      "06 Housekeeping and Maintenance": 21,
+      "07 Inventory and Procurement": 18,
+      "08 Finance and Accounts": 18,
+      "09 HR and Employee Management": 15,
+      "10 CRM and Guest Relationships": 15,
+      "11 Reports and Business Intelligence": 14,
+      "12 Customer and Guest Portal": 16,
+      "13 Shared Supporting Pages": 13
+    }
   },
-  "package_status": "Frontend source imported; UI is design reference only; implementation and production verification remain pending."
+  "engineering_contents": {
+    "panel_directory": "handoff/panels/",
+    "panel_specification_count": 12,
+    "engine_directory": "handoff/engines/",
+    "shared_engine_specification_count": 6,
+    "architecture_database_api": "handoff/docs/",
+    "security": "handoff/security/",
+    "test_plan": "handoff/testing/",
+    "operations": "handoff/operations/",
+    "open_decisions": "handoff/decisions/",
+    "openapi_starter": "handoff/contracts/openapi.yaml",
+    "claude_master_prompt": "handoff/CLAUDE_MASTER_IMPLEMENTATION_PROMPT.md"
+  },
+  "package_downloads": {
+    "original_stitch_zip": "stitch_hospitalityos_design_system.zip",
+    "complete_master_zip": "HospitalityOS_COMPLETE_MASTER_PACKAGE_v1.0.0.zip",
+    "complete_master_zip_sha256": "99725a6a140213ca0c7036d548ffff4346f4aea9f8b572e95b449124af400976"
+  },
+  "implementation_status": {
+    "backend_implemented": false,
+    "executable_migrations_verified": false,
+    "live_integrations_configured": false,
+    "automated_security_tests_executed": false,
+    "production_release_approved": false
+  }
 }

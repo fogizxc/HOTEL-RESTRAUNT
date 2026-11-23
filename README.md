@@ -1,41 +1,31 @@
 # HospitalityOS — Complete Frontend & Engineering Handoff
 
-This repository contains the original Google Stitch export and the consolidated HospitalityOS engineering handoff for all 12 workspaces.
+This repository contains the original Google Stitch export, the 12-panel engineering specifications, shared-engine contracts, and the screen-by-screen design source.
+
+## All 233 frontend pages are committed individually
+
+Browse:
+- `frontend/stitch-export/stitch_hospitalityos_design_system/` — all 233 original `code.html` screen exports plus `hospitalityos_design_system.md`.
+- `frontend/SCREEN-INVENTORY.csv` — exact screen folders, titles, workspace assignment, file sizes and SHA-256 hashes.
+- `frontend/SCREEN-TRACEABILITY.csv` — one row per screen. Implementation route, API operation, allowed role, permission and E2E test fields must be populated after auditing the actual application router, services, OpenAPI contract and RBAC catalogue; they are intentionally not fabricated.
+- `handoff/panels/` — 12 detailed workspace specifications.
+- `handoff/engines/` — shared subscription, QR, order/KOT/billing, payment/folio, inventory and CRM contracts.
+- `handoff/docs/`, `handoff/security/`, `handoff/testing/`, `handoff/operations/`, `handoff/contracts/`, and `handoff/decisions/` — architecture, database, tenancy, API, security, acceptance tests, release gates, deployment and open decisions.
+- `handoff/CLAUDE_MASTER_IMPLEMENTATION_PROMPT.md` — implementation agent instructions.
 
 ## Downloads
 
-### 1. Original Google Stitch export
-**File:** `stitch_hospitalityos_design_system.zip`
+**Original Stitch source ZIP:** `stitch_hospitalityos_design_system.zip`  
+This is the original uploaded file. It contains 233 `code.html` exports and one `hospitalityos_design_system.md`. Its integrity was checked before extraction. The same source pages are individually browseable in `frontend/stitch-export/`.
 
-This is the original uploaded Stitch archive. It contains:
-- **233 individual `code.html` page exports**
-- **1 `hospitalityos_design_system.md`**
-- Original screen-folder names and paths retained
-
-Download it from the repository root and unzip it once to inspect the original Stitch screens.
-
-### 2. Complete implementation handoff
-**File:** `HospitalityOS_COMPLETE_MASTER_PACKAGE_v1.0.0.zip`
-
-This consolidated package contains all 233 frontend page exports plus the implementation documentation:
-- 12 panel specifications.
-- 6 shared-engine specifications.
-- Architecture, modular boundaries, multi-tenancy and data isolation.
-- Database model and invariants.
-- API contracts and OpenAPI starter.
-- RBAC and permissions templates.
-- QR, ordering, payment, room-folio, inventory, loyalty, finance and HR rules.
-- Security threat model, test matrix, acceptance criteria and release gates.
-- Deployment, migration, integration and operations runbooks.
-- Screen inventory and screen-to-implementation traceability sheets.
-
-**Extraction note:** to keep the complete handoff compact, this outer ZIP contains `HospitalityOS_SOURCE.tar.xz`. First unzip the outer package, then extract the source archive:
+**Complete engineering handoff ZIP:** `HospitalityOS_COMPLETE_MASTER_PACKAGE_v1.0.0.zip`  
+This contains the consolidated frontend source and engineering documentation. The compact outer ZIP contains `HospitalityOS_SOURCE.tar.xz`; unzip the outer package, then run:
 
 ```bash
 tar -xJf HospitalityOS_SOURCE.tar.xz
 ```
 
-The extracted source root contains `README.md`, `panels/`, `engines/`, `docs/`, `security/`, `testing/`, `operations/`, `contracts/`, `decisions/`, and `frontend/`.
+Start with `README.md` in the extracted source root.
 
 ## Screen inventory
 
@@ -58,18 +48,18 @@ The extracted source root contains `README.md`, `panels/`, `engines/`, `docs/`, 
 
 ## Engineering status and limitations
 
-The Stitch export is a visual design reference, not a working application. The Markdown files are engineering specifications and an implementation handoff, not proof that the backend, migrations, integrations, security controls, or automated tests have already been implemented.
+The Stitch HTML files are visual design references, not a working application. The Markdown files are engineering specifications and a Claude implementation handoff; they do not prove that the backend, migrations, integrations, security controls, or automated tests have already been implemented.
 
-Before production release, the implementation agent must:
-1. Import and inspect all 233 screens.
-2. Complete the screen-to-route, API, domain, permission, and test traceability.
-3. Implement and validate database migrations, domain services, APIs, integrations, and UI behavior.
-4. Run the required security, tenancy-isolation, functional, accessibility, performance, backup/restore, and end-to-end tests.
-5. Resolve owner decisions and satisfy the documented release gates.
+Before production release, engineering must:
+1. Inspect all 233 screen exports and the complete design-system specification.
+2. Complete screen-to-route, API, domain, permission and test traceability using the actual application code.
+3. Implement and validate database migrations, domain services, APIs, integrations and UI behavior.
+4. Run required tenancy-isolation, security, functional, accessibility, performance, backup/restore and end-to-end tests.
+5. Resolve open owner decisions and satisfy the documented release gates.
 
 Do not claim production readiness merely because the design exports and documentation are present.
 
 ## Integrity
 
 - Original Stitch ZIP SHA-256: `25e258f98a84424c0a414dcd99eead4b2ddcfc2f4c37b5c74b497b8a4ee1f198`
-- Complete handoff ZIP SHA-256: `99725a6a140213ca0c7036d548ffff4346f4aea9f8b572e95b449124af400976`
+- Complete handoff ZIP SHA-256 (committed version): `99725a6a140213ca0c7036d548ffff4346f4aea9f8b572e95b449124af400976`
