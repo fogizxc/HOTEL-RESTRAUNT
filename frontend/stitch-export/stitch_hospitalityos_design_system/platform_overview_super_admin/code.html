@@ -1,0 +1,911 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Overview — HospitalityOS Super Admin</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background dark:bg-dark-background dark:text-dark-on-background font-body antialiased selection:bg-light-primary/15">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <!-- Mobile/Tablet Sidebar Backdrop -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-light-on-surface/30 dark:bg-dark-background/60 z-30 hidden lg:hidden" onclick="toggleSidebar(false)"></div>
+
+    <!-- Persistent Left Sidebar -->
+    <aside id="app-sidebar" class="fixed lg:sticky top-0 left-0 z-40 w-[248px] min-h-[1024px] shrink-0 bg-light-surface/95 dark:bg-dark-surface/95 border-r border-light-outline-variant dark:border-dark-outline-variant flex flex-col justify-between -translate-x-full lg:translate-x-0 transition-transform duration-drawer-slide ease-drawer-slide" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <!-- Brand Header -->
+        <div class="flex items-center justify-between gap-compact px-compact pt-micro">
+          <div class="flex items-center gap-component">
+            <div class="w-8 h-8 rounded bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">apartment</span>
+            </div>
+            <div class="flex flex-col">
+              <span data-design-text-token="title-md" class="font-title text-title-md text-light-on-surface dark:text-dark-on-surface leading-none">HospitalityOS</span>
+              <span data-design-text-token="label-sm" class="font-label text-label-sm text-light-muted dark:text-dark-muted tracking-wider uppercase mt-micro">Platform Control</span>
+            </div>
+          </div>
+          <button type="button" aria-label="Close navigation" onclick="toggleSidebar(false)" class="lg:hidden p-micro rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container">
+            <span class="material-symbols-outlined text-title-lg" aria-hidden="true">close</span>
+          </button>
+        </div>
+
+        <div class="px-compact">
+          <span data-design-text-token="label-sm" class="inline-flex items-center gap-compact px-compact py-micro rounded-full bg-light-surface-container dark:bg-dark-surface-container text-light-on-surface-variant dark:text-dark-on-surface-variant text-label-sm border border-light-outline-variant dark:border-dark-outline-variant">
+            <span class="w-1.5 h-1.5 rounded-full bg-light-primary dark:bg-dark-primary" aria-hidden="true"></span>
+            Super Admin
+          </span>
+        </div>
+
+        <!-- Navigation Groups -->
+        <nav aria-label="Super Admin Navigation" class="flex flex-col gap-component">
+          <!-- OVERVIEW -->
+          <div>
+            <button type="button" onclick="toggleNavGroup(&#39;nav-overview&#39;)" class="w-full flex items-center justify-between px-compact py-micro text-label-sm text-light-muted dark:text-dark-muted uppercase tracking-wider hover:text-light-on-surface dark:hover:text-dark-on-surface">
+              <span data-design-text-token="label-sm">Overview</span>
+              <span class="material-symbols-outlined text-body-sm" aria-hidden="true">expand_more</span>
+            </button>
+            <ul id="nav-overview" class="mt-micro flex flex-col gap-micro">
+              <li>
+                <a href="PlatformOverview.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container dark:bg-dark-primary-container/40 text-light-on-primary-container dark:text-dark-on-primary-container font-medium">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span>
+                  <span data-design-text-token="label-lg" class="text-label-lg">Dashboard</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- ORGANISATIONS -->
+          <div>
+            <button type="button" onclick="toggleNavGroup(&#39;nav-orgs&#39;)" class="w-full flex items-center justify-between px-compact py-micro text-label-sm text-light-muted dark:text-dark-muted uppercase tracking-wider hover:text-light-on-surface dark:hover:text-dark-on-surface">
+              <span data-design-text-token="label-sm">Organisations</span>
+              <span class="material-symbols-outlined text-body-sm" aria-hidden="true">expand_more</span>
+            </button>
+            <ul id="nav-orgs" class="mt-micro flex flex-col gap-micro">
+              <li>
+                <a href="../super-admin-organisations/OrganisationDirectory.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container hover:text-light-on-surface dark:hover:text-dark-on-surface text-body-sm transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">corporate_fare</span>
+                  <span data-design-text-token="body-sm">Organisation Directory</span>
+                </a>
+              </li>
+              <li>
+                <a href="../super-admin-organisation-detail/OrganisationDetail.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container hover:text-light-on-surface dark:hover:text-dark-on-surface text-body-sm transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">domain</span>
+                  <span data-design-text-token="body-sm">Properties Directory</span>
+                </a>
+              </li>
+              <li>
+                <a href="../super-admin-onboarding/OrganisationOnboarding.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container hover:text-light-on-surface dark:hover:text-dark-on-surface text-body-sm transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">add_business</span>
+                  <span data-design-text-token="body-sm">Organisation Onboarding</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SUBSCRIPTIONS & REVENUE -->
+          <div>
+            <button type="button" onclick="toggleNavGroup(&#39;nav-subs&#39;)" class="w-full flex items-center justify-between px-compact py-micro text-label-sm text-light-muted dark:text-dark-muted uppercase tracking-wider hover:text-light-on-surface dark:hover:text-dark-on-surface">
+              <span data-design-text-token="label-sm">Subscriptions &amp; Revenue</span>
+              <span class="material-symbols-outlined text-body-sm" aria-hidden="true">expand_more</span>
+            </button>
+            <ul id="nav-subs" class="mt-micro flex flex-col gap-micro">
+              <li>
+                <a href="#subscriptions" onclick="showModuleNotice(&#39;Subscription Management&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">subscriptions</span>
+                  <span data-design-text-token="body-sm">Subscription Management</span>
+                </a>
+              </li>
+              <li>
+                <a href="#plans" onclick="showModuleNotice(&#39;Plans &amp; Pricing&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">sell</span>
+                  <span data-design-text-token="body-sm">Plans &amp; Pricing</span>
+                </a>
+              </li>
+              <li>
+                <a href="../super-admin-entitlements/ModuleFeatureControl.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container hover:text-light-on-surface dark:hover:text-dark-on-surface text-body-sm transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">tune</span>
+                  <span data-design-text-token="body-sm">Module &amp; Feature Entitlements</span>
+                </a>
+              </li>
+              <li>
+                <a href="#billing" onclick="showModuleNotice(&#39;Billing &amp; Transactions&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">receipt_long</span>
+                  <span data-design-text-token="body-sm">Billing &amp; Transactions</span>
+                </a>
+              </li>
+              <li>
+                <a href="#revenue-analytics" onclick="showModuleNotice(&#39;Revenue Analytics&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">analytics</span>
+                  <span data-design-text-token="body-sm">Revenue Analytics</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- PLATFORM OPERATIONS -->
+          <div>
+            <button type="button" onclick="toggleNavGroup(&#39;nav-ops&#39;)" class="w-full flex items-center justify-between px-compact py-micro text-label-sm text-light-muted dark:text-dark-muted uppercase tracking-wider hover:text-light-on-surface dark:hover:text-dark-on-surface">
+              <span data-design-text-token="label-sm">Platform Operations</span>
+              <span class="material-symbols-outlined text-body-sm" aria-hidden="true">expand_more</span>
+            </button>
+            <ul id="nav-ops" class="mt-micro flex flex-col gap-micro">
+              <li>
+                <a href="#admins" onclick="showModuleNotice(&#39;Platform Administrators&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">admin_panel_settings</span>
+                  <span data-design-text-token="body-sm">Platform Administrators</span>
+                </a>
+              </li>
+              <li>
+                <a href="#support" onclick="showModuleNotice(&#39;Customer Support&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">support_agent</span>
+                  <span data-design-text-token="body-sm">Customer Support</span>
+                </a>
+              </li>
+              <li>
+                <a href="#announcements" onclick="showModuleNotice(&#39;Announcements &amp; Communications&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">campaign</span>
+                  <span data-design-text-token="body-sm">Announcements</span>
+                </a>
+              </li>
+              <li>
+                <a href="#health" onclick="showModuleNotice(&#39;Platform Health&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">monitor_heart</span>
+                  <span data-design-text-token="body-sm">Platform Health</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SECURITY & CONFIGURATION -->
+          <div>
+            <button type="button" onclick="toggleNavGroup(&#39;nav-sec&#39;)" class="w-full flex items-center justify-between px-compact py-micro text-label-sm text-light-muted dark:text-dark-muted uppercase tracking-wider hover:text-light-on-surface dark:hover:text-dark-on-surface">
+              <span data-design-text-token="label-sm">Security &amp; Config</span>
+              <span class="material-symbols-outlined text-body-sm" aria-hidden="true">expand_more</span>
+            </button>
+            <ul id="nav-sec" class="mt-micro flex flex-col gap-micro">
+              <li>
+                <a href="#security" onclick="showModuleNotice(&#39;Security Centre&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">shield</span>
+                  <span data-design-text-token="body-sm">Security Centre</span>
+                </a>
+              </li>
+              <li>
+                <a href="#audit" onclick="showModuleNotice(&#39;Audit Logs&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">history</span>
+                  <span data-design-text-token="body-sm">Audit Logs</span>
+                </a>
+              </li>
+              <li>
+                <a href="#integrations" onclick="showModuleNotice(&#39;Integrations&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">hub</span>
+                  <span data-design-text-token="body-sm">Integrations</span>
+                </a>
+              </li>
+              <li>
+                <a href="#settings" onclick="showModuleNotice(&#39;Global Settings&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container text-body-sm">
+                  <span class="material-symbols-outlined text-title-lg" aria-hidden="true">settings</span>
+                  <span data-design-text-token="body-sm">Global Settings</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Bottom Sidebar -->
+      <div class="p-standard border-t border-light-outline-variant dark:border-dark-outline-variant flex flex-col gap-compact">
+        <div class="flex items-center justify-between px-compact py-micro">
+          <span class="inline-flex items-center gap-compact text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">
+            <span class="w-2 h-2 rounded-full bg-light-success dark:bg-dark-success" aria-hidden="true"></span>
+            <span data-design-text-token="label-sm">All systems operational</span>
+          </span>
+          <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="p-micro rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container">
+            <span class="material-symbols-outlined text-title-md dark:hidden" aria-hidden="true">dark_mode</span>
+            <span class="material-symbols-outlined text-title-md hidden dark:inline-block" aria-hidden="true">light_mode</span>
+          </button>
+        </div>
+
+        <div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low dark:bg-dark-surface-container">
+          <div class="w-8 h-8 rounded-full bg-light-primary-container dark:bg-dark-primary-container text-light-on-primary-container dark:text-dark-on-primary-container flex items-center justify-center text-label-md font-semibold shrink-0">AM</div>
+          <div class="min-w-0 flex-1">
+            <p data-design-text-token="label-md" class="text-label-md text-light-on-surface dark:text-dark-on-surface truncate">Arjun Mehta</p>
+            <p data-design-text-token="label-sm" class="text-label-sm text-light-muted dark:text-dark-muted truncate">Platform Owner</p>
+          </div>
+          <button type="button" onclick="showModuleNotice(&#39;Account Settings&#39;)" aria-label="Account settings" class="p-micro rounded text-light-muted hover:text-light-on-surface dark:hover:text-dark-on-surface">
+            <span class="material-symbols-outlined text-title-md" aria-hidden="true">manage_accounts</span>
+          </button>
+        </div>
+
+        <div class="flex items-center justify-between px-compact text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">
+          <button type="button" onclick="showModuleNotice(&#39;Help &amp; Documentation&#39;)" class="inline-flex items-center gap-micro hover:text-light-on-surface dark:hover:text-dark-on-surface">
+            <span class="material-symbols-outlined text-body-md" aria-hidden="true">help</span>
+            <span>Help &amp; Docs</span>
+          </button>
+          <button type="button" onclick="showModuleNotice(&#39;Secure Logout&#39;)" class="inline-flex items-center gap-micro text-light-error dark:text-dark-error hover:opacity-80">
+            <span class="material-symbols-outlined text-body-md" aria-hidden="true">logout</span>
+            <span>Sign out</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Area -->
+    <div class="flex-1 min-w-0 flex flex-col">
+      <!-- Top Navigation Bar -->
+      <header class="sticky top-0 z-20 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md border-b border-light-outline-variant dark:border-dark-outline-variant px-section py-component flex items-center justify-between gap-standard">
+        <div class="flex items-center gap-component min-w-0">
+          <button type="button" onclick="toggleSidebar(true)" aria-label="Open navigation" class="lg:hidden p-compact rounded text-light-on-surface-variant hover:bg-light-surface-container">
+            <span class="material-symbols-outlined text-title-lg" aria-hidden="true">menu</span>
+          </button>
+          <nav aria-label="Breadcrumb" class="flex items-center gap-compact text-body-sm">
+            <span data-design-text-token="body-sm" class="text-light-muted dark:text-dark-muted">Platform Control</span>
+            <span class="material-symbols-outlined text-body-sm text-light-muted" aria-hidden="true">chevron_right</span>
+            <span data-design-text-token="label-lg" class="text-label-lg text-light-on-surface dark:text-dark-on-surface">Dashboard</span>
+          </nav>
+        </div>
+
+        <div class="flex items-center gap-component">
+          <button type="button" onclick="openCommandModal()" class="hidden sm:flex items-center gap-compact h-9 px-component rounded bg-light-surface-container-low dark:bg-dark-surface-container border border-light-outline-variant dark:border-dark-outline text-body-sm text-light-muted dark:text-dark-muted hover:border-light-outline transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-title-md" aria-hidden="true">search</span>
+            <span data-design-text-token="body-sm">Search orgs, IDs, invoices...</span>
+            <kbd class="ml-compact px-micro py-0.5 rounded-sm bg-light-surface dark:bg-dark-surface-container-high border border-light-outline-variant dark:border-dark-outline text-label-sm font-mono">⌘K</kbd>
+          </button>
+
+          <span data-design-text-token="label-sm" class="hidden md:inline-flex items-center gap-micro px-compact py-micro rounded-full bg-light-surface-container dark:bg-dark-surface-container text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant border border-light-outline-variant dark:border-dark-outline-variant">
+            Production · Demo Data
+          </span>
+
+          <div class="relative">
+            <button type="button" onclick="toggleNotifications()" aria-label="Notifications" class="relative p-compact rounded text-light-on-surface-variant dark:text-dark-on-surface-variant hover:bg-light-surface-container dark:hover:bg-dark-surface-container">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">notifications</span>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-light-error dark:bg-dark-error" aria-hidden="true"></span>
+            </button>
+            <!-- Notifications Popover -->
+            <div id="notifications-popover" class="hidden absolute right-0 mt-compact w-80 bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg shadow-lg p-standard z-30">
+              <div class="flex items-center justify-between pb-compact border-b border-light-outline-variant dark:border-dark-outline-variant">
+                <span data-design-text-token="title-md" class="text-title-md text-light-on-surface dark:text-dark-on-surface">Notifications</span>
+                <span data-design-text-token="label-sm" class="text-label-sm text-light-primary dark:text-dark-primary">3 unread</span>
+              </div>
+              <ul class="divide-y divide-light-outline-variant dark:divide-dark-outline-variant text-body-sm">
+                <li class="py-compact">
+                  <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Payment failed · Urban Plate Restaurants</p>
+                  <p class="text-light-on-surface-variant dark:text-dark-on-surface-variant text-label-sm mt-micro">₹24,500 renewal declined · 18 mins ago</p>
+                </li>
+                <li class="py-compact">
+                  <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Trial expiring in 48h · Cedar Dining Collection</p>
+                  <p class="text-light-on-surface-variant dark:text-dark-on-surface-variant text-label-sm mt-micro">Jaipur · 4 outlets configured</p>
+                </li>
+                <li class="py-compact">
+                  <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Suspicious login blocked · Admin API</p>
+                  <p class="text-light-on-surface-variant dark:text-dark-on-surface-variant text-label-sm mt-micro">Unrecognised IP · 2 hours ago</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <a href="../super-admin-onboarding/OrganisationOnboarding.html" data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" class="inline-flex items-center justify-center gap-compact min-h-[36px] px-standard py-micro rounded bg-light-primary text-light-on-primary dark:bg-dark-primary dark:text-dark-on-primary hover:opacity-90 transition-opacity duration-state-change">
+            <span class="material-symbols-outlined text-title-md" aria-hidden="true">add</span>
+            <span data-design-text-token="label-lg" class="text-label-lg">Create organisation</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <!-- Page Header & Controls -->
+        <section class="flex flex-col xl:flex-row xl:items-end justify-between gap-standard">
+          <div>
+            <h1 data-design-text-token="headline-lg" class="font-headline text-headline-lg text-light-on-surface dark:text-dark-on-surface">Platform Overview</h1>
+            <p data-design-text-token="body-md" class="text-body-md text-light-on-surface-variant dark:text-dark-on-surface-variant mt-micro">Monitor your hospitality SaaS ecosystem, organisation activity and subscription performance. Fictional demonstration data (Asia/Kolkata · INR).</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-compact">
+            <select aria-label="Date range" class="h-9 rounded px-component bg-light-surface dark:bg-dark-surface border border-light-outline dark:border-dark-outline text-body-sm text-light-on-surface dark:text-dark-on-surface">
+              <option>Last 30 days (Nov 2026)</option>
+              <option>Last 90 days</option>
+              <option>FY 2026–27</option>
+            </select>
+            <select aria-label="Subscription type filter" class="h-9 rounded px-component bg-light-surface dark:bg-dark-surface border border-light-outline dark:border-dark-outline text-body-sm text-light-on-surface dark:text-dark-on-surface">
+              <option>All subscription types</option>
+              <option>Hotel only</option>
+              <option>Restaurant only</option>
+              <option>Hotel + Restaurant</option>
+            </select>
+            <select aria-label="Organisation status filter" class="h-9 rounded px-component bg-light-surface dark:bg-dark-surface border border-light-outline dark:border-dark-outline text-body-sm text-light-on-surface dark:text-dark-on-surface">
+              <option>All statuses</option>
+              <option>Active</option>
+              <option>Trial</option>
+              <option>Suspended</option>
+            </select>
+            <button type="button" onclick="showToast(&#39;Dashboard metrics refreshed (Asia/Kolkata)&#39;)" class="inline-flex items-center gap-micro h-9 px-component rounded bg-light-surface dark:bg-dark-surface border border-light-outline dark:border-dark-outline text-label-md text-light-on-surface dark:text-dark-on-surface hover:bg-light-surface-container-low">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">refresh</span>
+              <span>Refresh</span>
+            </button>
+            <button type="button" onclick="showToast(&#39;Executive summary CSV exported&#39;)" class="inline-flex items-center gap-micro h-9 px-component rounded bg-light-surface dark:bg-dark-surface border border-light-outline dark:border-dark-outline text-label-md text-light-on-surface dark:text-dark-on-surface hover:bg-light-surface-container-low">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">download</span>
+              <span>Export report</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Section A: Key Performance Indicators (Grouped Logically into 3 Clean Cards) -->
+        <section aria-label="Key Performance Indicators" class="grid grid-cols-1 lg:grid-cols-3 gap-section">
+          <!-- Group 1: Ecosystem Scale -->
+          <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none flex flex-col gap-standard">
+            <div class="flex items-center justify-between">
+              <h2 data-design-text-token="title-md" class="text-title-md text-light-on-surface dark:text-dark-on-surface">Ecosystem scale</h2>
+              <span data-design-text-token="label-sm" class="text-label-sm bg-light-success-container text-light-on-success-container dark:bg-dark-success-container dark:text-dark-on-success-container px-compact py-micro rounded-full">+6.4% MoM</span>
+            </div>
+            <div class="grid grid-cols-3 gap-component">
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Total orgs</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">248</p>
+              </div>
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Active</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">214</p>
+              </div>
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Trials</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-primary dark:text-dark-primary mt-micro">22</p>
+              </div>
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Suspended</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-error dark:text-dark-error mt-micro">12</p>
+              </div>
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Properties</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">612</p>
+              </div>
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Active users</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">9,480</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Group 2: Subscription Mix -->
+          <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none flex flex-col justify-between gap-standard">
+            <div class="flex items-center justify-between">
+              <h2 data-design-text-token="title-md" class="text-title-md text-light-on-surface dark:text-dark-on-surface">Active subscriptions</h2>
+              <span data-design-text-token="label-sm" class="text-label-sm text-light-muted dark:text-dark-muted">214 paid</span>
+            </div>
+            <div class="grid grid-cols-3 gap-component">
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Hotel only</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">94</p>
+                <p class="text-label-sm text-light-muted dark:text-dark-muted">43.9%</p>
+              </div>
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Restaurant</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">82</p>
+                <p class="text-label-sm text-light-muted dark:text-dark-muted">38.3%</p>
+              </div>
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Combined</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-primary dark:text-dark-primary mt-micro">38</p>
+                <p class="text-label-sm text-light-muted dark:text-dark-muted">17.8%</p>
+              </div>
+            </div>
+            <div class="w-full h-2 rounded-full bg-light-surface-container dark:bg-dark-surface-container overflow-hidden flex">
+              <div class="bg-light-on-surface dark:bg-dark-on-surface h-full" style="width: 44%"></div>
+              <div class="bg-light-muted dark:bg-dark-muted h-full" style="width: 38%"></div>
+              <div class="bg-light-primary dark:bg-dark-primary h-full" style="width: 18%"></div>
+            </div>
+          </article>
+
+          <!-- Group 3: Recurring Revenue -->
+          <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none flex flex-col justify-between gap-standard">
+            <div class="flex items-center justify-between">
+              <h2 data-design-text-token="title-md" class="text-title-md text-light-on-surface dark:text-dark-on-surface">Recurring revenue</h2>
+              <span data-design-text-token="label-sm" class="text-label-sm bg-light-success-container text-light-on-success-container dark:bg-dark-success-container dark:text-dark-on-success-container px-compact py-micro rounded-full">+11.2% YoY</span>
+            </div>
+            <div class="grid grid-cols-2 gap-component">
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">MRR</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">₹48,60,000</p>
+              </div>
+              <div>
+                <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">ARR</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">₹5,83,20,000</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-compact border-t border-light-outline-variant dark:border-dark-outline-variant text-body-sm">
+              <span class="text-light-on-surface-variant dark:text-dark-on-surface-variant">Subscription renewal rate</span>
+              <span class="font-mono tabular-nums font-semibold text-light-on-success-container dark:text-dark-success">96.4%</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- Section B: Revenue Analytics -->
+        <section class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none flex flex-col gap-standard">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-component">
+            <div>
+              <h2 data-design-text-token="title-lg" class="text-title-lg text-light-on-surface dark:text-dark-on-surface">Revenue analytics</h2>
+              <p data-design-text-token="body-sm" class="text-body-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">MRR movement across new subscriptions, expansions, churn, and adjustments</p>
+            </div>
+            <div class="inline-flex rounded bg-light-surface-container dark:bg-dark-surface-container p-micro border border-light-outline-variant dark:border-dark-outline-variant">
+              <button type="button" onclick="setRevenuePeriod(&#39;monthly&#39;, this)" class="rev-period-btn px-component py-micro rounded-sm bg-light-surface dark:bg-dark-surface-container-high text-label-md text-light-on-surface dark:text-dark-on-surface shadow-sm">Monthly</button>
+              <button type="button" onclick="setRevenuePeriod(&#39;quarterly&#39;, this)" class="rev-period-btn px-component py-micro rounded-sm text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant">Quarterly</button>
+              <button type="button" onclick="setRevenuePeriod(&#39;yearly&#39;, this)" class="rev-period-btn px-component py-micro rounded-sm text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant">Yearly</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-standard pt-compact border-t border-light-outline-variant dark:border-dark-outline-variant">
+            <div>
+              <p class="text-label-sm text-light-muted dark:text-dark-muted">MRR</p>
+              <p id="rev-mrr" class="font-mono text-title-md tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">₹48,60,000</p>
+            </div>
+            <div>
+              <p class="text-label-sm text-light-muted dark:text-dark-muted">ARR</p>
+              <p id="rev-arr" class="font-mono text-title-md tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">₹5,83,20,000</p>
+            </div>
+            <div>
+              <p class="text-label-sm text-light-muted dark:text-dark-muted">New revenue</p>
+              <p class="font-mono text-title-md tabular-nums text-light-on-success-container dark:text-dark-success mt-micro">+₹4,12,000</p>
+            </div>
+            <div>
+              <p class="text-label-sm text-light-muted dark:text-dark-muted">Expansion</p>
+              <p class="font-mono text-title-md tabular-nums text-light-primary dark:text-dark-primary mt-micro">+₹2,38,000</p>
+            </div>
+            <div>
+              <p class="text-label-sm text-light-muted dark:text-dark-muted">Churned</p>
+              <p class="font-mono text-title-md tabular-nums text-light-error dark:text-dark-error mt-micro">-₹1,04,000</p>
+            </div>
+            <div>
+              <p class="text-label-sm text-light-muted dark:text-dark-muted">Refunds &amp; adj.</p>
+              <p class="font-mono text-title-md tabular-nums text-light-on-surface-variant dark:text-dark-on-surface-variant mt-micro">-₹28,500</p>
+            </div>
+          </div>
+
+          <!-- Clean Restrained SVG Line Chart -->
+          <div class="w-full overflow-x-auto">
+            <svg viewBox="0 0 800 180" class="w-full h-44 text-light-outline-variant dark:text-dark-outline-variant" role="img" aria-label="Monthly recurring revenue trend chart">
+              <line x1="40" y1="30" x2="780" y2="30" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1"></line>
+              <line x1="40" y1="80" x2="780" y2="80" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1"></line>
+              <line x1="40" y1="130" x2="780" y2="130" stroke="currentColor" stroke-width="1"></line>
+              <path d="M 40 118 L 163 106 L 286 98 L 410 82 L 533 68 L 656 54 L 780 38" fill="none" stroke="currentColor" class="text-light-primary dark:text-dark-primary" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <g class="fill-current text-light-primary dark:text-dark-primary">
+                <circle cx="40" cy="118" r="3.5"></circle><circle cx="163" cy="106" r="3.5"></circle><circle cx="286" cy="98" r="3.5"></circle>
+                <circle cx="410" cy="82" r="3.5"></circle><circle cx="533" cy="68" r="3.5"></circle><circle cx="656" cy="54" r="3.5"></circle>
+                <circle cx="780" cy="38" r="4"></circle>
+              </g>
+              <g class="fill-current text-light-muted dark:text-dark-muted text-label-sm font-mono">
+                <text x="40" y="155">May</text><text x="155" y="155">Jun</text><text x="278" y="155">Jul</text>
+                <text x="402" y="155">Aug</text><text x="525" y="155">Sep</text><text x="648" y="155">Oct</text>
+                <text x="760" y="155">Nov</text>
+              </g>
+            </svg>
+          </div>
+        </section>
+
+        <!-- Section C & D: Subscription Distribution & Organisation Growth -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-section">
+          <!-- Section C -->
+          <article class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none flex flex-col gap-standard">
+            <h2 data-design-text-token="title-lg" class="text-title-lg text-light-on-surface dark:text-dark-on-surface">Subscription distribution</h2>
+            <div class="flex flex-col gap-component">
+              <div class="flex items-center justify-between text-body-sm">
+                <span class="text-light-on-surface dark:text-dark-on-surface">Hotel only</span>
+                <span class="font-mono tabular-nums text-light-on-surface-variant dark:text-dark-on-surface-variant">94 (37.9%)</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-light-surface-container dark:bg-dark-surface-container"><div class="h-full rounded-full bg-light-on-surface dark:bg-dark-on-surface" style="width: 38%"></div></div>
+
+              <div class="flex items-center justify-between text-body-sm">
+                <span class="text-light-on-surface dark:text-dark-on-surface">Restaurant only</span>
+                <span class="font-mono tabular-nums text-light-on-surface-variant dark:text-dark-on-surface-variant">82 (33.1%)</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-light-surface-container dark:bg-dark-surface-container"><div class="h-full rounded-full bg-light-on-surface-variant dark:bg-dark-on-surface-variant" style="width: 33%"></div></div>
+
+              <div class="flex items-center justify-between text-body-sm">
+                <span class="text-light-on-surface dark:text-dark-on-surface">Hotel + Restaurant</span>
+                <span class="font-mono tabular-nums text-light-primary dark:text-dark-primary">38 (15.3%)</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-light-surface-container dark:bg-dark-surface-container"><div class="h-full rounded-full bg-light-primary dark:bg-dark-primary" style="width: 15%"></div></div>
+
+              <div class="flex items-center justify-between text-body-sm">
+                <span class="text-light-on-surface dark:text-dark-on-surface">Free trials</span>
+                <span class="font-mono tabular-nums text-light-warning dark:text-dark-warning">22 (8.9%)</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-light-surface-container dark:bg-dark-surface-container"><div class="h-full rounded-full bg-light-warning dark:bg-dark-warning" style="width: 9%"></div></div>
+
+              <div class="flex items-center justify-between text-body-sm">
+                <span class="text-light-on-surface dark:text-dark-on-surface">Expired subscriptions</span>
+                <span class="font-mono tabular-nums text-light-error dark:text-dark-error">12 (4.8%)</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-light-surface-container dark:bg-dark-surface-container"><div class="h-full rounded-full bg-light-error dark:bg-dark-error" style="width: 5%"></div></div>
+            </div>
+          </article>
+
+          <!-- Section D -->
+          <article class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none flex flex-col justify-between gap-standard">
+            <div class="flex items-center justify-between">
+              <h2 data-design-text-token="title-lg" class="text-title-lg text-light-on-surface dark:text-dark-on-surface">Organisation growth (Nov 2026)</h2>
+              <span class="text-label-sm text-light-on-success-container dark:text-dark-success font-mono">+14 net</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-standard">
+              <div class="p-component rounded bg-light-surface-container-low dark:bg-dark-surface-container">
+                <p class="text-label-sm text-light-muted dark:text-dark-muted">New organisations</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">19</p>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low dark:bg-dark-surface-container">
+                <p class="text-label-sm text-light-muted dark:text-dark-muted">Activations</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-success-container dark:text-dark-success mt-micro">16</p>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low dark:bg-dark-surface-container">
+                <p class="text-label-sm text-light-muted dark:text-dark-muted">Trial conversions</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-primary dark:text-dark-primary mt-micro">68.4%</p>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low dark:bg-dark-surface-container">
+                <p class="text-label-sm text-light-muted dark:text-dark-muted">Cancellations</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-on-surface dark:text-dark-on-surface mt-micro">3</p>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low dark:bg-dark-surface-container">
+                <p class="text-label-sm text-light-muted dark:text-dark-muted">Suspensions</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-error dark:text-dark-error mt-micro">2</p>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low dark:bg-dark-surface-container">
+                <p class="text-label-sm text-light-muted dark:text-dark-muted">Net growth</p>
+                <p class="font-mono text-mono-lg tabular-nums text-light-success dark:text-dark-success mt-micro">+6.4%</p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Section E: Recent Organisations -->
+        <section class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none">
+          <div class="p-section border-b border-light-outline-variant dark:border-dark-outline-variant flex items-center justify-between gap-standard">
+            <div>
+              <h2 data-design-text-token="title-lg" class="text-title-lg text-light-on-surface dark:text-dark-on-surface">Recent organisations</h2>
+              <p data-design-text-token="body-sm" class="text-body-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Latest hospitality groups registered on HospitalityOS</p>
+            </div>
+            <a href="../super-admin-organisations/OrganisationDirectory.html" class="text-label-md text-light-primary dark:text-dark-primary hover:underline">View all organisations</a>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-light-outline-variant dark:border-dark-outline-variant bg-light-surface-container-low dark:bg-dark-surface-container-low">
+                  <th scope="col" class="py-component px-standard text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant">Organisation</th>
+                  <th scope="col" class="py-component px-standard text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant">Owner</th>
+                  <th scope="col" class="py-component px-standard text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant">Business type</th>
+                  <th scope="col" class="py-component px-standard text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant text-right">Properties</th>
+                  <th scope="col" class="py-component px-standard text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant">Modules</th>
+                  <th scope="col" class="py-component px-standard text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant">Plan</th>
+                  <th scope="col" class="py-component px-standard text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant">Registered</th>
+                  <th scope="col" class="py-component px-standard text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant">Status</th>
+                  <th scope="col" class="py-component px-standard text-label-md text-light-on-surface-variant dark:text-dark-on-surface-variant text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-light-outline-variant dark:divide-dark-outline-variant text-body-sm">
+                <tr class="hover:bg-light-surface-container-low dark:hover:bg-dark-surface-container">
+                  <td class="py-component px-standard font-medium text-light-on-surface dark:text-dark-on-surface">Royal Hospitality Group</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">Vikramaditya Singh</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">Hotel + Restaurant</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">8</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">PMS, POS, KDS, QR</td>
+                  <td class="py-component px-standard text-light-on-surface dark:text-dark-on-surface">Enterprise</td>
+                  <td class="py-component px-standard font-mono tabular-nums text-light-muted dark:text-dark-muted">Nov 22, 2026</td>
+                  <td class="py-component px-standard"><span class="inline-flex items-center gap-micro px-compact py-micro rounded-full bg-light-success-container text-light-on-success-container dark:bg-dark-success-container dark:text-dark-on-success-container text-label-sm">Active</span></td>
+                  <td class="py-component px-standard text-right"><a href="../super-admin-organisation-detail/OrganisationDetail.html" class="text-label-md text-light-primary dark:text-dark-primary hover:underline">Open</a></td>
+                </tr>
+                <tr class="hover:bg-light-surface-container-low dark:hover:bg-dark-surface-container">
+                  <td class="py-component px-standard font-medium text-light-on-surface dark:text-dark-on-surface">The Grand Heritage Hotels</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">Meera Rathore</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">Hotel Group</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">5</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">PMS, Housekeeping</td>
+                  <td class="py-component px-standard text-light-on-surface dark:text-dark-on-surface">Business</td>
+                  <td class="py-component px-standard font-mono tabular-nums text-light-muted dark:text-dark-muted">Nov 20, 2026</td>
+                  <td class="py-component px-standard"><span class="inline-flex items-center gap-micro px-compact py-micro rounded-full bg-light-success-container text-light-on-success-container dark:bg-dark-success-container dark:text-dark-on-success-container text-label-sm">Active</span></td>
+                  <td class="py-component px-standard text-right"><a href="../super-admin-organisation-detail/OrganisationDetail.html" class="text-label-md text-light-primary dark:text-dark-primary hover:underline">Open</a></td>
+                </tr>
+                <tr class="hover:bg-light-surface-container-low dark:hover:bg-dark-surface-container">
+                  <td class="py-component px-standard font-medium text-light-on-surface dark:text-dark-on-surface">Urban Plate Restaurants</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">Kabir Malhotra</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">Restaurant Group</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">6</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">POS, KDS, QR</td>
+                  <td class="py-component px-standard text-light-on-surface dark:text-dark-on-surface">Professional</td>
+                  <td class="py-component px-standard font-mono tabular-nums text-light-muted dark:text-dark-muted">Nov 18, 2026</td>
+                  <td class="py-component px-standard"><span class="inline-flex items-center gap-micro px-compact py-micro rounded-full bg-light-warning-container text-light-on-warning-container dark:bg-dark-warning-container dark:text-dark-on-warning-container text-label-sm">Past Due</span></td>
+                  <td class="py-component px-standard text-right"><a href="../super-admin-organisation-detail/OrganisationDetail.html" class="text-label-md text-light-primary dark:text-dark-primary hover:underline">Open</a></td>
+                </tr>
+                <tr class="hover:bg-light-surface-container-low dark:hover:bg-dark-surface-container">
+                  <td class="py-component px-standard font-medium text-light-on-surface dark:text-dark-on-surface">Cedar Dining Collection</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">Ananya Sharma</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">Restaurant Group</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">4</td>
+                  <td class="py-component px-standard text-light-on-surface-variant dark:text-dark-on-surface-variant">POS, Digital Menu</td>
+                  <td class="py-component px-standard text-light-on-surface dark:text-dark-on-surface">Starter</td>
+                  <td class="py-component px-standard font-mono tabular-nums text-light-muted dark:text-dark-muted">Nov 15, 2026</td>
+                  <td class="py-component px-standard"><span class="inline-flex items-center gap-micro px-compact py-micro rounded-full bg-light-primary-container text-light-on-primary-container dark:bg-dark-primary-container dark:text-dark-on-primary-container text-label-sm">Trial</span></td>
+                  <td class="py-component px-standard text-right"><a href="../super-admin-organisation-detail/OrganisationDetail.html" class="text-label-md text-light-primary dark:text-dark-primary hover:underline">Open</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section F & G: Platform Activity & Critical Alerts -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-section">
+          <!-- Section F: Platform Activity -->
+          <article class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none flex flex-col gap-standard">
+            <h2 data-design-text-token="title-lg" class="text-title-lg text-light-on-surface dark:text-dark-on-surface">Platform activity</h2>
+            <ul class="divide-y divide-light-outline-variant dark:divide-dark-outline-variant text-body-sm">
+              <li class="py-compact flex items-start justify-between gap-component">
+                <div>
+                  <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Feature enabled · Room QR Ordering</p>
+                  <p class="text-light-on-surface-variant dark:text-dark-on-surface-variant text-label-sm">Royal Hospitality Group · Override by Arjun Mehta</p>
+                </div>
+                <span class="font-mono text-label-sm text-light-muted dark:text-dark-muted shrink-0">00:12 IST</span>
+              </li>
+              <li class="py-compact flex items-start justify-between gap-component">
+                <div>
+                  <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Subscription upgraded · Enterprise</p>
+                  <p class="text-light-on-surface-variant dark:text-dark-on-surface-variant text-label-sm">Blue Orchid Hospitality (Mumbai) · ₹1,20,000/mo</p>
+                </div>
+                <span class="font-mono text-label-sm text-light-muted dark:text-dark-muted shrink-0">Yesterday</span>
+              </li>
+              <li class="py-compact flex items-start justify-between gap-component">
+                <div>
+                  <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Organisation created · The Velvet Stay Group</p>
+                  <p class="text-light-on-surface-variant dark:text-dark-on-surface-variant text-label-sm">Meerut &amp; Noida · 3 properties provisioned</p>
+                </div>
+                <span class="font-mono text-label-sm text-light-muted dark:text-dark-muted shrink-0">Nov 21</span>
+              </li>
+              <li class="py-compact flex items-start justify-between gap-component">
+                <div>
+                  <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Payment failed · Urban Plate Restaurants</p>
+                  <p class="text-light-on-surface-variant dark:text-dark-on-surface-variant text-label-sm">Gateway declined ₹24,500 · Retry scheduled</p>
+                </div>
+                <span class="font-mono text-label-sm text-light-muted dark:text-dark-muted shrink-0">Nov 21</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Section G: Critical Alerts -->
+          <article class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-none flex flex-col gap-standard">
+            <div class="flex items-center justify-between">
+              <h2 data-design-text-token="title-lg" class="text-title-lg text-light-on-surface dark:text-dark-on-surface">Critical alerts</h2>
+              <span class="text-label-sm bg-light-error-container text-light-on-error-container dark:bg-dark-error-container dark:text-dark-on-error-container px-compact py-micro rounded-full">4 requiring attention</span>
+            </div>
+            <ul class="flex flex-col gap-component text-body-sm">
+              <li class="p-component rounded bg-light-error-container/50 dark:bg-dark-error-container/30 border border-light-error/20 flex items-center justify-between gap-component">
+                <div class="flex items-start gap-compact">
+                  <span class="material-symbols-outlined text-title-md text-light-error dark:text-dark-error mt-0.5" aria-hidden="true">error</span>
+                  <div>
+                    <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Failed subscription payment · Urban Plate</p>
+                    <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">Grace period ends in 3 days</p>
+                  </div>
+                </div>
+                <a href="../super-admin-organisation-detail/OrganisationDetail.html" class="text-label-md text-light-primary dark:text-dark-primary shrink-0 hover:underline">Review</a>
+              </li>
+              <li class="p-component rounded bg-light-warning-container/50 dark:bg-dark-warning-container/30 border border-light-warning/20 flex items-center justify-between gap-component">
+                <div class="flex items-start gap-compact">
+                  <span class="material-symbols-outlined text-title-md text-light-warning dark:text-dark-warning mt-0.5" aria-hidden="true">warning</span>
+                  <div>
+                    <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Expiring trial · Cedar Dining Collection</p>
+                    <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">14-day trial ends Nov 25, 2026</p>
+                  </div>
+                </div>
+                <a href="../super-admin-organisations/OrganisationDirectory.html" class="text-label-md text-light-primary dark:text-dark-primary shrink-0 hover:underline">Manage</a>
+              </li>
+              <li class="p-component rounded bg-light-surface-container-low dark:bg-dark-surface-container border border-light-outline-variant dark:border-dark-outline-variant flex items-center justify-between gap-component">
+                <div class="flex items-start gap-compact">
+                  <span class="material-symbols-outlined text-title-md text-light-primary dark:text-dark-primary mt-0.5" aria-hidden="true">shield</span>
+                  <div>
+                    <p class="font-medium text-light-on-surface dark:text-dark-on-surface">Rate-limit spike · External API Gateway</p>
+                    <p class="text-label-sm text-light-on-surface-variant dark:text-dark-on-surface-variant">142 throttled requests in Lucknow region</p>
+                  </div>
+                </div>
+                <button type="button" onclick="showModuleNotice(&#39;Security Centre&#39;)" class="text-label-md text-light-primary dark:text-dark-primary shrink-0 hover:underline">Inspect</button>
+              </li>
+            </ul>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Global Command Search Modal -->
+  <dialog id="command-modal" class="rounded-xl bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant p-0 w-full max-w-lg shadow-2xl backdrop:bg-light-on-surface/30">
+    <div class="p-standard border-b border-light-outline-variant dark:border-dark-outline-variant flex items-center gap-compact">
+      <span class="material-symbols-outlined text-title-lg text-light-muted" aria-hidden="true">search</span>
+      <input type="search" placeholder="Jump to organisation, property, or Super Admin screen..." class="w-full border-0 bg-transparent text-body-md text-light-on-surface dark:text-dark-on-surface focus:ring-0" aria-label="Jump to organisation, property, or Super Admin screen">
+      <button type="button" onclick="document.getElementById(&#39;command-modal&#39;).close()" class="text-label-sm text-light-muted px-compact py-micro rounded bg-light-surface-container dark:bg-dark-surface-container">ESC</button>
+    </div>
+    <div class="p-standard flex flex-col gap-compact text-body-sm">
+      <p class="text-label-sm text-light-muted uppercase">Quick navigation</p>
+      <a href="../super-admin-organisations/OrganisationDirectory.html" class="flex items-center justify-between p-compact rounded hover:bg-light-surface-container dark:hover:bg-dark-surface-container">
+        <span>Organisation Directory</span><span class="text-label-sm text-light-muted">248 orgs</span>
+      </a>
+      <a href="../super-admin-onboarding/OrganisationOnboarding.html" class="flex items-center justify-between p-compact rounded hover:bg-light-surface-container dark:hover:bg-dark-surface-container">
+        <span>Onboard New Organisation</span><span class="text-label-sm text-light-primary">8-step wizard</span>
+      </a>
+      <a href="../super-admin-entitlements/ModuleFeatureControl.html" class="flex items-center justify-between p-compact rounded hover:bg-light-surface-container dark:hover:bg-dark-surface-container">
+        <span>Module &amp; Feature Entitlements</span><span class="text-label-sm text-light-muted">Licensing</span>
+      </a>
+    </div>
+  </dialog>
+
+  <!-- Toast Feedback -->
+  <div id="toast" role="status" aria-live="polite" class="hidden fixed bottom-section right-section z-50 bg-light-on-surface text-light-surface dark:bg-dark-surface-container-high dark:text-dark-on-surface px-standard py-component rounded-lg shadow-lg text-body-sm"></div>
+
+  <script>
+    function toggleSidebar(open) {
+      var el = document.getElementById('app-sidebar');
+      var bd = document.getElementById('sidebar-backdrop');
+      if (open) { el.classList.remove('-translate-x-full'); bd.classList.remove('hidden'); }
+      else { el.classList.add('-translate-x-full'); bd.classList.add('hidden'); }
+    }
+    function toggleNavGroup(id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.toggle('hidden');
+    }
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+    function toggleNotifications() {
+      document.getElementById('notifications-popover').classList.toggle('hidden');
+    }
+    function openCommandModal() {
+      document.getElementById('command-modal').showModal();
+    }
+    function setRevenuePeriod(period, btn) {
+      document.querySelectorAll('.rev-period-btn').forEach(function(b) {
+        b.classList.remove('bg-light-surface', 'dark:bg-dark-surface-container-high', 'text-light-on-surface', 'dark:text-dark-on-surface', 'shadow-sm');
+        b.classList.add('text-light-on-surface-variant', 'dark:text-dark-on-surface-variant');
+      });
+      btn.classList.add('bg-light-surface', 'dark:bg-dark-surface-container-high', 'text-light-on-surface', 'dark:text-dark-on-surface', 'shadow-sm');
+      var mrr = document.getElementById('rev-mrr');
+      var arr = document.getElementById('rev-arr');
+      if (period === 'monthly') { mrr.textContent = '₹48,60,000'; arr.textContent = '₹5,83,20,000'; }
+      else if (period === 'quarterly') { mrr.textContent = '₹1,42,80,000'; arr.textContent = '₹5,71,20,000'; }
+      else { mrr.textContent = '₹5,83,20,000'; arr.textContent = '₹5,83,20,000'; }
+    }
+    function showToast(msg) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.remove('hidden');
+      setTimeout(function() { t.classList.add('hidden'); }, 2600);
+    }
+    function showModuleNotice(name) {
+      showToast(name + ' — queued in next Panel 01 screen batch');
+    }
+    document.addEventListener('keydown', function(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openCommandModal();
+      }
+    });
+  </script>
+
+
+</body></html>

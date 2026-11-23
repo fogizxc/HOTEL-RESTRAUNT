@@ -1,0 +1,21 @@
+test_id,workflow,preconditions,action,expected_result,security_invariant,owning_domain,automation_level,evidence_status
+TEN-001,Cross-tenant resource access,Two tenants with distinct records,Read or mutate tenant B resource as tenant A,Denied with no data returned or side effect,No cross-tenant disclosure,Platform,API integration,Not run
+ENT-001,Entitlement deny precedence,Plan grants feature; platform deny active,Invoke feature API,Forbidden with stable reason code,Platform deny overrides plan,Subscriptions,API integration,Not run
+RBAC-001,Permission grant ceiling,Manager lacks role grant authority,Attempt to grant higher privilege,Denied and audited,No privilege escalation,Identity/RBAC,API integration,Not run
+HOT-001,Reservation overlap,Room has confirmed reservation,Create overlapping reservation concurrently,Only one confirmed assignment succeeds,No double allocation,Hotel PMS,Concurrency E2E,Not run
+HOT-002,Room readiness gate,Room has blocking maintenance work order,Attempt check-in,Denied or approved alternate room path,Room cannot be checked in as ready,Hotel/Housekeeping,E2E,Not run
+POS-001,Duplicate order submission,Menu and active outlet session exist,Retry same idempotency key,One order and one KOT created,No duplicate sale,Restaurant,API integration,Not run
+POS-002,Split bill arithmetic,Open bill with multiple lines,Split by custom amount and settle,Allocated total equals parent balance exactly,No duplicate/forged allocation,Restaurant/Payments,Unit+E2E,Not run
+QR-001,QR token privacy,Active table QR exists,Resolve token and inspect logs,Safe context only; no raw token persisted/logged,Opaque token and least disclosure,QR engine,Security integration,Not run
+QR-002,Room folio authorisation,Room QR exists; no verified active stay,Attempt charge to room,Unavailable with no folio posting,QR is not guest auth,QR/Payments/PMS,Security integration,Not run
+QR-003,Shared table participant privacy,Two diners in same active table session,Participant A queries participant B order,Denied without B data,Per-participant privacy,QR/Restaurant,E2E,Not run
+PAY-001,Payment redirect forgery,Payment pending and no verified webhook,Call success redirect/UI route,Payment remains pending,No client-trusted payment state,Payments,Security integration,Not run
+PAY-002,Webhook replay,Verified payment event already consumed,Replay same webhook,No duplicate capture allocation,Idempotency,Payments,Integration,Not run
+INV-001,Duplicate inventory consumption,Order-completed event exists,Replay consumption event,One stock ledger issue,No double stock issue,Inventory,Integration,Not run
+INV-002,Expired batch issue,Only expired batch available,Issue to recipe/order,Rejected or approved substitute requested,Expired stock blocked,Inventory,Integration,Not run
+FIN-001,Unbalanced journal,Draft journal with unequal debits/credits,Post journal,Rejected,Double-entry integrity,Finance,Unit+API,Not run
+FIN-002,Closed period posting,Accounting period closed,Post journal into closed period,Rejected or approved adjustment route,Period lock,Finance,API integration,Not run
+HR-001,Employee payslip isolation,Two employees with payslips,Employee A reads Employee B payslip,Denied and no content returned,HR PII isolation,HR,API security,Not run
+CRM-001,Consent withdrawn before send,Campaign queued and consent withdrawn,Execute send worker,Recipient suppressed,Current consent checked at dispatch,CRM,Worker integration,Not run
+CRM-002,Concurrent loyalty redemption,Points balance known,Two concurrent redemptions exceed balance,Only valid amount succeeds,No double spend,CRM/Payments,Concurrency test,Not run
+BI-001,BI scope manipulation,User assigned one property,Query another property via filter/ID,No other property data returned,Read-model tenant scope,BI,API security,Not run

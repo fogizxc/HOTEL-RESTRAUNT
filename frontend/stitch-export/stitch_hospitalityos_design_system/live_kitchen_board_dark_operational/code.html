@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="en" class="dark"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Kitchen Board — Royal Fine Dine (KDS)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-dark-background text-dark-on-background font-body antialiased">
+  <!-- Full-Screen Operational KDS Mode (No management sidebar, large touch targets, high contrast) -->
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <header class="sticky top-0 z-30 bg-dark-surface border-b border-dark-outline px-section py-component flex flex-wrap items-center justify-between gap-standard">
+      <div class="flex flex-wrap items-center gap-standard">
+        <a href="../kds-overview/KitchenOverview.html" class="min-h-[40px] px-component rounded bg-dark-surface-container text-dark-on-background border border-dark-outline inline-flex items-center gap-micro text-label-md whitespace-nowrap"><span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_back</span><span>Overview</span></a>
+        <div>
+          <div class="flex items-center gap-compact"><h1 class="font-headline text-title-lg text-dark-on-background">Live Kitchen Board</h1><span class="px-compact py-micro rounded bg-dark-primary-container text-dark-on-primary-container text-label-sm font-medium">All Stations</span></div>
+          <p class="text-body-sm text-dark-on-surface-variant">Royal Fine Dine · Main Dining Kitchen · Display KDS-01</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-component">
+        <div class="flex items-center gap-compact px-component py-compact rounded bg-dark-surface-container border border-dark-outline text-body-sm font-mono">
+          <span class="px-compact py-micro rounded bg-dark-primary-container text-dark-on-primary-container">NEW: 2</span>
+          <span class="px-compact py-micro rounded bg-dark-surface-container-high text-dark-on-background">PREP: 4</span>
+          <span class="px-compact py-micro rounded bg-dark-error-container text-dark-on-error-container">DELAYED: 1</span>
+        </div>
+        <span class="px-component py-compact rounded bg-dark-success-container text-dark-on-success-container text-label-md font-medium whitespace-nowrap">POS Online · 21:15 IST</span>
+        <a href="../kds-my-station/MyStation.html" class="min-h-[40px] px-standard rounded bg-dark-surface-container border border-dark-outline text-dark-on-background text-label-md inline-flex items-center whitespace-nowrap">My Station</a>
+        <a href="../kds-expo/KitchenExpoPass.html" class="min-h-[40px] px-standard rounded bg-dark-primary text-dark-on-primary text-label-md font-semibold inline-flex items-center whitespace-nowrap">Expo &amp; Pass</a>
+      </div>
+    </header>
+
+    <!-- 5-Column Operational Ticket Board -->
+    <main class="flex-1 p-standard grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-standard items-start">
+      <!-- Column 1: NEW -->
+      <section class="bg-dark-surface-container-low border border-dark-outline rounded-lg p-component flex flex-col gap-component">
+        <div class="flex items-center justify-between px-micro"><h2 class="font-title text-title-md text-dark-primary uppercase">New (2)</h2><span class="text-label-sm text-dark-muted font-mono">Auto-sound ON</span></div>
+
+        <article class="bg-dark-surface border-2 border-dark-primary rounded-lg p-standard flex flex-col gap-component">
+          <div class="flex items-start justify-between gap-compact">
+            <div><p class="font-mono text-title-lg font-semibold">#KOT-4185</p><p class="text-body-sm text-dark-on-surface-variant">Table T-04 · Table QR · #ORD-9044</p></div>
+            <div class="text-right"><span class="px-compact py-micro rounded bg-dark-error-container text-dark-on-error-container text-label-sm font-semibold">ALLERGY</span><p class="font-mono text-body-sm text-dark-primary mt-micro">00:42</p></div>
+          </div>
+          <div class="p-compact rounded bg-dark-error-container text-dark-on-error-container text-body-sm font-medium">ALERT: Severe Peanut &amp; Cashew Allergy — Separate Pan</div>
+          <ul class="flex flex-col gap-compact text-body-md divide-y divide-dark-outline">
+            <li class="pt-compact flex justify-between gap-compact"><div><p class="font-medium">2× Paneer Tikka Masala</p><p class="text-body-sm text-dark-on-surface-variant">No cashew paste · Medium spice</p></div><span class="text-label-sm text-dark-muted">Main</span></li>
+            <li class="pt-compact flex justify-between gap-compact"><div><p class="font-medium">4× Butter Naan</p></div><span class="text-label-sm text-dark-muted">Tandoor</span></li>
+          </ul>
+          <div class="grid grid-cols-2 gap-compact pt-micro">
+            <button type="button" class="min-h-[44px] rounded bg-dark-primary text-dark-on-primary text-label-lg font-semibold">Accept KOT</button>
+            <a href="../kds-kot-detail/KOTDetail.html" class="min-h-[44px] rounded bg-dark-surface-container border border-dark-outline text-dark-on-background text-label-md inline-flex items-center justify-center">View Order</a>
+          </div>
+        </article>
+
+        <article class="bg-dark-surface border border-dark-outline rounded-lg p-standard flex flex-col gap-component">
+          <div class="flex items-start justify-between gap-compact">
+            <div><p class="font-mono text-title-lg font-semibold">#KOT-4184</p><p class="text-body-sm text-dark-on-surface-variant">Takeaway #TK-209 · #ORD-9043</p></div>
+            <p class="font-mono text-body-sm text-dark-on-surface-variant">01:55</p>
+          </div>
+          <ul class="flex flex-col gap-compact text-body-md">
+            <li class="flex justify-between"><span>1× Chicken Biryani (Full)</span><span class="text-label-sm text-dark-muted">Main</span></li>
+            <li class="flex justify-between"><span>1× Mint Raita</span><span class="text-label-sm text-dark-muted">Cold</span></li>
+          </ul>
+          <button type="button" class="min-h-[44px] w-full rounded bg-dark-primary text-dark-on-primary text-label-lg font-semibold">Accept KOT</button>
+        </article>
+      </section>
+
+      <!-- Column 2: ACCEPTED -->
+      <section class="bg-dark-surface-container-low border border-dark-outline rounded-lg p-component flex flex-col gap-component">
+        <div class="flex items-center justify-between px-micro"><h2 class="font-title text-title-md text-dark-on-background uppercase">Accepted (1)</h2><span class="text-label-sm text-dark-muted font-mono">Queued</span></div>
+
+        <article class="bg-dark-surface border border-dark-outline rounded-lg p-standard flex flex-col gap-component">
+          <div class="flex items-start justify-between gap-compact">
+            <div><p class="font-mono text-title-lg font-semibold">#KOT-4183</p><p class="text-body-sm text-dark-on-surface-variant">Table T-12 · Dine-In POS · #ORD-9042</p></div>
+            <p class="font-mono text-body-sm text-dark-on-surface-variant">04:10</p>
+          </div>
+          <div class="p-compact rounded bg-dark-warning-container text-dark-on-warning-container text-body-sm font-medium">MODIFIED +1 Garlic Naan after dispatch</div>
+          <ul class="flex flex-col gap-compact text-body-md">
+            <li class="flex justify-between"><span>1× Dal Makhani 24-Hr</span><span class="text-label-sm text-dark-muted">Main</span></li>
+            <li class="flex justify-between"><span>3× Garlic Naan (+1)</span><span class="text-label-sm text-dark-muted">Tandoor</span></li>
+          </ul>
+          <button type="button" class="min-h-[44px] w-full rounded bg-dark-primary-container text-dark-on-primary-container text-label-lg font-semibold">Start Preparation</button>
+        </article>
+      </section>
+
+      <!-- Column 3: PREPARING -->
+      <section class="bg-dark-surface-container-low border border-dark-outline rounded-lg p-component flex flex-col gap-component">
+        <div class="flex items-center justify-between px-micro"><h2 class="font-title text-title-md text-dark-warning uppercase">Preparing (2)</h2><span class="text-label-sm text-dark-muted font-mono">Active</span></div>
+
+        <article class="bg-dark-surface border-2 border-dark-error rounded-lg p-standard flex flex-col gap-component">
+          <div class="flex items-start justify-between gap-compact">
+            <div><p class="font-mono text-title-lg font-semibold">#KOT-4180</p><p class="text-body-sm text-dark-on-surface-variant">Table T-07 · #ORD-9041</p></div>
+            <div class="text-right"><span class="px-compact py-micro rounded bg-dark-error-container text-dark-on-error-container text-label-sm font-semibold">DELAYED +6m</span><p class="font-mono text-body-sm text-dark-error mt-micro">21:18</p></div>
+          </div>
+          <ul class="flex flex-col gap-compact text-body-md divide-y divide-dark-outline">
+            <li class="pt-compact flex items-center justify-between gap-compact"><span>2× Butter Chicken Royal</span><button type="button" class="px-compact py-micro rounded bg-dark-success-container text-dark-on-success-container text-label-sm font-semibold whitespace-nowrap">Mark Item Ready</button></li>
+            <li class="pt-compact flex items-center justify-between gap-compact"><span>3× Garlic Naan</span><span class="px-compact py-micro rounded bg-dark-success-container text-dark-on-success-container text-label-sm">Ready ✓</span></li>
+          </ul>
+          <div class="p-compact rounded bg-dark-surface-container text-label-sm text-dark-on-surface-variant">Ticket Ready disabled: 1 item still preparing</div>
+        </article>
+
+        <article class="bg-dark-surface border border-dark-outline rounded-lg p-standard flex flex-col gap-component">
+          <div class="flex items-start justify-between gap-compact">
+            <div><p class="font-mono text-title-lg font-semibold">#KOT-4181</p><p class="text-body-sm text-dark-on-surface-variant">Patio P-02 · #ORD-9040</p></div>
+            <p class="font-mono text-body-sm text-dark-warning">11:05 / 15:00</p>
+          </div>
+          <ul class="flex flex-col gap-compact text-body-md">
+            <li class="flex items-center justify-between"><span>2× Tandoori Lamb Chops</span><button type="button" class="px-compact py-micro rounded bg-dark-surface-container border border-dark-outline text-label-sm whitespace-nowrap">Mark Ready</button></li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Column 4: READY -->
+      <section class="bg-dark-surface-container-low border border-dark-outline rounded-lg p-component flex flex-col gap-component">
+        <div class="flex items-center justify-between px-micro"><h2 class="font-title text-title-md text-dark-success uppercase">Ready (1)</h2><span class="text-label-sm text-dark-muted font-mono">At Expo</span></div>
+
+        <article class="bg-dark-surface border border-dark-success rounded-lg p-standard flex flex-col gap-component">
+          <div class="flex items-start justify-between gap-compact">
+            <div><p class="font-mono text-title-lg font-semibold">#KOT-4179</p><p class="text-body-sm text-dark-on-surface-variant">Hotel Room #408 · Room Service</p></div>
+            <span class="px-compact py-micro rounded bg-dark-success-container text-dark-on-success-container text-label-sm font-semibold">ALL READY</span>
+          </div>
+          <ul class="flex flex-col gap-compact text-body-md">
+            <li>1× Club Sandwich · Ready ✓</li>
+            <li>2× Masala Chai · Ready ✓</li>
+          </ul>
+          <a href="../kds-pickup/ReadyForPickup.html" class="min-h-[44px] w-full rounded bg-dark-success text-dark-on-success text-label-lg font-semibold inline-flex items-center justify-center">Confirm Handoff</a>
+        </article>
+      </section>
+
+      <!-- Column 5: COMPLETED -->
+      <section class="bg-dark-surface-container-low border border-dark-outline rounded-lg p-component flex flex-col gap-component">
+        <div class="flex items-center justify-between px-micro"><h2 class="font-title text-title-md text-dark-on-surface-variant uppercase">Completed (1)</h2><span class="text-label-sm text-dark-muted font-mono">Handed Off</span></div>
+
+        <article class="bg-dark-surface border border-dark-outline rounded-lg p-standard flex flex-col gap-compact">
+          <div class="flex items-start justify-between gap-compact">
+            <div><p class="font-mono text-title-md font-semibold">#KOT-4176</p><p class="text-body-sm text-dark-on-surface-variant">Table T-01 · #ORD-9035</p></div>
+            <span class="text-label-sm text-dark-muted font-mono">21:09</span>
+          </div>
+          <p class="text-body-sm text-dark-on-surface-variant">4 items · Handed to Waiter Rohan Das</p>
+          <a href="../kds-kot-detail/KOTDetail.html" class="text-label-md text-dark-primary">Inspect History</a>
+        </article>
+      </section>
+    </main>
+  </div>
+
+
+</body></html>

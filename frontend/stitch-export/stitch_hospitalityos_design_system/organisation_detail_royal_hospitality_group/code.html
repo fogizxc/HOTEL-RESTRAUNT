@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organisation Detail — Royal Hospitality Group</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background dark:bg-dark-background dark:text-dark-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <!-- Persistent Sidebar -->
+    <aside class="fixed lg:sticky top-0 left-0 z-40 w-[248px] min-h-[1024px] shrink-0 bg-light-surface/95 dark:bg-dark-surface/95 border-r border-light-outline-variant dark:border-dark-outline-variant hidden lg:flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro">
+          <div class="w-8 h-8 rounded bg-light-primary text-light-on-primary flex items-center justify-center"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">apartment</span></div>
+          <div><p class="font-title text-title-md leading-none">HospitalityOS</p><p class="text-label-sm text-light-muted uppercase mt-micro">Platform Control</p></div>
+        </div>
+        <nav aria-label="Super Admin Navigation" class="flex flex-col gap-component">
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p>
+            <a href="../super-admin-overview/PlatformOverview.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container text-body-sm"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Dashboard</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Organisations</p>
+            <a href="../super-admin-organisations/OrganisationDirectory.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container text-light-primary font-medium text-body-sm"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">corporate_fare</span><span>Organisation Directory</span></a>
+            <a href="../super-admin-onboarding/OrganisationOnboarding.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container text-body-sm"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">add_business</span><span>Organisation Onboarding</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Subscriptions &amp; Revenue</p>
+            <a href="../super-admin-entitlements/ModuleFeatureControl.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container text-body-sm"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">tune</span><span>Module &amp; Feature Entitlements</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant">
+        <div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low">
+          <div class="w-8 h-8 rounded-full bg-light-primary-container text-light-on-primary-container flex items-center justify-center text-label-md font-semibold">AM</div>
+          <div><p class="text-label-md">Arjun Mehta</p><p class="text-label-sm text-light-muted">Platform Owner</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md border-b border-light-outline-variant dark:border-dark-outline-variant px-section py-component flex items-center justify-between gap-standard">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-compact text-body-sm">
+          <a href="../super-admin-organisations/OrganisationDirectory.html" class="text-light-muted hover:text-light-on-surface">Organisations</a>
+          <span class="material-symbols-outlined text-body-sm text-light-muted" aria-hidden="true">chevron_right</span>
+          <span class="text-label-lg text-light-on-surface dark:text-dark-on-surface">Royal Hospitality Group</span>
+        </nav>
+        <button type="button" onclick="document.documentElement.classList.toggle(&#39;dark&#39;)" aria-label="Toggle theme" class="p-compact rounded hover:bg-light-surface-container">
+          <span class="material-symbols-outlined text-title-md dark:hidden" aria-hidden="true">dark_mode</span>
+          <span class="material-symbols-outlined text-title-md hidden dark:inline-block" aria-hidden="true">light_mode</span>
+        </button>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <!-- Entity Header -->
+        <section class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section flex flex-col lg:flex-row lg:items-center justify-between gap-standard">
+          <div class="flex items-start gap-standard">
+            <div class="w-12 h-12 rounded-lg bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-title-lg shrink-0">RH</div>
+            <div>
+              <div class="flex flex-wrap items-center gap-compact">
+                <h1 data-design-text-token="headline-lg" class="font-headline text-headline-lg text-light-on-surface dark:text-dark-on-surface">Royal Hospitality Group</h1>
+                <span class="px-compact py-micro rounded-full bg-light-success-container text-light-on-success-container text-label-sm">Account: Active</span>
+                <span class="px-compact py-micro rounded-full bg-light-primary-container text-light-on-primary-container text-label-sm">Subscription: Enterprise</span>
+              </div>
+              <p class="text-body-sm text-light-on-surface-variant dark:text-dark-on-surface-variant mt-micro font-mono">ORG-RHG-0042 · Hotel + Restaurant Group · Created Mar 12, 2025 · Last active Today, 00:18 IST</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-compact">
+            <a href="../super-admin-entitlements/ModuleFeatureControl.html" class="min-h-[36px] inline-flex items-center px-component rounded border border-light-outline text-label-md hover:bg-light-surface-container-low">Manage features</a>
+            <button type="button" onclick="openTab(&#39;tab-subs&#39;)" class="min-h-[36px] px-component rounded border border-light-outline text-label-md hover:bg-light-surface-container-low">Manage subscription</button>
+            <button type="button" onclick="document.getElementById(&#39;suspend-dialog&#39;).showModal()" class="min-h-[36px] px-component rounded bg-light-error text-light-on-error text-label-md hover:opacity-90">Suspend</button>
+          </div>
+        </section>
+
+        <!-- 10-Tab Navigation -->
+        <div class="border-b border-light-outline-variant dark:border-dark-outline-variant overflow-x-auto">
+          <div role="tablist" aria-label="Organisation sections" class="flex items-center gap-standard min-w-max">
+            <button type="button" role="tab" onclick="openTab(&#39;tab-overview&#39;, this)" class="org-tab py-compact border-b-2 border-light-primary text-light-on-primary-container text-label-lg">Overview</button>
+            <button type="button" role="tab" onclick="openTab(&#39;tab-properties&#39;, this)" class="org-tab py-compact border-b-2 border-transparent text-light-on-surface-variant text-label-lg">Properties (8)</button>
+            <button type="button" role="tab" onclick="openTab(&#39;tab-subs&#39;, this)" class="org-tab py-compact border-b-2 border-transparent text-light-on-surface-variant text-label-lg">Subscriptions</button>
+            <button type="button" role="tab" onclick="openTab(&#39;tab-features&#39;, this)" class="org-tab py-compact border-b-2 border-transparent text-light-on-surface-variant text-label-lg">Feature Entitlements</button>
+            <button type="button" role="tab" onclick="openTab(&#39;tab-users&#39;, this)" class="org-tab py-compact border-b-2 border-transparent text-light-on-surface-variant text-label-lg">Users (342)</button>
+            <button type="button" role="tab" onclick="openTab(&#39;tab-usage&#39;, this)" class="org-tab py-compact border-b-2 border-transparent text-light-on-surface-variant text-label-lg">Usage</button>
+            <button type="button" role="tab" onclick="openTab(&#39;tab-payments&#39;, this)" class="org-tab py-compact border-b-2 border-transparent text-light-on-surface-variant text-label-lg">Payments &amp; Invoices</button>
+            <button type="button" role="tab" onclick="openTab(&#39;tab-audit&#39;, this)" class="org-tab py-compact border-b-2 border-transparent text-light-on-surface-variant text-label-lg">Audit History</button>
+            <button type="button" role="tab" onclick="openTab(&#39;tab-support&#39;, this)" class="org-tab py-compact border-b-2 border-transparent text-light-on-surface-variant text-label-lg">Support History</button>
+            <button type="button" role="tab" onclick="openTab(&#39;tab-settings&#39;, this)" class="org-tab py-compact border-b-2 border-transparent text-light-on-surface-variant text-label-lg">Account Settings</button>
+          </div>
+        </div>
+
+        <!-- TAB 1: Overview -->
+        <section id="tab-overview" class="org-panel grid grid-cols-1 lg:grid-cols-3 gap-section">
+          <article class="lg:col-span-2 bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-standard">
+            <h2 class="text-title-lg">Organisation summary</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-standard text-body-sm">
+              <div><p class="text-label-sm text-light-muted">Properties</p><p class="font-mono text-mono-lg mt-micro">8</p></div>
+              <div><p class="text-label-sm text-light-muted">Employees</p><p class="font-mono text-mono-lg mt-micro">342</p></div>
+              <div><p class="text-label-sm text-light-muted">Active QR codes</p><p class="font-mono text-mono-lg mt-micro">684</p></div>
+              <div><p class="text-label-sm text-light-muted">Annual contract</p><p class="font-mono text-mono-lg mt-micro">₹11,40,000</p></div>
+            </div>
+            <div class="pt-standard border-t border-light-outline-variant text-body-sm grid grid-cols-1 sm:grid-cols-2 gap-component">
+              <div><span class="text-light-muted">Primary Owner:</span> Vikramaditya Singh</div>
+              <div><span class="text-light-muted">Headquarters:</span> New Delhi, India</div>
+              <div><span class="text-light-muted">Enabled Modules:</span> Hotel PMS, Restaurant POS, KDS, QR Ordering, BI</div>
+              <div><span class="text-light-muted">Timezone:</span> Asia/Kolkata (INR)</div>
+            </div>
+          </article>
+          <article class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-component">
+            <h2 class="text-title-lg">Recent account activity</h2>
+            <ul class="divide-y divide-light-outline-variant text-body-sm">
+              <li class="py-compact"><p class="font-medium">Room QR Ordering enabled</p><p class="text-label-sm text-light-muted">Today, 00:12 IST · Override by Arjun Mehta</p></li>
+              <li class="py-compact"><p class="font-medium">Invoice #INV-2026-884 paid</p><p class="text-label-sm text-light-muted">Nov 01, 2026 · ₹95,000 via Razorpay</p></li>
+              <li class="py-compact"><p class="font-medium">New property added · Meerut</p><p class="text-label-sm text-light-muted">Oct 19, 2026 · 4 outlets</p></li>
+            </ul>
+          </article>
+        </section>
+
+        <!-- TAB 2: Properties -->
+        <section id="tab-properties" class="org-panel hidden bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg overflow-hidden">
+          <table class="w-full text-left border-collapse text-body-sm">
+            <thead><tr class="border-b border-light-outline-variant bg-light-surface-container-low"><th class="py-component px-standard">Property name</th><th class="py-component px-standard">Property ID</th><th class="py-component px-standard">Type</th><th class="py-component px-standard">City</th><th class="py-component px-standard">Outlets</th><th class="py-component px-standard">Status</th></tr></thead>
+            <tbody class="divide-y divide-light-outline-variant">
+              <tr><td class="py-component px-standard font-medium">Royal Palace Delhi</td><td class="py-component px-standard font-mono">PROP-RHG-01</td><td class="py-component px-standard">Hotel + Restaurant</td><td class="py-component px-standard">Delhi</td><td class="py-component px-standard font-mono">4</td><td class="py-component px-standard"><span class="px-compact py-micro rounded-full bg-light-success-container text-light-on-success-container text-label-sm">Active</span></td></tr>
+              <tr><td class="py-component px-standard font-medium">Royal Suites Gurugram</td><td class="py-component px-standard font-mono">PROP-RHG-02</td><td class="py-component px-standard">Hotel + Restaurant</td><td class="py-component px-standard">Gurugram</td><td class="py-component px-standard font-mono">3</td><td class="py-component px-standard"><span class="px-compact py-micro rounded-full bg-light-success-container text-light-on-success-container text-label-sm">Active</span></td></tr>
+              <tr><td class="py-component px-standard font-medium">Royal Heritage Jaipur</td><td class="py-component px-standard font-mono">PROP-RHG-03</td><td class="py-component px-standard">Hotel</td><td class="py-component px-standard">Jaipur</td><td class="py-component px-standard font-mono">2</td><td class="py-component px-standard"><span class="px-compact py-micro rounded-full bg-light-success-container text-light-on-success-container text-label-sm">Active</span></td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- TAB 3: Subscriptions -->
+        <section id="tab-subs" class="org-panel hidden bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg p-section text-body-sm flex flex-col gap-standard">
+          <h2 class="text-title-lg">Subscription details</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-standard">
+            <div><p class="text-label-sm text-light-muted">Current plan</p><p class="font-medium mt-micro">Enterprise</p></div>
+            <div><p class="text-label-sm text-light-muted">Billing cycle</p><p class="font-medium mt-micro">Monthly (₹95,000)</p></div>
+            <div><p class="text-label-sm text-light-muted">Next renewal</p><p class="font-mono mt-micro">Dec 22, 2026</p></div>
+            <div><p class="text-label-sm text-light-muted">Payment status</p><p class="text-light-success font-medium mt-micro">Paid &amp; current</p></div>
+          </div>
+        </section>
+
+        <!-- TAB 4: Feature Entitlements -->
+        <section id="tab-features" class="org-panel hidden bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg p-section flex items-center justify-between">
+          <div><h2 class="text-title-lg">Feature entitlements</h2><p class="text-body-sm text-light-on-surface-variant">31 features active (30 included in Enterprise, 1 temporary override).</p></div>
+          <a href="../super-admin-entitlements/ModuleFeatureControl.html" class="px-standard py-compact rounded bg-light-primary text-light-on-primary text-label-lg">Open Feature Control</a>
+        </section>
+
+        <!-- TAB 5: Users -->
+        <section id="tab-users" class="org-panel hidden bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg overflow-hidden">
+          <table class="w-full text-left border-collapse text-body-sm">
+            <thead><tr class="border-b border-light-outline-variant bg-light-surface-container-low"><th class="py-component px-standard">User</th><th class="py-component px-standard">Email</th><th class="py-component px-standard">Role</th><th class="py-component px-standard">Assigned properties</th><th class="py-component px-standard">Last login</th></tr></thead>
+            <tbody class="divide-y divide-light-outline-variant">
+              <tr><td class="py-component px-standard font-medium">Vikramaditya Singh</td><td class="py-component px-standard">v.singh@royalhospitality.in</td><td class="py-component px-standard">Org Owner</td><td class="py-component px-standard">All (8)</td><td class="py-component px-standard font-mono">Today, 00:05 IST</td></tr>
+              <tr><td class="py-component px-standard font-medium">Neha Kapoor</td><td class="py-component px-standard">neha.k@royalhospitality.in</td><td class="py-component px-standard">Group Finance</td><td class="py-component px-standard">All (8)</td><td class="py-component px-standard font-mono">Yesterday, 19:40 IST</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- TAB 6: Usage -->
+        <section id="tab-usage" class="org-panel hidden bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg p-section grid grid-cols-2 md:grid-cols-4 gap-standard text-body-sm">
+          <div><p class="text-label-sm text-light-muted">Properties</p><p class="font-mono text-mono-lg mt-micro">8 / 10</p></div>
+          <div><p class="text-label-sm text-light-muted">Employees</p><p class="font-mono text-mono-lg mt-micro">342 / 500</p></div>
+          <div><p class="text-label-sm text-light-muted">Storage</p><p class="font-mono text-mono-lg mt-micro">118 / 250 GB</p></div>
+          <div><p class="text-label-sm text-light-muted">API calls (30d)</p><p class="font-mono text-mono-lg mt-micro">1.42M</p></div>
+        </section>
+
+        <!-- TAB 7: Payments & Invoices -->
+        <section id="tab-payments" class="org-panel hidden bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg p-section text-body-sm flex flex-col gap-component">
+          <h2 class="text-title-lg">SaaS subscription invoices (separate from guest &amp; POS billing)</h2>
+          <p class="text-light-on-surface-variant">INV-2026-884 · Nov 01, 2026 · ₹95,000.00 · Paid (Razorpay)</p>
+        </section>
+
+        <!-- TAB 8: Audit History -->
+        <section id="tab-audit" class="org-panel hidden bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg p-section text-body-sm">
+          <h2 class="text-title-lg mb-compact">Immutable platform audit history</h2>
+          <p class="font-mono text-light-on-surface-variant">EVT-90412 · Nov 23, 2026 00:12 IST · Arjun Mehta · Enabled Room QR Ordering (Override)</p>
+        </section>
+
+        <!-- TAB 9: Support History -->
+        <section id="tab-support" class="org-panel hidden bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg p-section text-body-sm">
+          <h2 class="text-title-lg mb-compact">Support history</h2>
+          <p class="text-light-on-surface-variant">TKT-4418 · POS Printer Sync on iPadOS · Resolved Nov 19, 2026</p>
+        </section>
+
+        <!-- TAB 10: Account Settings -->
+        <section id="tab-settings" class="org-panel hidden bg-light-surface dark:bg-dark-surface border border-light-outline-variant rounded-lg p-section text-body-sm">
+          <h2 class="text-title-lg mb-compact">Account lifecycle &amp; restrictions</h2>
+          <p class="text-light-on-surface-variant">MFA enforced for all organisation administrators. Data residency: ap-south-1 (Mumbai).</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="suspend-dialog" role="alertdialog" class="rounded-xl bg-light-surface dark:bg-dark-surface border border-light-outline-variant p-section w-full max-w-md shadow-2xl">
+    <h2 class="text-title-lg">Suspend Royal Hospitality Group?</h2>
+    <p class="text-body-sm text-light-on-surface-variant mt-compact mb-standard">Suspension blocks tenant access without deleting any property, guest, or financial records.</p>
+    <div class="flex justify-end gap-compact">
+      <button type="button" onclick="document.getElementById(&#39;suspend-dialog&#39;).close()" class="min-h-[40px] px-standard rounded border border-light-outline text-label-lg">Cancel</button>
+      <button type="button" onclick="document.getElementById(&#39;suspend-dialog&#39;).close()" class="min-h-[40px] px-standard rounded bg-light-error text-light-on-error text-label-lg">Confirm suspension</button>
+    </div>
+  </dialog>
+
+  <script>
+    function openTab(id, btn) {
+      document.querySelectorAll('.org-panel').forEach(function(p) { p.classList.add('hidden'); });
+      document.getElementById(id).classList.remove('hidden');
+      document.querySelectorAll('.org-tab').forEach(function(t) {
+        t.classList.remove('border-light-primary', 'text-light-primary');
+        t.classList.add('border-transparent', 'text-light-on-surface-variant');
+      });
+      if (btn) {
+        btn.classList.add('border-light-primary', 'text-light-primary');
+        btn.classList.remove('border-transparent', 'text-light-on-surface-variant');
+      }
+    }
+  </script>
+
+
+</body></html>

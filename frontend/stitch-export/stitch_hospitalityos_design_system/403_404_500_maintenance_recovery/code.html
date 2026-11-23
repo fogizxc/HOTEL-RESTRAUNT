@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal HTTP Error &amp; Maintenance States — HospitalityOS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <header class="sticky top-0 z-20 bg-light-surface/95 border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+      <div>
+        <h1 class="font-headline text-title-lg leading-tight">Universal System Error &amp; Maintenance States</h1>
+        <p class="text-body-sm text-light-muted">Covers E1 (403 Forbidden), E2 (404 Not Found), E3 (500 Server Error), E4 (Maintenance) &amp; E6 (Action Permission Denied)</p>
+      </div>
+      <div class="flex items-center gap-compact">
+        <a href="../system-recovery/OfflineAndEmptyStates.html" class="min-h-[36px] px-standard rounded-md border border-light-outline text-label-md inline-flex items-center">Offline &amp; Empty States</a>
+        <a href="../org-overview/BusinessOverview.html" class="min-h-[36px] px-standard rounded-md bg-light-primary text-light-on-primary text-label-md inline-flex items-center font-medium">Return Home</a>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-[1280px] w-full mx-auto p-section lg:p-major flex flex-col gap-section">
+      <!-- State Switcher Tabs -->
+      <div class="flex flex-wrap gap-compact" role="tablist" aria-label="Error state selector">
+        <button type="button" role="tab" aria-selected="true" onclick="showState(&#39;403&#39;)" id="tab-403" class="min-h-[40px] px-standard rounded-md bg-light-primary text-light-on-primary text-label-md font-medium">E1 · 403 Forbidden</button>
+        <button type="button" role="tab" aria-selected="false" onclick="showState(&#39;404&#39;)" id="tab-404" class="min-h-[40px] px-standard rounded-md bg-light-surface border border-light-outline text-label-md">E2 · 404 Not Found</button>
+        <button type="button" role="tab" aria-selected="false" onclick="showState(&#39;500&#39;)" id="tab-500" class="min-h-[40px] px-standard rounded-md bg-light-surface border border-light-outline text-label-md">E3 · 500 Server Error</button>
+        <button type="button" role="tab" aria-selected="false" onclick="showState(&#39;maint&#39;)" id="tab-maint" class="min-h-[40px] px-standard rounded-md bg-light-surface border border-light-outline text-label-md">E4 · Maintenance</button>
+        <button type="button" role="tab" aria-selected="false" onclick="showState(&#39;perm&#39;)" id="tab-perm" class="min-h-[40px] px-standard rounded-md bg-light-surface border border-light-outline text-label-md">E6 · Action Denied</button>
+      </div>
+
+      <!-- Active Full-Surface Preview -->
+      <section id="panel-403" class="bg-light-surface border border-light-outline-variant rounded-xl p-major flex flex-col items-center text-center gap-standard">
+        <span class="w-12 h-12 rounded-full bg-light-warning-container text-light-on-warning-container inline-flex items-center justify-center">
+          <span class="material-symbols-outlined text-[24px]">gpp_maybe</span>
+        </span>
+        <div class="max-w-[520px]">
+          <p class="font-mono text-label-md text-light-muted">ERROR 403 · ACCESS RESTRICTED</p>
+          <h2 class="font-headline text-headline-md mt-micro">You don’t have permission to view this workspace</h2>
+          <p class="text-body-md text-light-muted mt-compact">Your current role (Front Desk Shift Lead) does not include access to <strong>Finance &amp; General Ledger</strong> at Royal Grand Hotel. Request access from your Organisation Admin if needed.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-component">
+          <a href="../pms-overview/PMSOverview.html" class="min-h-[44px] px-section rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium inline-flex items-center">Return to Front Desk</a>
+          <a href="../org-support/SupportCentre.html" class="min-h-[44px] px-section rounded-md border border-light-outline text-label-lg inline-flex items-center">Request Role Access</a>
+        </div>
+      </section>
+
+      <section id="panel-404" class="hidden bg-light-surface border border-light-outline-variant rounded-xl p-major flex flex-col items-center text-center gap-standard">
+        <span class="w-12 h-12 rounded-full bg-light-surface-container text-light-on-surface-variant inline-flex items-center justify-center">
+          <span class="material-symbols-outlined text-[24px]">search_off</span>
+        </span>
+        <div class="max-w-[520px]">
+          <p class="font-mono text-label-md text-light-muted">ERROR 404 · PAGE OR RECORD NOT FOUND</p>
+          <h2 class="font-headline text-headline-md mt-micro">We couldn’t find that reservation or page</h2>
+          <p class="text-body-md text-light-muted mt-compact">The link may be outdated, or the record was archived or moved to another property scope.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-component">
+          <a href="../global-search/GlobalSearchAndSwitcher.html" class="min-h-[44px] px-section rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium inline-flex items-center">Search Records</a>
+          <a href="../org-overview/BusinessOverview.html" class="min-h-[44px] px-section rounded-md border border-light-outline text-label-lg inline-flex items-center">Go to Dashboard</a>
+        </div>
+      </section>
+
+      <section id="panel-500" class="hidden bg-light-surface border border-light-outline-variant rounded-xl p-major flex flex-col items-center text-center gap-standard">
+        <span class="w-12 h-12 rounded-full bg-light-error-container text-light-on-error-container inline-flex items-center justify-center">
+          <span class="material-symbols-outlined text-[24px]">error</span>
+        </span>
+        <div class="max-w-[520px]">
+          <p class="font-mono text-label-md text-light-muted">ERROR 500 · UNEXPECTED SERVER ERROR</p>
+          <h2 class="font-headline text-headline-md mt-micro">Something went wrong on our side</h2>
+          <p class="text-body-md text-light-muted mt-compact">Your last action was not completed. No duplicate charges or bookings were created. Reference ID: <span class="font-mono">REQ-88412-IND</span>.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-component">
+          <button type="button" onclick="location.reload()" class="min-h-[44px] px-section rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium">Retry Request</button>
+          <a href="../org-support/SupportCentre.html" class="min-h-[44px] px-section rounded-md border border-light-outline text-label-lg inline-flex items-center">Report Reference ID</a>
+        </div>
+      </section>
+
+      <section id="panel-maint" class="hidden bg-light-surface border border-light-outline-variant rounded-xl p-major flex flex-col items-center text-center gap-standard">
+        <span class="w-12 h-12 rounded-full bg-light-primary-container text-light-on-primary-container inline-flex items-center justify-center">
+          <span class="material-symbols-outlined text-[24px]">construction</span>
+        </span>
+        <div class="max-w-[540px]">
+          <p class="font-mono text-label-md text-light-muted">SCHEDULED MAINTENANCE · 02:00 – 02:30 IST</p>
+          <h2 class="font-headline text-headline-md mt-micro">HospitalityOS is undergoing a planned upgrade</h2>
+          <p class="text-body-md text-light-muted mt-compact">Back-office reporting and billing are paused for ~20 minutes. Local POS terminals and Kitchen Display queues continue operating in offline-resilient mode.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-component">
+          <a href="../super-admin-health/PlatformHealth.html" class="min-h-[44px] px-section rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium inline-flex items-center">View Live Status</a>
+        </div>
+      </section>
+
+      <section id="panel-perm" class="hidden bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-standard">
+        <div class="flex items-start justify-between gap-standard flex-wrap">
+          <div>
+            <p class="font-mono text-label-sm text-light-muted">E6 · ACTION-LEVEL PERMISSION DENIED</p>
+            <h2 class="font-title text-title-lg mt-micro">Inline Policy Block: Void Paid Folio / Override Rate</h2>
+            <p class="text-body-sm text-light-muted mt-micro">You can view Folio #F-99210, but voiding a settled payment over ₹5,000 requires a Duty Manager PIN or Finance Controller approval.</p>
+          </div>
+          <span class="px-compact py-micro rounded bg-light-error-container text-light-on-error-container text-label-sm font-medium">Action Blocked</span>
+        </div>
+        <div class="p-component rounded-lg bg-light-surface-container-low border border-light-outline-variant flex flex-wrap items-center justify-between gap-component">
+          <span class="text-body-sm">Need immediate override at the front desk?</span>
+          <div class="flex items-center gap-compact">
+            <button type="button" class="min-h-[40px] px-standard rounded-md border border-light-outline text-label-md">Request Manager Approval</button>
+            <a href="../pms-billing/FolioBilling.html" class="min-h-[40px] px-standard rounded-md bg-light-primary text-light-on-primary text-label-md font-medium inline-flex items-center">Return to Folio</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const keys = ['403', '404', '500', 'maint', 'perm'];
+    function showState(active) {
+      keys.forEach(k => {
+        const panel = document.getElementById('panel-' + k);
+        const tab = document.getElementById('tab-' + k);
+        if (k === active) {
+          panel.classList.remove('hidden');
+          tab.className = 'min-h-[40px] px-standard rounded-md bg-light-primary text-light-on-primary text-label-md font-medium';
+          tab.setAttribute('aria-selected', 'true');
+        } else {
+          panel.classList.add('hidden');
+          tab.className = 'min-h-[40px] px-standard rounded-md bg-light-surface border border-light-outline text-label-md';
+          tab.setAttribute('aria-selected', 'false');
+        }
+      });
+    }
+  </script>
+
+
+</body></html>

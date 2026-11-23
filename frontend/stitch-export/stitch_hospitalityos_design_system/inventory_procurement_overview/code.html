@@ -1,0 +1,416 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory &amp; Procurement Overview — HospitalityOS (Royal Hospitality Group)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <aside class="fixed lg:sticky top-0 left-0 z-40 w-[252px] min-h-[1024px] shrink-0 bg-light-surface/95 border-r border-light-outline-variant hidden lg:flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro">
+          <div class="w-8 h-8 rounded bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-label-lg font-semibold">IN</div>
+          <div><p class="font-title text-title-md leading-none">Inventory &amp; Supply</p><p class="text-label-sm text-light-muted uppercase mt-micro">Royal Group · Central</p></div>
+        </div>
+        <nav aria-label="Inventory &amp; Procurement Navigation" class="flex flex-col gap-compact text-body-sm">
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p>
+            <a href="InventoryOverview.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container text-light-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Inventory Overview</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Stock &amp; Recipes</p>
+            <a href="../inv-catalogue/ItemCatalogue.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">inventory_2</span><span>Item Catalogue</span></a>
+            <a href="../inv-stock-ledger/StockLedger.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">receipt_long</span><span>Stock Ledger</span></a>
+            <a href="../inv-recipes/RecipeBOMCosting.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">menu_book</span><span>Recipes &amp; BOM Costing</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Procurement</p>
+            <a href="../inv-purchase-orders/PurchaseOrders.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">shopping_cart</span><span>Purchase Orders</span></a>
+            <a href="../inv-receiving/GoodsReceivingGRN.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">local_shipping</span><span>Goods Receiving (GRN)</span></a>
+            <a href="../inv-transfers-counts/StockTransfersAndCounts.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">swap_horiz</span><span>Transfers &amp; Counts</span></a>
+            <a href="../inv-mobile/WarehouseMobile.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">qr_code_scanner</span><span>Warehouse Mobile</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant">
+        <div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low">
+          <div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-md font-semibold">RV</div>
+          <div><p class="text-label-md">Rohan Verma</p><p class="text-label-sm text-light-muted">Head of Procurement</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 backdrop-blur-md border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+        <div>
+          <h1 class="font-headline text-title-lg leading-tight">Inventory &amp; Procurement Overview</h1>
+          <p class="text-body-sm text-light-muted">Unified stock ledger synced live across POS, Kitchen Display, Housekeeping and Hotel PMS · IST 19:40</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-compact text-body-sm">
+          <select aria-label="Property Filter" class="rounded border-light-outline-variant bg-light-surface-container-low text-body-sm py-micro">
+            <option>All Properties (Royal Group)</option>
+            <option>Central Warehouse · Meerut</option>
+            <option>Royal Grand Hotel · Meerut</option>
+            <option>Royal Business Hotel · Delhi</option>
+            <option>Royal Fine Dine · Noida</option>
+          </select>
+          <select aria-label="Category Filter" class="rounded border-light-outline-variant bg-light-surface-container-low text-body-sm py-micro">
+            <option>All Categories</option>
+            <option>Food Ingredients</option>
+            <option>Beverages &amp; Bar</option>
+            <option>Guest Amenities</option>
+            <option>Housekeeping &amp; Maint.</option>
+          </select>
+          <a href="../inv-receiving/GoodsReceivingGRN.html" class="min-h-[36px] px-standard rounded border border-light-outline bg-light-surface text-label-md inline-flex items-center whitespace-nowrap hover:bg-light-surface-container">Receive GRN</a>
+          <a href="../inv-purchase-orders/PurchaseOrders.html" class="min-h-[36px] px-standard rounded bg-light-primary text-light-on-primary text-label-md inline-flex items-center whitespace-nowrap">+ New Purchase Order</a>
+        </div>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <!-- Section A: Inventory Summary KPIs -->
+        <section aria-label="Inventory Summary" class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-component">
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Total Active SKUs</p>
+            <p class="font-headline text-title-lg font-mono mt-micro">1,482</p>
+            <p class="text-label-sm text-light-muted mt-micro">Across 4 properties</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Total Stock Value</p>
+            <p class="font-headline text-title-lg font-mono mt-micro">₹48,92,400</p>
+            <p class="text-label-sm text-light-on-success-container mt-micro">Weighted Avg Cost</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Low Stock Alerts</p>
+            <p class="font-headline text-title-lg font-mono mt-micro text-light-on-warning-container">24</p>
+            <p class="text-label-sm text-light-on-warning-container mt-micro">Below reorder point</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Out of Stock</p>
+            <p class="font-headline text-title-lg font-mono mt-micro text-light-on-error-container">5</p>
+            <p class="text-label-sm text-light-on-error-container mt-micro">Impacts 3 POS items</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Expiring (7 Days)</p>
+            <p class="font-headline text-title-lg font-mono mt-micro text-light-on-warning-container">14</p>
+            <p class="text-label-sm text-light-muted mt-micro">₹64,200 FEFO at risk</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Quarantined / Hold</p>
+            <p class="font-headline text-title-lg font-mono mt-micro">3</p>
+            <p class="text-label-sm text-light-muted mt-micro">Awaiting QC return</p>
+          </div>
+        </section>
+
+        <!-- Section B & F: Procurement Summary + Purchasing & Consumption Performance -->
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-section">
+          <section class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-standard">
+            <div class="flex items-center justify-between">
+              <h2 class="font-title text-title-md">Procurement Pipeline</h2>
+              <a href="../inv-purchase-orders/PurchaseOrders.html" class="text-label-md text-light-on-primary-container underline whitespace-nowrap">Manage POs</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-component text-body-sm">
+              <div class="p-component rounded bg-light-surface-container-low"><p class="text-label-sm text-light-muted">Open Requisitions</p><p class="font-mono text-title-lg font-semibold mt-micro">9</p></div>
+              <div class="p-component rounded bg-light-surface-container-low"><p class="text-label-sm text-light-muted">Pending Approval</p><p class="font-mono text-title-lg font-semibold text-light-on-warning-container mt-micro">4</p></div>
+              <div class="p-component rounded bg-light-surface-container-low"><p class="text-label-sm text-light-muted">Active Open POs</p><p class="font-mono text-title-lg font-semibold mt-micro">16</p></div>
+              <div class="p-component rounded bg-light-surface-container-low"><p class="text-label-sm text-light-muted">GRNs Due Today</p><p class="font-mono text-title-lg font-semibold text-light-on-primary-container mt-micro">5</p></div>
+            </div>
+            <div class="flex items-center justify-between pt-compact border-t border-light-outline-variant text-body-sm">
+              <span class="text-light-muted">Committed Open PO Value (excludes unreceived stock)</span>
+              <span class="font-mono font-semibold">₹12,48,900</span>
+            </div>
+          </section>
+
+          <section class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-standard">
+            <div class="flex items-center justify-between">
+              <h2 class="font-title text-title-md">Consumption &amp; Cost Control (MTD)</h2>
+              <a href="../inv-recipes/RecipeBOMCosting.html" class="text-label-md text-light-on-primary-container underline whitespace-nowrap">Recipe Costing</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-component text-body-sm">
+              <div class="p-component rounded bg-light-surface-container-low"><p class="text-label-sm text-light-muted">Food Cost %</p><p class="font-mono text-title-lg font-semibold text-light-on-success-container mt-micro">28.4%</p></div>
+              <div class="p-component rounded bg-light-surface-container-low"><p class="text-label-sm text-light-muted">POS Auto-Deduct</p><p class="font-mono text-title-lg font-semibold mt-micro">₹14,82,100</p></div>
+              <div class="p-component rounded bg-light-surface-container-low"><p class="text-label-sm text-light-muted">Wastage / Spoilage</p><p class="font-mono text-title-lg font-semibold text-light-on-error-container mt-micro">₹38,450</p></div>
+              <div class="p-component rounded bg-light-surface-container-low"><p class="text-label-sm text-light-muted">Count Variance</p><p class="font-mono text-title-lg font-semibold text-light-on-warning-container mt-micro">-0.62%</p></div>
+            </div>
+            <div class="flex items-center justify-between pt-compact border-t border-light-outline-variant text-body-sm">
+              <span class="text-light-muted">Live Integrations: POS (4 Outlets) · KDS (12 Stations) · Housekeeping</span>
+              <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm font-medium">Ledger Synced</span>
+            </div>
+          </section>
+        </div>
+
+        <!-- Section C & D: Stock Distribution Across Properties + Critical Alerts -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-section">
+          <section class="xl:col-span-8 bg-light-surface border border-light-outline-variant rounded-lg overflow-hidden">
+            <div class="p-standard border-b border-light-outline-variant flex items-center justify-between">
+              <h2 class="font-title text-title-md">Stock Distribution by Property &amp; Hub</h2>
+              <a href="../inv-transfers-counts/StockTransfersAndCounts.html" class="text-label-md text-light-on-primary-container underline whitespace-nowrap">Inter-Property Transfers</a>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-body-sm">
+                <thead>
+                  <tr class="border-b border-light-outline-variant text-label-sm text-light-muted uppercase bg-light-surface-container-low">
+                    <th class="py-component px-standard">Location / Property</th>
+                    <th class="py-component px-standard text-right">Active SKUs</th>
+                    <th class="py-component px-standard text-right">Stock Value</th>
+                    <th class="py-component px-standard text-right">In-Transit</th>
+                    <th class="py-component px-standard text-right">Low Stock</th>
+                    <th class="py-component px-standard">Last Cycle Count</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-light-outline-variant">
+                  <tr>
+                    <td class="py-component px-standard font-medium">Central Warehouse · Meerut</td>
+                    <td class="py-component px-standard text-right font-mono">1,120</td>
+                    <td class="py-component px-standard text-right font-mono">₹21,40,800</td>
+                    <td class="py-component px-standard text-right font-mono text-light-on-primary-container">₹1,84,000</td>
+                    <td class="py-component px-standard text-right font-mono">6</td>
+                    <td class="py-component px-standard text-light-muted">Yesterday · 99.6%</td>
+                  </tr>
+                  <tr>
+                    <td class="py-component px-standard font-medium">Royal Grand Hotel · Meerut</td>
+                    <td class="py-component px-standard text-right font-mono">784</td>
+                    <td class="py-component px-standard text-right font-mono">₹13,65,200</td>
+                    <td class="py-component px-standard text-right font-mono">₹62,400</td>
+                    <td class="py-component px-standard text-right font-mono text-light-on-warning-container">9</td>
+                    <td class="py-component px-standard text-light-muted">2 days ago · 99.1%</td>
+                  </tr>
+                  <tr>
+                    <td class="py-component px-standard font-medium">Royal Business Hotel · Delhi</td>
+                    <td class="py-component px-standard text-right font-mono">640</td>
+                    <td class="py-component px-standard text-right font-mono">₹9,18,900</td>
+                    <td class="py-component px-standard text-right font-mono">₹48,500</td>
+                    <td class="py-component px-standard text-right font-mono">5</td>
+                    <td class="py-component px-standard text-light-muted">Today · 99.8%</td>
+                  </tr>
+                  <tr>
+                    <td class="py-component px-standard font-medium">Royal Fine Dine · Noida</td>
+                    <td class="py-component px-standard text-right font-mono">392</td>
+                    <td class="py-component px-standard text-right font-mono">₹4,67,500</td>
+                    <td class="py-component px-standard text-right font-mono">₹29,200</td>
+                    <td class="py-component px-standard text-right font-mono text-light-on-error-container">4</td>
+                    <td class="py-component px-standard text-light-muted">3 days ago · 98.4%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="xl:col-span-4 bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+            <div class="flex items-center justify-between">
+              <h2 class="font-title text-title-md">Critical Stock &amp; Expiry Alerts</h2>
+              <span class="px-compact py-micro rounded bg-light-error-container text-light-on-error-container text-label-sm font-medium">5 Urgent</span>
+            </div>
+            <div class="flex flex-col gap-compact text-body-sm">
+              <div class="p-component rounded bg-light-error-container border border-light-outline-variant flex items-start justify-between gap-component">
+                <div><p class="font-medium text-light-on-error-container">Fresh Paneer Block (SKU-1042)</p><p class="text-light-on-error-container">Noida Kitchen: 1.8 kg left (Min 8 kg)</p></div>
+                <a href="../inv-transfers-counts/StockTransfersAndCounts.html" class="text-label-md text-light-on-error-container underline whitespace-nowrap">Transfer</a>
+              </div>
+              <div class="p-component rounded bg-light-warning-container border border-light-outline-variant flex items-start justify-between gap-component">
+                <div><p class="font-medium text-light-on-warning-container">Amul Fresh Cream 1L · Batch #B89</p><p class="text-light-on-warning-container">Expires in 48 hrs · 18 packs at Meerut</p></div>
+                <a href="../inv-stock-ledger/StockLedger.html" class="text-label-md text-light-on-warning-container underline whitespace-nowrap">FEFO</a>
+              </div>
+              <div class="p-component rounded bg-light-surface-container border border-light-outline-variant flex items-start justify-between gap-component">
+                <div><p class="font-medium">Kama Ayurveda Bath Gel 30ml</p><p class="text-light-muted">Delhi HK Store: 140 units (Reorder 500)</p></div>
+                <a href="../inv-purchase-orders/PurchaseOrders.html" class="text-label-md text-light-on-primary-container underline whitespace-nowrap">Order</a>
+              </div>
+              <div class="p-component rounded bg-light-surface-container border border-light-outline-variant flex items-start justify-between gap-component">
+                <div><p class="font-medium">PO-2026-1142 Partial Quarantine</p><p class="text-light-muted">3 crates Atlantic Salmon held in QC</p></div>
+                <a href="../inv-receiving/GoodsReceivingGRN.html" class="text-label-md text-light-on-primary-container underline whitespace-nowrap">Inspect</a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Section E: Recent Immutable Stock Movements -->
+        <section class="bg-light-surface border border-light-outline-variant rounded-lg overflow-hidden">
+          <div class="p-standard border-b border-light-outline-variant flex items-center justify-between">
+            <div>
+              <h2 class="font-title text-title-md">Recent Stock Movements (Immutable Ledger)</h2>
+              <p class="text-body-sm text-light-muted">Every entry is append-only and linked to its source POS order, GRN, Transfer or Housekeeping issue.</p>
+            </div>
+            <a href="../inv-stock-ledger/StockLedger.html" class="text-label-md text-light-on-primary-container underline whitespace-nowrap">View Full Ledger</a>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-body-sm">
+              <thead>
+                <tr class="border-b border-light-outline-variant text-label-sm text-light-muted uppercase bg-light-surface-container-low">
+                  <th class="py-component px-standard">Timestamp (IST)</th>
+                  <th class="py-component px-standard">Movement Type</th>
+                  <th class="py-component px-standard">Item &amp; SKU</th>
+                  <th class="py-component px-standard">Location</th>
+                  <th class="py-component px-standard text-right">Qty Delta</th>
+                  <th class="py-component px-standard">Source Reference</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-light-outline-variant">
+                <tr>
+                  <td class="py-component px-standard font-mono text-light-muted">19:38:12</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm">POS Recipe Deduct</span></td>
+                  <td class="py-component px-standard font-medium">Paneer Block (SKU-1042)</td>
+                  <td class="py-component px-standard">Noida · Main Kitchen</td>
+                  <td class="py-component px-standard text-right font-mono text-light-on-error-container">-0.720 kg</td>
+                  <td class="py-component px-standard font-mono">POS #ORD-8842 (4× Paneer Butter Masala)</td>
+                </tr>
+                <tr>
+                  <td class="py-component px-standard font-mono text-light-muted">19:15:04</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">GRN Receipt</span></td>
+                  <td class="py-component px-standard font-medium">Basmati Rice Aged (SKU-1008)</td>
+                  <td class="py-component px-standard">Central Warehouse · Meerut</td>
+                  <td class="py-component px-standard text-right font-mono text-light-on-success-container">+250.000 kg</td>
+                  <td class="py-component px-standard font-mono">GRN-2026-0918 (PO-2026-1139)</td>
+                </tr>
+                <tr>
+                  <td class="py-component px-standard font-mono text-light-muted">18:42:30</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm">Transfer In-Transit</span></td>
+                  <td class="py-component px-standard font-medium">Ecolab Disinfectant 5L (SKU-4011)</td>
+                  <td class="py-component px-standard">Meerut → Delhi HK Store</td>
+                  <td class="py-component px-standard text-right font-mono">-12 Cans</td>
+                  <td class="py-component px-standard font-mono">TRF-2026-0412</td>
+                </tr>
+                <tr>
+                  <td class="py-component px-standard font-mono text-light-muted">17:55:19</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-error-container text-light-on-error-container text-label-sm">Spoilage / Wastage</span></td>
+                  <td class="py-component px-standard font-medium">Fresh Coriander Bunch (SKU-1190)</td>
+                  <td class="py-component px-standard">Royal Grand · Cold Room 2</td>
+                  <td class="py-component px-standard text-right font-mono text-light-on-error-container">-3.500 kg</td>
+                  <td class="py-component px-standard font-mono">WST-2026-0184 (Wilted Batch)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

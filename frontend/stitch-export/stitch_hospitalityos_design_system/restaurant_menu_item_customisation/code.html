@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu &amp; Ordering — Royal Fine Dine | Customer Portal</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[884px] flex flex-col pb-[88px]" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <header class="sticky top-0 z-30 bg-light-surface/95 border-b border-light-outline-variant px-standard py-component">
+      <div class="max-w-[1120px] mx-auto flex items-center justify-between gap-compact">
+        <a href="../portal-home/PortalDiscoveryHome.html" class="min-h-[36px] inline-flex items-center gap-micro text-label-lg text-light-primary">
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_back_ios_new</span>
+          <span>Outlets</span>
+        </a>
+        <div class="text-center">
+          <p class="font-title text-title-md leading-tight">Royal Fine Dine · Noida</p>
+          <p class="text-label-sm text-light-on-success-container">Open till 23:30 IST</p>
+        </div>
+        <a href="../portal-loyalty-support/LoyaltyAndGuestServices.html" class="min-h-[36px] px-compact rounded-full bg-light-surface-container text-label-md inline-flex items-center">Help</a>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-[1120px] w-full mx-auto px-standard py-standard flex flex-col gap-section">
+      <!-- Order Channel Selector (Only Enabled Channels Shown) -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-xl p-component flex flex-col gap-compact">
+        <div class="grid grid-cols-3 gap-micro bg-light-surface-container p-micro rounded-lg text-label-md">
+          <button type="button" class="min-h-[36px] rounded-md bg-light-surface text-light-on-surface font-medium">Dine-in</button>
+          <button type="button" class="min-h-[36px] rounded-md text-light-muted">Takeaway</button>
+          <button type="button" class="min-h-[36px] rounded-md text-light-muted">Delivery</button>
+        </div>
+        <p class="text-label-sm text-light-muted px-micro">Delivery available within 6 km of Sector 18, Noida · Min order ₹499.</p>
+      </section>
+
+      <!-- Search & Dietary Filter -->
+      <section class="flex flex-col gap-compact">
+        <input type="search" aria-label="Search menu items" placeholder="Search biryani, kebabs, desserts..." class="w-full min-h-[44px] rounded-lg border-light-outline bg-light-surface text-body-sm px-standard">
+        <div class="flex flex-wrap gap-compact text-label-sm">
+          <span class="px-component py-micro rounded-full bg-light-primary text-light-on-primary font-medium">All Items</span>
+          <span class="px-component py-micro rounded-full bg-light-surface border border-light-outline text-light-on-surface">Veg Only</span>
+          <span class="px-component py-micro rounded-full bg-light-surface border border-light-outline text-light-on-surface">Chef Specials</span>
+          <span class="px-component py-micro rounded-full bg-light-surface border border-light-outline text-light-on-surface">Gluten-Free</span>
+        </div>
+      </section>
+
+      <!-- Menu Items -->
+      <section class="flex flex-col gap-component">
+        <h2 class="font-title text-title-md">Signature Mains &amp; Starters</h2>
+
+        <article class="bg-light-surface border border-light-outline-variant rounded-xl p-standard flex gap-component items-center">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrBQGl7DzqaU2vsrezqhkzfEVhyDP5uml89lSPilYFZWdsKXHRFzWIQMZSMC0uz84y7MmhbdIf473Z3WgoaLo_7DbQXqsFI1AE1zTJqDnM7Cbbr9iXsuWQaKKh6x7M8FvHHPdYBHKe5PmevI0dLAELLsmyqJ1IdMroM7jIvf_vtdU5M2FFkh1_7Q8XfSm1bVLtIpHnM1pBLSPO9OJQIUQIzhW7qfnyt6NA7I4FQwiIxZzDrgTZOQLfdrxEhUEbr9" alt="Royal Saffron Dum Biryani" class="w-24 h-24 rounded-lg object-cover shrink-0">
+          <div class="flex-1 min-w-0 flex flex-col gap-micro">
+            <div class="flex items-center justify-between gap-compact">
+              <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm font-medium">Veg · Bestseller</span>
+              <span class="font-mono text-title-md font-semibold tabular-nums">₹545</span>
+            </div>
+            <h3 class="font-title text-title-md">Subz Zafrani Dum Biryani</h3>
+            <p class="text-body-sm text-light-muted">Aged basmati, saffron, mint raita · Contains dairy &amp; nuts.</p>
+          </div>
+        </article>
+
+        <!-- Inline Item Customisation Card -->
+        <article class="bg-light-surface border border-light-primary rounded-xl p-standard flex flex-col gap-component">
+          <div class="flex gap-component items-center">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrBUvECpOwPJNJAH2VsDhu6QMM8atyOUiMp7u4cgoXvQFhHWT1eshTbeBlWU8RHEP1efMIl8I09rnoTaeX8Fb7s3EKb1_GuRzHxwa0DBymOSSyJUMj1Y1O09IdKu9uwSbCTua3cIWn3fra_GLE60AKe_F51y-qijfe5q3UiB7iO_RCUSgT73PwxxBKtSk2XuGkYPJfSPTSsqQj7Sxzph9XgZmrof7WJyQsxFxP20thQtYUnVJotP9wHmfdBLE4M" alt="Tandoor Paneer Tikka" class="w-20 h-20 rounded-lg object-cover shrink-0">
+            <div class="flex-1">
+              <span class="text-label-sm text-light-on-success-container font-medium">Veg · Tandoor</span>
+              <h3 class="font-title text-title-md">Charred Paneer Tikka</h3>
+              <p class="font-mono text-body-sm font-semibold tabular-nums">₹425 base</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-compact border-t border-light-outline-variant pt-component text-body-sm">
+            <p class="text-label-sm text-light-muted uppercase">Portion Size (Required)</p>
+            <div class="grid grid-cols-2 gap-compact">
+              <button type="button" class="min-h-[36px] px-component rounded-md border border-light-primary bg-light-primary-container text-light-on-primary-container text-label-md font-medium">Regular (6 pcs) · ₹425</button>
+              <button type="button" class="min-h-[36px] px-component rounded-md border border-light-outline bg-light-surface text-label-md">Platter (10 pcs) · ₹645</button>
+            </div>
+            <p class="text-label-sm text-light-muted uppercase pt-micro">Add-ons (Optional)</p>
+            <label class="flex items-center justify-between p-compact rounded-md bg-light-surface-container-low">
+              <span>Extra Mint Chutney &amp; Pickled Onions</span>
+              <span class="font-mono text-label-md">+₹35</span>
+            </label>
+          </div>
+          <button type="button" class="min-h-[44px] w-full rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium">Add to Cart · ₹460</button>
+        </article>
+
+        <!-- Unavailable Item State -->
+        <article class="bg-light-surface-container-low border border-light-outline-variant rounded-xl p-standard flex items-center justify-between gap-component">
+          <div>
+            <span class="px-compact py-micro rounded bg-light-error-container text-light-on-error-container text-label-sm font-medium">Currently Unavailable</span>
+            <h3 class="font-title text-title-md mt-micro">Artisanal Mango Kulfi</h3>
+            <p class="text-body-sm text-light-on-surface-variant">Sold out for today’s service.</p>
+          </div>
+          <button type="button" disabled class="min-h-[36px] px-standard rounded-md bg-light-surface-container-high text-light-on-surface text-label-md">Sold Out</button>
+        </article>
+      </section>
+    </main>
+
+    <!-- Sticky Cart Bar -->
+    <div class="fixed bottom-0 inset-x-0 z-30 bg-light-surface/95 border-t border-light-outline-variant p-standard">
+      <div class="max-w-[540px] mx-auto flex items-center justify-between gap-component">
+        <div>
+          <p class="text-label-sm text-light-muted">2 Items · Before GST</p>
+          <p class="font-headline text-title-lg font-mono tabular-nums">₹1,005</p>
+        </div>
+        <a href="../portal-order-tracker/OrderCheckoutTracker.html" class="min-h-[44px] px-section rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium inline-flex items-center justify-center">View Cart &amp; Checkout</a>
+      </div>
+    </div>
+  </div>
+
+
+</body></html>

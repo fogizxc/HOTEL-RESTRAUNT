@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch, Lot &amp; FEFO Expiry Management — HospitalityOS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <aside class="fixed lg:sticky top-0 left-0 z-40 w-[252px] min-h-[1024px] shrink-0 bg-light-surface/95 border-r border-light-outline-variant hidden lg:flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro">
+          <div class="w-8 h-8 rounded bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-label-lg font-semibold">IN</div>
+          <div><p class="font-title text-title-md leading-none">Inventory &amp; Supply</p><p class="text-label-sm text-light-muted uppercase mt-micro">Royal Group · Central</p></div>
+        </div>
+        <nav aria-label="Inventory &amp; Procurement Navigation" class="flex flex-col gap-compact text-body-sm">
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p>
+            <a href="../inv-overview/InventoryOverview.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Inventory Overview</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Stock &amp; Recipes</p>
+            <a href="../inv-catalogue/ItemCatalogue.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">inventory_2</span><span>Item Catalogue</span></a>
+            <a href="BatchExpiryFEFO.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container text-light-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">event_busy</span><span>Batch &amp; FEFO Expiry</span></a>
+            <a href="../inv-stock-ledger/StockLedger.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">receipt_long</span><span>Stock Ledger</span></a>
+            <a href="../inv-recipes/RecipeBOMCosting.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">menu_book</span><span>Recipes &amp; BOM Costing</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Analytics &amp; Control</p>
+            <a href="../inv-wastage/WastageAndSpoilage.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">delete_sweep</span><span>Wastage &amp; Spoilage</span></a>
+            <a href="../inv-valuation/StockValuationReport.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">assessment</span><span>Valuation Reports</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant">
+        <div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low">
+          <div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-md font-semibold">AS</div>
+          <div><p class="text-label-md">Arjun Singh</p><p class="text-label-sm text-light-muted">Quality &amp; Store Lead</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 backdrop-blur-md border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+        <div>
+          <h1 class="font-headline text-title-lg leading-tight">Batch, Lot &amp; FEFO Expiry Monitor</h1>
+          <p class="text-body-sm text-light-muted">First-Expired-First-Out (FEFO) consumption queue across cold rooms, bars and amenity stores.</p>
+        </div>
+        <div class="flex items-center gap-compact text-body-sm">
+          <select aria-label="Expiry Window" class="rounded border-light-outline-variant bg-light-surface-container-low text-body-sm py-micro">
+            <option>Expiring Within 7 Days (14)</option>
+            <option>Expiring Within 48 Hours (3)</option>
+            <option>Expired / Quarantine Hold (3)</option>
+          </select>
+        </div>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-component">
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component"><p class="text-label-sm text-light-muted uppercase">Expiring in 48h</p><p class="font-mono text-title-lg font-semibold text-light-on-error-container mt-micro">3 Batches</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component"><p class="text-label-sm text-light-muted uppercase">Expiring in 7 Days</p><p class="font-mono text-title-lg font-semibold text-light-on-warning-container mt-micro">14 Batches</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component"><p class="text-label-sm text-light-muted uppercase">Value at Risk (7d)</p><p class="font-mono text-title-lg font-semibold mt-micro">₹64,200</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component"><p class="text-label-sm text-light-muted uppercase">Quarantined Hold</p><p class="font-mono text-title-lg font-semibold text-light-on-error-container mt-micro">₹28,350</p></div>
+        </section>
+
+        <section class="bg-light-surface border border-light-outline-variant rounded-lg overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-body-sm">
+              <thead>
+                <tr class="border-b border-light-outline-variant text-label-sm text-light-muted uppercase bg-light-surface-container-low">
+                  <th class="py-component px-standard">Batch / Lot #</th>
+                  <th class="py-component px-standard">Item &amp; SKU</th>
+                  <th class="py-component px-standard">Location</th>
+                  <th class="py-component px-standard text-right">Remaining Qty</th>
+                  <th class="py-component px-standard text-right">Value</th>
+                  <th class="py-component px-standard">Expiry Date</th>
+                  <th class="py-component px-standard">FEFO Status</th>
+                  <th class="py-component px-standard text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-light-outline-variant">
+                <tr>
+                  <td class="py-component px-standard font-mono font-semibold">PN-2211</td>
+                  <td class="py-component px-standard">Fresh Malai Paneer Block (SKU-1042)</td>
+                  <td class="py-component px-standard">Royal Grand · Main Kitchen</td>
+                  <td class="py-component px-standard text-right font-mono">14.2 kg</td>
+                  <td class="py-component px-standard text-right font-mono">₹5,183</td>
+                  <td class="py-component px-standard font-mono text-light-on-error-container">25 Nov (48h)</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-error-container text-light-on-error-container text-label-sm">Priority Pick #1</span></td>
+                  <td class="py-component px-standard text-right"><button type="button" class="text-label-md text-light-on-primary-container underline whitespace-nowrap">Promote Chef Special</button></td>
+                </tr>
+                <tr>
+                  <td class="py-component px-standard font-mono font-semibold">B89-CRM</td>
+                  <td class="py-component px-standard">Amul Fresh Cream 1L (SKU-1088)</td>
+                  <td class="py-component px-standard">Central Warehouse · Meerut</td>
+                  <td class="py-component px-standard text-right font-mono">18 L</td>
+                  <td class="py-component px-standard text-right font-mono">₹3,960</td>
+                  <td class="py-component px-standard font-mono text-light-on-warning-container">25 Nov (48h)</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm">Transfer to Kitchen</span></td>
+                  <td class="py-component px-standard text-right"><a href="../inv-transfers-counts/StockTransfersAndCounts.html" class="text-label-md text-light-on-primary-container underline">Dispatch Now</a></td>
+                </tr>
+                <tr>
+                  <td class="py-component px-standard font-mono font-semibold">SL-904</td>
+                  <td class="py-component px-standard">Atlantic Salmon Fillet (SKU-5014)</td>
+                  <td class="py-component px-standard">Central Warehouse · Quarantine</td>
+                  <td class="py-component px-standard text-right font-mono">15.0 kg</td>
+                  <td class="py-component px-standard text-right font-mono">₹28,350</td>
+                  <td class="py-component px-standard font-mono text-light-on-error-container">Temp Breach</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-error-container text-light-on-error-container text-label-sm">Blocked / Non-Issue</span></td>
+                  <td class="py-component px-standard text-right"><a href="../inv-returns/PurchaseReturnsDebitNotes.html" class="text-label-md text-light-on-error-container underline">Return to Vendor</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

@@ -1,0 +1,7 @@
+principal_type,role_code,domain,resource,action,tenant_scope,property_scope,outlet_scope,entitlement_required,approval_required,read_fields_redaction,audit_required,notes
+platform_user,platform_owner,platform,tenant,create,platform,all,all,platform_tenant_admin,no,restricted_fields,yes,Owner-only platform authority
+platform_user,platform_support,platform,tenant,read_support,platform,case_scope,case_scope,none,no,PII_minimised,yes,No impersonation by default
+employee,organisation_owner,organisation,property,manage,own_tenant,own_tenant,own_tenant,applicable_modules,no,restricted_fields,yes,Cannot override platform deny
+employee,front_desk,hotel,reservation,check_in,own_tenant,assigned,none,hotel_pms,no,identity_docs_restricted,yes,Property-scoped
+employee,restaurant_manager,restaurant,bill,discount_or_void,own_tenant,assigned,assigned,restaurant_pos,threshold_based,financial_fields,yes,Reason and approval policy applies
+guest,guest_customer,customer,order,read_own,linked_tenant,linked_booking_or_participant,linked_outlet,customer_portal,no,own_data_only,security_event,No peer participant visibility

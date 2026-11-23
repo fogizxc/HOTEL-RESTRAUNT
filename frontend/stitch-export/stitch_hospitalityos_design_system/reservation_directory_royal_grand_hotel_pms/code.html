@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Directory — Royal Grand Hotel (PMS)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background dark:bg-dark-background dark:text-dark-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <aside class="fixed lg:sticky top-0 left-0 z-40 w-[252px] min-h-[1024px] shrink-0 bg-light-surface/95 dark:bg-dark-surface/95 border-r border-light-outline-variant hidden lg:flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro"><div class="w-8 h-8 rounded bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-label-lg font-semibold">PM</div><div><p class="font-title text-title-md leading-none">Hotel PMS</p><p class="text-label-sm text-light-muted uppercase mt-micro">Royal Grand · Meerut</p></div></div>
+        <nav aria-label="Hotel PMS Navigation" class="flex flex-col gap-compact text-body-sm">
+          <div><p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p><a href="../pms-overview/HotelOverview.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Hotel Dashboard</span></a></div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Reservations</p>
+            <a href="../pms-calendar/ReservationCalendar.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">calendar_month</span><span>Reservation Calendar</span></a>
+            <a href="ReservationDirectory.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container text-light-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">list_alt</span><span>Reservation Directory</span></a>
+            <a href="../pms-new-reservation/NewReservation.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">add_circle</span><span>New Reservation</span></a>
+            <a href="../pms-groups/GroupReservations.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">groups</span><span>Group Reservations</span></a>
+            <a href="../pms-walkin/WalkInReservation.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">directions_walk</span><span>Walk-in Booking</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant"><div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low"><div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-md font-semibold">AV</div><div><p class="text-label-md">Ananya Verma</p><p class="text-label-sm text-light-muted">Front Office Manager</p></div></div></div>
+    </aside>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-compact text-body-sm"><span class="text-light-muted">Reservations</span><span class="material-symbols-outlined text-body-sm text-light-muted" aria-hidden="true">chevron_right</span><span class="text-label-lg">Reservation Directory</span></nav>
+        <div class="flex items-center gap-compact">
+          <a href="../pms-walkin/WalkInReservation.html" class="min-h-[36px] inline-flex items-center px-standard rounded border border-light-outline text-label-md whitespace-nowrap">Walk-in</a>
+          <a href="../pms-new-reservation/NewReservation.html" class="min-h-[36px] inline-flex items-center px-standard rounded bg-light-primary text-light-on-primary text-label-md whitespace-nowrap">+ New reservation</a>
+        </div>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <div class="flex flex-wrap items-center justify-between gap-standard">
+          <div>
+            <h1 class="font-headline text-headline-lg">Reservations</h1>
+            <p class="text-body-md text-light-on-surface-variant mt-micro">Search, filter, and manage inquiries, tentative holds, confirmed stays, and check-ins.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-compact">
+            <input type="search" placeholder="Guest, #RES, or room..." class="h-9 rounded border border-light-outline px-component text-body-sm" aria-label="Guest, #RES, or room">
+            <select aria-label="Filter status" class="h-9 rounded border border-light-outline px-component text-label-md bg-light-surface"><option>All statuses (7)</option><option>Confirmed</option><option>Checked-in</option><option>Tentative</option><option>Inquiry</option><option>Checked-out</option><option>Cancelled</option><option>No-show</option></select>
+            <select aria-label="Filter source" class="h-9 rounded border border-light-outline px-component text-label-md bg-light-surface"><option>All sources</option><option>Direct Web</option><option>Front Desk</option><option>MakeMyTrip</option><option>Corporate</option></select>
+          </div>
+        </div>
+
+        <section class="bg-light-surface border border-light-outline-variant rounded-lg overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-body-sm">
+              <thead><tr class="border-b border-light-outline-variant text-label-sm text-light-muted uppercase bg-light-surface-container-low"><th class="py-component px-standard">Res ID</th><th class="py-component px-standard">Guest &amp; Contact</th><th class="py-component px-standard">Dates (Nights)</th><th class="py-component px-standard">Room</th><th class="py-component px-standard">Source</th><th class="py-component px-standard text-right">Amount</th><th class="py-component px-standard">Payment</th><th class="py-component px-standard">Status</th><th class="py-component px-standard text-right">Action</th></tr></thead>
+              <tbody class="divide-y divide-light-outline-variant">
+                <tr class="hover:bg-light-surface-container-low"><td class="py-component px-standard font-mono"><a href="../pms-reservation-detail/ReservationDetail.html" class="text-light-primary">#RES-4821</a></td><td class="py-component px-standard"><p class="font-medium">Rajeshwari Devi</p><p class="text-label-sm text-light-muted">+91 98110 22914</p></td><td class="py-component px-standard font-mono text-label-sm">23–27 Nov (4N)</td><td class="py-component px-standard">Executive · 301</td><td class="py-component px-standard">Direct Web</td><td class="py-component px-standard text-right font-mono">₹39,200</td><td class="py-component px-standard text-light-on-success-container">Deposit Paid</td><td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">Confirmed</span></td><td class="py-component px-standard text-right"><a href="../pms-reservation-detail/ReservationDetail.html" class="text-label-md text-light-primary whitespace-nowrap">View</a></td></tr>
+                <tr class="hover:bg-light-surface-container-low"><td class="py-component px-standard font-mono"><a href="../pms-reservation-detail/ReservationDetail.html" class="text-light-primary">#RES-4798</a></td><td class="py-component px-standard"><p class="font-medium">Suresh Deshmukh</p><p class="text-label-sm text-light-muted">+91 98201 77412</p></td><td class="py-component px-standard font-mono text-label-sm">19–23 Nov (4N)</td><td class="py-component px-standard">Deluxe · 201</td><td class="py-component px-standard">Corporate</td><td class="py-component px-standard text-right font-mono">₹34,250</td><td class="py-component px-standard text-light-warning">₹14,250 Due</td><td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm">Checked-in</span></td><td class="py-component px-standard text-right"><a href="../pms-folio/GuestFolio.html" class="text-label-md text-light-primary whitespace-nowrap">Folio</a></td></tr>
+                <tr class="hover:bg-light-surface-container-low"><td class="py-component px-standard font-mono"><a href="../pms-reservation-detail/ReservationDetail.html" class="text-light-primary">#RES-4829</a></td><td class="py-component px-standard"><p class="font-medium">Priya Nair</p><p class="text-label-sm text-light-muted">+91 99104 51200</p></td><td class="py-component px-standard font-mono text-label-sm">23–25 Nov (2N)</td><td class="py-component px-standard text-light-error">Deluxe · Unassigned</td><td class="py-component px-standard">MakeMyTrip</td><td class="py-component px-standard text-right font-mono">₹15,000</td><td class="py-component px-standard text-light-on-success-container">Prepaid OTA</td><td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">Confirmed</span></td><td class="py-component px-standard text-right"><a href="../pms-room-inventory/RoomInventory.html" class="text-label-md text-light-primary whitespace-nowrap">Assign</a></td></tr>
+                <tr class="hover:bg-light-surface-container-low"><td class="py-component px-standard font-mono">#RES-4850</td><td class="py-component px-standard"><p class="font-medium">Apex Pharma Hold</p><p class="text-label-sm text-light-muted">+91 11 4012 9000</p></td><td class="py-component px-standard font-mono text-label-sm">26–28 Nov (2N)</td><td class="py-component px-standard">Deluxe · 201</td><td class="py-component px-standard">Corporate</td><td class="py-component px-standard text-right font-mono">₹15,000</td><td class="py-component px-standard text-light-muted">Pending</td><td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm">Tentative</span></td><td class="py-component px-standard text-right"><a href="../pms-reservation-detail/ReservationDetail.html" class="text-label-md text-light-primary whitespace-nowrap">View</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

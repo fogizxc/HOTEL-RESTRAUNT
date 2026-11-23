@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer QR Menu Preview — Royal Fine Dine (Table 07)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background dark:bg-dark-background dark:text-dark-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <header class="sticky top-0 z-20 bg-light-surface border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+      <div class="flex items-center gap-compact">
+        <a href="../pos-qr-manager/QRTableManagement.html" class="min-h-[36px] inline-flex items-center gap-micro px-component rounded border border-light-outline text-label-md whitespace-nowrap"><span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_back</span><span>QR Manager</span></a>
+        <span class="text-label-lg">Customer QR Ordering Simulator</span>
+      </div>
+      <select aria-label="Simulate table context" class="h-9 rounded border border-light-outline px-component text-label-md bg-light-surface-container-low"><option>Royal Fine Dine · Table 07 (Active Session)</option><option>Royal Rooftop · Table 01</option></select>
+    </header>
+
+    <main class="flex-1 p-section lg:p-major max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-section items-start text-body-sm">
+      <!-- Simulated 390px Mobile Customer Portal -->
+      <section class="lg:col-span-5 mx-auto w-full max-w-[390px] bg-light-surface border border-light-outline-variant rounded-2xl overflow-hidden shadow-sm">
+        <div class="p-standard bg-light-surface-container-low border-b border-light-outline-variant flex items-center justify-between">
+          <div><p class="font-title text-title-md">Royal Fine Dine</p><p class="text-label-sm text-light-on-primary-container">Table 07 · Session #SES-8819</p></div>
+          <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">Verified QR</span>
+        </div>
+        <div class="p-standard flex flex-col gap-standard">
+          <div class="flex gap-micro overflow-x-auto text-label-sm">
+            <span class="px-component py-micro rounded-full bg-light-primary text-light-on-primary whitespace-nowrap">Recommended</span>
+            <span class="px-component py-micro rounded-full bg-light-surface-container whitespace-nowrap">Starters</span>
+            <span class="px-component py-micro rounded-full bg-light-surface-container whitespace-nowrap">Mains</span>
+            <span class="px-component py-micro rounded-full bg-light-surface-container whitespace-nowrap">Beverages</span>
+          </div>
+
+          <div class="flex flex-col gap-compact">
+            <div class="p-compact rounded-lg border border-light-outline-variant flex items-center justify-between gap-compact">
+              <div><p class="font-medium">Dal Makhani Signature <span class="text-light-on-success-container text-label-sm">● Veg</span></p><p class="text-label-sm text-light-muted">24h slow-cooked black lentils</p><p class="font-mono font-medium mt-micro">₹590</p></div>
+              <button type="button" class="px-component py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-md whitespace-nowrap">+ Add</button>
+            </div>
+            <div class="p-compact rounded-lg border border-light-outline-variant flex items-center justify-between gap-compact">
+              <div><p class="font-medium">Paneer Tikka Angaara <span class="text-light-on-success-container text-label-sm">● Veg</span></p><p class="text-label-sm text-light-muted">Charcoal-smoked cottage cheese</p><p class="font-mono font-medium mt-micro">₹520</p></div>
+              <button type="button" class="px-component py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-md whitespace-nowrap">+ Add</button>
+            </div>
+          </div>
+
+          <div class="p-standard rounded-xl bg-light-primary text-light-on-primary flex items-center justify-between">
+            <div><p class="text-label-sm">2 items · Seat 2 (Guest A)</p><p class="font-mono font-semibold">₹1,110 + GST</p></div>
+            <span class="text-label-md font-medium whitespace-nowrap">Place Order →</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Multi-Customer QR Behaviour & Privacy Guard -->
+      <section class="lg:col-span-7 bg-light-surface border border-light-outline-variant rounded-xl p-section flex flex-col gap-standard">
+        <h1 class="text-title-lg">Concurrent Multi-Customer QR Session Rules</h1>
+        <div class="p-standard rounded-lg bg-light-surface-container-low flex flex-col gap-micro">
+          <p class="font-medium">1. Shared Table Session, Private Customer Carts</p>
+          <p class="text-light-muted">Multiple guests at Table 07 scan the same static QR. Each guest&#39;s device places orders into Session #SES-8819 without exposing previous customers&#39; orders or personal data.</p>
+        </div>
+        <div class="p-standard rounded-lg bg-light-surface-container-low flex flex-col gap-micro">
+          <p class="font-medium">2. Flexible Checkout Options</p>
+          <p class="text-light-muted">Guests may pay online via UPI/Card (awaiting trusted provider confirmation) or select Cash (marked Awaiting Staff Collection) or consolidate into the table bill.</p>
+        </div>
+        <div class="p-standard rounded-lg bg-light-surface-container-low flex flex-col gap-micro">
+          <p class="font-medium">3. Automatic Kitchen Station Routing</p>
+          <p class="text-light-muted">Confirmed QR orders generate traceable KOTs directly into Panel 05 (Kitchen Display System) by station.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+</body></html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager &amp; HR Approvals Mobile — HospitalityOS (HR &amp; Employees)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="max-w-[390px] mx-auto min-h-[884px] bg-light-background flex flex-col pb-20" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <header class="sticky top-0 z-20 bg-light-surface/95 backdrop-blur-md border-b border-light-outline-variant px-standard py-component flex items-center justify-between gap-compact">
+      <div class="min-w-0">
+        <p class="text-label-sm text-light-muted uppercase truncate">Royal Hospitality Group</p>
+        <h1 class="font-headline text-title-md truncate">Manager &amp; HR Approvals</h1>
+      </div>
+      <span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm font-medium shrink-0">14 Pending</span>
+    </header>
+
+    <main class="flex-1 p-standard flex flex-col gap-standard">
+      <!-- Filter Pills -->
+      <div class="flex items-center gap-compact overflow-x-auto text-label-sm pb-micro">
+        <span class="px-component py-micro rounded-full bg-light-primary text-light-on-primary font-medium whitespace-nowrap">All (14)</span>
+        <span class="px-component py-micro rounded-full bg-light-surface border border-light-outline-variant whitespace-nowrap">Leave (6)</span>
+        <span class="px-component py-micro rounded-full bg-light-surface border border-light-outline-variant whitespace-nowrap">Punches (5)</span>
+        <span class="px-component py-micro rounded-full bg-light-surface border border-light-outline-variant whitespace-nowrap">Payroll (3)</span>
+      </div>
+
+      <!-- Approval Card 1: Leave with Roster Warning -->
+      <article class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+        <div class="flex items-start justify-between gap-compact">
+          <div class="min-w-0">
+            <p class="text-label-sm text-light-muted uppercase">Leave Request · Noida Dine</p>
+            <h2 class="font-title text-title-md truncate">Vikram Negi (Tandoor Chef)</h2>
+          </div>
+          <span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm font-medium shrink-0">Low Coverage</span>
+        </div>
+        <p class="text-body-sm">Casual Leave: <span class="font-mono">24–25 Nov (2d)</span> · Balance: 4.5d</p>
+        <div class="grid grid-cols-2 gap-compact">
+          <button type="button" class="min-h-[40px] rounded border border-light-outline-variant text-label-md font-medium">Decline</button>
+          <button type="button" class="min-h-[40px] rounded bg-light-primary text-light-on-primary text-label-md font-medium">Approve</button>
+        </div>
+      </article>
+
+      <!-- Approval Card 2: Attendance Correction -->
+      <article class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+        <div class="flex items-start justify-between gap-compact">
+          <div class="min-w-0">
+            <p class="text-label-sm text-light-muted uppercase">Attendance Fix · Meerut Hotel</p>
+            <h2 class="font-title text-title-md truncate">Suresh Yadav (Housekeeping)</h2>
+          </div>
+          <span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm font-medium shrink-0">Missed Out</span>
+        </div>
+        <p class="text-body-sm">Requested Out-Punch: <span class="font-mono">22 Nov · 23:15 IST</span> (Banquet teardown)</p>
+        <div class="grid grid-cols-2 gap-compact">
+          <button type="button" class="min-h-[40px] rounded border border-light-outline-variant text-label-md font-medium">Reject</button>
+          <button type="button" class="min-h-[40px] rounded bg-light-primary text-light-on-primary text-label-md font-medium">Verify &amp; Save</button>
+        </div>
+      </article>
+
+      <!-- Approval Card 3: Shift Swap -->
+      <article class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+        <div class="flex items-start justify-between gap-compact">
+          <div class="min-w-0">
+            <p class="text-label-sm text-light-muted uppercase">Shift Swap · Delhi Hotel</p>
+            <h2 class="font-title text-title-md truncate">Ananya V. ↔ Priya N.</h2>
+          </div>
+          <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm font-medium shrink-0">No Conflict</span>
+        </div>
+        <p class="text-body-sm">Front Office Desk: <span class="font-mono">25 Nov (07:00 ↔ 15:00)</span></p>
+        <div class="grid grid-cols-2 gap-compact">
+          <button type="button" class="min-h-[40px] rounded border border-light-outline-variant text-label-md font-medium">Decline</button>
+          <button type="button" class="min-h-[40px] rounded bg-light-primary text-light-on-primary text-label-md font-medium">Approve Swap</button>
+        </div>
+      </article>
+
+      <!-- Approval Card 4: Payroll Exception -->
+      <article class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+        <div class="flex items-start justify-between gap-compact">
+          <div class="min-w-0">
+            <p class="text-label-sm text-light-muted uppercase">Payroll Exception · Delhi Hotel</p>
+            <h2 class="font-title text-title-md truncate">Ramesh Kumar (EMP-0197)</h2>
+          </div>
+          <span class="px-compact py-micro rounded bg-light-error-container text-light-on-error-container text-label-sm font-medium shrink-0">Neg Net Pay</span>
+        </div>
+        <p class="text-body-sm">Net Pay <span class="font-mono text-light-on-error-container">-₹1,840</span> due to advance recovery + LOP.</p>
+        <a href="../hr-payroll/PayrollProcessing.html" class="min-h-[40px] rounded bg-light-primary text-light-on-primary text-label-md font-medium flex items-center justify-center">Open Payroll Exception</a>
+      </article>
+    </main>
+
+    <nav aria-label="Manager Mobile Bottom Nav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] bg-light-surface border-t border-light-outline-variant px-standard py-compact grid grid-cols-4 text-center text-label-sm">
+      <a href="HRManagerApprovalsMobile.html" aria-current="page" class="flex flex-col items-center text-light-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">approval</span><span>Approvals</span></a>
+      <a href="../hr-overview/PeopleOverview.html" class="flex flex-col items-center text-light-muted"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Overview</span></a>
+      <a href="../hr-shifts/ShiftRosterScheduling.html" class="flex flex-col items-center text-light-muted"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">calendar_month</span><span>Roster</span></a>
+      <a href="../hr-payroll/PayrollProcessing.html" class="flex flex-col items-center text-light-muted"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">payments</span><span>Payroll</span></a>
+    </nav>
+  </div>
+
+
+</body></html>

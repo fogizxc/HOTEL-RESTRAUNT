@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Reservation — Royal Grand Hotel (PMS)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background dark:bg-dark-background dark:text-dark-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <aside class="fixed lg:sticky top-0 left-0 z-40 w-[252px] min-h-[1024px] shrink-0 bg-light-surface/95 dark:bg-dark-surface/95 border-r border-light-outline-variant hidden lg:flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro"><div class="w-8 h-8 rounded bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-label-lg font-semibold">PM</div><div><p class="font-title text-title-md leading-none">Hotel PMS</p><p class="text-label-sm text-light-muted uppercase mt-micro">Royal Grand · Meerut</p></div></div>
+        <nav aria-label="Hotel PMS Navigation" class="flex flex-col gap-compact text-body-sm">
+          <div><p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p><a href="../pms-overview/HotelOverview.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Hotel Dashboard</span></a></div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Reservations</p>
+            <a href="../pms-calendar/ReservationCalendar.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">calendar_month</span><span>Reservation Calendar</span></a>
+            <a href="NewReservation.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container text-light-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">add_circle</span><span>New Reservation</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Room Operations</p>
+            <a href="../pms-front-desk/FrontDesk.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">concierge</span><span>Front Desk</span></a>
+            <a href="../pms-room-inventory/RoomInventory.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">bed</span><span>Room Inventory</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant"><div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low"><div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-md font-semibold">AV</div><div><p class="text-label-md">Ananya Verma</p><p class="text-label-sm text-light-muted">Front Office Manager</p></div></div></div>
+    </aside>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md border-b border-light-outline-variant px-section py-component flex items-center justify-between gap-standard">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-compact text-body-sm"><span class="text-light-muted">Reservations</span><span class="material-symbols-outlined text-body-sm text-light-muted" aria-hidden="true">chevron_right</span><span class="text-label-lg">New Reservation Wizard</span></nav>
+        <span class="text-label-sm text-light-muted">7-step guided booking</span>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <!-- 7-Step Stepper -->
+        <ol class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-compact text-label-sm">
+          <li class="p-compact rounded bg-light-primary-container text-light-on-primary-container font-medium">1. Stay Details</li>
+          <li class="p-compact rounded bg-light-surface border border-light-outline-variant text-light-on-surface">2. Availability</li>
+          <li class="p-compact rounded bg-light-surface border border-light-outline-variant text-light-muted">3. Room Assign</li>
+          <li class="p-compact rounded bg-light-surface border border-light-outline-variant text-light-muted">4. Guest Info</li>
+          <li class="p-compact rounded bg-light-surface border border-light-outline-variant text-light-muted">5. Pricing</li>
+          <li class="p-compact rounded bg-light-surface border border-light-outline-variant text-light-muted">6. Deposit</li>
+          <li class="p-compact rounded bg-light-surface border border-light-outline-variant text-light-muted">7. Review</li>
+        </ol>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-section">
+          <div class="lg:col-span-2 flex flex-col gap-standard">
+            <!-- Step 1: Stay Details -->
+            <div class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-standard text-body-sm">
+              <div class="flex items-center justify-between"><h2 class="text-title-lg">Step 1 — Stay Details</h2><span class="font-mono text-label-md text-light-primary">3 Nights calculated</span></div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-standard">
+                <label class="flex flex-col gap-micro"><span class="text-label-md">Check-in date</span><input type="date" value="2026-11-24" class="h-10 rounded border border-light-outline px-component" aria-label="Check-in date"></label>
+                <label class="flex flex-col gap-micro"><span class="text-label-md">Check-out date</span><input type="date" value="2026-11-27" class="h-10 rounded border border-light-outline px-component" aria-label="Check-out date"></label>
+                <label class="flex flex-col gap-micro"><span class="text-label-md">Estimated arrival</span><input type="text" value="14:00 IST" class="h-10 rounded border border-light-outline px-component font-mono" aria-label="Estimated arrival"></label>
+                <label class="flex flex-col gap-micro"><span class="text-label-md">Adults</span><input type="number" value="2" class="h-10 rounded border border-light-outline px-component font-mono" aria-label="Adults"></label>
+                <label class="flex flex-col gap-micro"><span class="text-label-md">Children</span><input type="number" value="0" class="h-10 rounded border border-light-outline px-component font-mono" aria-label="Children"></label>
+                <label class="flex flex-col gap-micro"><span class="text-label-md">Rooms</span><input type="number" value="1" class="h-10 rounded border border-light-outline px-component font-mono" aria-label="Rooms"></label>
+              </div>
+            </div>
+
+            <!-- Step 2 & 3: Availability & Room Assignment -->
+            <div class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-standard text-body-sm">
+              <h2 class="text-title-lg">Step 2 &amp; 3 — Available Categories &amp; Room Assignment</h2>
+              <div class="divide-y divide-light-outline-variant">
+                <div class="py-component flex flex-wrap items-center justify-between gap-standard">
+                  <div><p class="font-medium">Deluxe Room · King Bed</p><p class="text-label-sm text-light-muted">8 sellable rooms · Breakfast Included · Max 2A + 1C</p></div>
+                  <div class="flex items-center gap-standard"><span class="font-mono font-medium">₹7,500 / night</span><button type="button" class="px-component py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-md whitespace-nowrap">Selected (Room 202)</button></div>
+                </div>
+                <div class="py-component flex flex-wrap items-center justify-between gap-standard">
+                  <div><p class="font-medium">Executive Room · Pool View</p><p class="text-label-sm text-light-muted">4 sellable rooms · Flexible Rate · Lounge Access</p></div>
+                  <div class="flex items-center gap-standard"><span class="font-mono font-medium">₹9,800 / night</span><button type="button" class="px-component py-micro rounded border border-light-outline text-label-md whitespace-nowrap">Select</button></div>
+                </div>
+                <div class="py-component flex flex-wrap items-center justify-between gap-standard">
+                  <div><p class="font-medium">Junior Suite</p><p class="text-label-sm text-light-muted">2 sellable rooms · Separate Living Area</p></div>
+                  <div class="flex items-center gap-standard"><span class="font-mono font-medium">₹14,500 / night</span><button type="button" class="px-component py-micro rounded border border-light-outline text-label-md whitespace-nowrap">Select</button></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4: Guest Information -->
+            <div class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-standard text-body-sm">
+              <div class="flex items-center justify-between"><h2 class="text-title-lg">Step 4 — Guest Information</h2><span class="text-label-sm text-light-primary">Duplicate check active</span></div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-standard">
+                <label class="flex flex-col gap-micro"><span class="text-label-md">Full name</span><input type="text" placeholder="Search existing or enter name" value="Siddharth Rao" class="h-10 rounded border border-light-outline px-component" aria-label="Search existing or enter name"></label>
+                <label class="flex flex-col gap-micro"><span class="text-label-md">Phone number</span><input type="text" value="+91 98112 34091" class="h-10 rounded border border-light-outline px-component font-mono" aria-label="Phone number"></label>
+                <label class="flex flex-col gap-micro"><span class="text-label-md">Email address</span><input type="email" value="siddharth.rao@example.in" class="h-10 rounded border border-light-outline px-component" aria-label="Email address"></label>
+                <label class="flex flex-col gap-micro"><span class="text-label-md">ID Document Type</span><select class="h-10 rounded border border-light-outline px-component" aria-label="ID Document Type"><option>Aadhaar / Passport (Verify at Check-in)</option></select></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5, 6, 7: Pricing & Deposit Summary -->
+          <aside class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col justify-between gap-standard h-fit text-body-sm">
+            <div class="flex flex-col gap-component">
+              <h2 class="text-title-lg">Pricing &amp; Deposit Summary</h2>
+              <div class="flex justify-between"><span class="text-light-muted">Deluxe Room (3 nights × ₹7,500)</span><span class="font-mono">₹22,500</span></div>
+              <div class="flex justify-between"><span class="text-light-muted">Applicable Hotel GST (12%)</span><span class="font-mono">₹2,700</span></div>
+              <div class="flex justify-between pt-compact border-t border-light-outline-variant font-medium text-title-md"><span>Total Payable</span><span class="font-mono">₹25,200</span></div>
+              <div class="pt-standard border-t border-light-outline-variant flex flex-col gap-micro">
+                <span class="text-label-md">Step 6 — Advance Deposit</span>
+                <select class="h-10 rounded border border-light-outline px-component" aria-label="Step 6 — Advance Deposit"><option>Partial Deposit (₹8,400 via UPI)</option><option>No Advance Payment</option><option>Full Advance Payment</option></select>
+                <p class="text-label-sm text-light-muted">Online payments remain Pending until gateway confirmation.</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-compact">
+              <button type="button" class="w-full min-h-[40px] rounded bg-light-primary text-light-on-primary text-label-lg whitespace-nowrap">Confirm reservation</button>
+              <button type="button" class="w-full min-h-[36px] rounded border border-light-outline text-label-md whitespace-nowrap">Save as tentative</button>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

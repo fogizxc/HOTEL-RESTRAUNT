@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Grand Hotel · Meerut — Customer Portal</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[884px] flex flex-col pb-[84px]" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <header class="sticky top-0 z-30 bg-light-surface/95 border-b border-light-outline-variant px-standard py-component">
+      <div class="max-w-[1120px] mx-auto flex items-center justify-between gap-compact">
+        <a href="../portal-home/PortalDiscoveryHome.html" class="min-h-[36px] inline-flex items-center gap-micro text-label-lg text-light-primary">
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_back_ios_new</span>
+          <span>Explore</span>
+        </a>
+        <p class="font-title text-title-md">Royal Grand Hotel · Meerut</p>
+        <a href="../portal-loyalty-support/LoyaltyAndGuestServices.html" class="min-h-[36px] px-compact rounded-full bg-light-surface-container text-label-md inline-flex items-center">Help</a>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-[1120px] w-full mx-auto px-standard py-standard flex flex-col gap-section">
+      <!-- Property Gallery & Summary -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-xl overflow-hidden">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrD2XqQnkwkk4KkZkanl6TkW4-2Uv5Di7yRec6q7UbWTgtqrkxsmTg3XNqRFzutHxvYEEaJChlsBBgq1Nml2VqwsRqZI_GQEhIq564BS0OQPLcJkZE8JGTnel83q-gFNxnQ8iWW2QJnAbgLO7rk9Vf0LoSPVGj9SA3pIKovj6CM9Jjex8lSKzDUDu4Utc6J4NiMNPG81QCr0XwpI-Vxabp_r_bMD-Oe3O6of5KzUB0JNQ12lbmB0yJILwGzyog" alt="Royal Grand Hotel Meerut" class="w-full h-52 sm:h-72 object-cover">
+        <div class="p-standard flex flex-col gap-component">
+          <div class="flex flex-wrap items-center justify-between gap-compact">
+            <span class="px-compact py-micro rounded-full bg-light-primary-container text-light-on-primary-container text-label-sm font-medium">Hotel + 4 Dining Outlets</span>
+            <span class="text-label-sm text-light-muted">Check-in 14:00 · Check-out 11:00</span>
+          </div>
+          <h1 class="font-headline text-headline-md">Royal Grand Hotel, Meerut</h1>
+          <p class="text-body-sm text-light-muted">Bypass Road, Meerut, Uttar Pradesh · Direct Front Desk: +91 121 400 8200</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-compact pt-micro text-label-sm">
+            <div class="p-compact rounded-md bg-light-surface-container-low flex items-center gap-compact"><span class="material-symbols-outlined text-light-primary" aria-hidden="true">wifi</span><span>High-Speed Wi-Fi</span></div>
+            <div class="p-compact rounded-md bg-light-surface-container-low flex items-center gap-compact"><span class="material-symbols-outlined text-light-primary" aria-hidden="true">pool</span><span>Heated Pool</span></div>
+            <div class="p-compact rounded-md bg-light-surface-container-low flex items-center gap-compact"><span class="material-symbols-outlined text-light-primary" aria-hidden="true">local_parking</span><span>Valet Parking</span></div>
+            <div class="p-compact rounded-md bg-light-surface-container-low flex items-center gap-compact"><span class="material-symbols-outlined text-light-primary" aria-hidden="true">room_service</span><span>24/7 Room Service</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enabled Dining Outlets at This Property -->
+      <section class="flex flex-col gap-component">
+        <h2 class="font-title text-title-md">On-Property Dining Outlets</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-component">
+          <article class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex items-center justify-between gap-component">
+            <div>
+              <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm font-medium">Open Now · Till 23:30</span>
+              <h3 class="font-title text-title-md mt-compact">Royal Spice · All-Day Dining</h3>
+              <p class="text-body-sm text-light-muted">Dine-in, Takeaway &amp; Room Service enabled</p>
+            </div>
+            <a href="../portal-menu/RestaurantMenuOrdering.html" class="min-h-[36px] px-standard rounded-md bg-light-primary text-light-on-primary text-label-md inline-flex items-center whitespace-nowrap">View Menu</a>
+          </article>
+
+          <article class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex items-center justify-between gap-component">
+            <div>
+              <span class="px-compact py-micro rounded bg-light-surface-container text-light-muted text-label-sm font-medium">Opens 18:00 IST</span>
+              <h3 class="font-title text-title-md mt-compact">Royal Rooftop Lounge</h3>
+              <p class="text-body-sm text-light-muted">Dine-in only · Currently closed for lunch</p>
+            </div>
+            <a href="../portal-menu/RestaurantMenuOrdering.html" class="min-h-[36px] px-standard rounded-md border border-light-outline text-label-md inline-flex items-center whitespace-nowrap">Preview</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Policies -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-compact">
+        <h2 class="font-title text-title-md">Property Policies</h2>
+        <ul class="text-body-sm text-light-muted flex flex-col gap-micro">
+          <li>• Valid government photo ID required at check-in for all adult guests.</li>
+          <li>• Free cancellation up to 48 hours prior to check-in on Flexible Rates.</li>
+          <li>• Pets are not permitted in guest rooms; service animals welcome.</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Sticky Action Bar -->
+    <div class="fixed bottom-0 inset-x-0 z-30 bg-light-surface/95 border-t border-light-outline-variant p-standard">
+      <div class="max-w-[540px] mx-auto flex items-center justify-between gap-component">
+        <div>
+          <p class="text-label-sm text-light-muted">Rooms from</p>
+          <p class="font-headline text-title-lg font-mono tabular-nums">₹5,800<span class="text-label-sm text-light-muted font-body"> / night</span></p>
+        </div>
+        <a href="../portal-booking-search/HotelBookingSearch.html" class="min-h-[44px] px-section rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium inline-flex items-center justify-center">Check Availability</a>
+      </div>
+    </div>
+  </div>
+
+
+</body></html>

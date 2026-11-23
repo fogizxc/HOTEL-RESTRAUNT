@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Hospitality Group — Customer Portal (Desktop)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <!-- Desktop Customer Header -->
+    <header class="sticky top-0 z-30 bg-light-surface/95 border-b border-light-outline-variant px-section py-component">
+      <div class="max-w-[1280px] mx-auto flex items-center justify-between gap-standard">
+        <div class="flex items-center gap-section">
+          <div class="flex items-center gap-compact">
+            <div class="w-9 h-9 rounded-md bg-light-primary text-light-on-primary flex items-center justify-center font-headline text-label-lg font-semibold">RH</div>
+            <span class="font-title text-title-md">Royal Hospitality</span>
+          </div>
+          <nav aria-label="Primary Customer Navigation" class="flex items-center gap-standard text-body-sm">
+            <a href="PortalDiscoveryDesktop.html" aria-current="page" class="font-medium text-light-on-primary-container">Explore</a>
+            <a href="../portal-desktop-booking/HotelBookingDesktop.html" class="text-light-on-surface-variant hover:text-light-on-surface">Book a Stay</a>
+            <a href="../portal-desktop-menu/RestaurantMenuDesktop.html" class="text-light-on-surface-variant hover:text-light-on-surface">Order Food</a>
+            <a href="../portal-loyalty-support/LoyaltyAndGuestServices.html" class="text-light-on-surface-variant hover:text-light-on-surface">Loyalty &amp; Support</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-compact text-body-sm">
+          <span class="px-compact py-micro rounded-full bg-light-surface-container text-label-sm text-light-muted">INR (₹) · EN</span>
+          <a href="../portal-order-tracker/OrderCheckoutTracker.html" class="min-h-[36px] px-component rounded-full bg-light-surface-container text-label-md inline-flex items-center gap-micro">
+            <span class="material-symbols-outlined text-title-md" aria-hidden="true">shopping_bag</span>
+            <span class="font-mono">2</span>
+          </a>
+          <a href="../portal-auth/CustomerOTPSignIn.html" class="min-h-[36px] px-standard rounded-full bg-light-primary text-light-on-primary text-label-md inline-flex items-center">Sign In</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-[1280px] w-full mx-auto px-section py-major flex flex-col gap-major">
+      <!-- Editorial Split Hero -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+        <div class="lg:col-span-5 p-major flex flex-col justify-center gap-standard">
+          <span class="self-start px-compact py-micro rounded-full bg-light-primary-container text-light-on-primary-container text-label-sm font-medium">Royal Hospitality Group · Direct Portal</span>
+          <h1 class="font-display text-display-lg text-balance">Stays and dining, crafted around your visit.</h1>
+          <p class="text-body-lg text-light-muted text-pretty">Book rooms directly with transparent policies, order from our signature kitchens, or scan at your table and room.</p>
+          <div class="flex flex-wrap items-center gap-compact pt-micro">
+            <a href="../portal-desktop-booking/HotelBookingDesktop.html" class="min-h-[44px] px-section rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium inline-flex items-center">Book a Stay</a>
+            <a href="../portal-desktop-menu/RestaurantMenuDesktop.html" class="min-h-[44px] px-section rounded-md border border-light-outline text-label-lg font-medium inline-flex items-center">Browse Menus</a>
+          </div>
+        </div>
+        <div class="lg:col-span-7 min-h-[340px]">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrD2XqQnkwkk4KkZkanl6TkW4-2Uv5Di7yRec6q7UbWTgtqrkxsmTg3XNqRFzutHxvYEEaJChlsBBgq1Nml2VqwsRqZI_GQEhIq564BS0OQPLcJkZE8JGTnel83q-gFNxnQ8iWW2QJnAbgLO7rk9Vf0LoSPVGj9SA3pIKovj6CM9Jjex8lSKzDUDu4Utc6J4NiMNPG81QCr0XwpI-Vxabp_r_bMD-Oe3O6of5KzUB0JNQ12lbmB0yJILwGzyog" alt="Royal Grand Hotel courtyard" class="w-full h-full object-cover">
+        </div>
+      </section>
+
+      <!-- Destinations Grid -->
+      <section class="flex flex-col gap-standard">
+        <div class="flex items-center justify-between">
+          <h2 class="font-headline text-headline-md">Our Hotels &amp; Signature Restaurants</h2>
+          <span class="text-body-sm text-light-muted">Showing enabled services per property</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-section items-stretch">
+          <article class="bg-light-surface border border-light-outline-variant rounded-xl overflow-hidden flex flex-col justify-between h-full">
+            <div>
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAv03YIaeZDKURWA1mvpDoQcb8h9QJgTRTK-mL3PuH8lyz3FfZGLE-2pDNmaZvgWijBWJxywb4V5hBx5vo4_nVi009Z4tCTLyITNyV_OcsC7M_7gP98j8Gd5wxUr7hp4OSZnY-XFjuwlVzNJBZ07NF5d0dupVhwwPtR934XnGYiXezaZYbYGogZDoUHFRQ1iYH9CRPKYFThOxWY1mcV_CuzfjP7D3F7QwnRO20q7cosYqpy-ESWJvzPw1ulsM0" alt="Royal Grand Hotel Meerut" class="w-full h-44 object-cover">
+              <div class="p-standard flex flex-col gap-compact">
+                <span class="text-label-sm text-light-on-primary-container font-medium">Hotel + 4 Outlets</span>
+                <h3 class="font-title text-title-lg">Royal Grand Hotel · Meerut</h3>
+                <p class="text-body-sm text-light-muted">140 rooms, courtyard pool, 24/7 room service, and all-day dining.</p>
+              </div>
+            </div>
+            <div class="px-standard pb-standard flex items-center justify-between">
+              <span class="font-mono text-body-sm font-semibold">From ₹5,800/nt</span>
+              <a href="../portal-desktop-booking/HotelBookingDesktop.html" class="text-label-md text-light-on-primary-container underline">Book Stay</a>
+            </div>
+          </article>
+
+          <article class="bg-light-surface border border-light-outline-variant rounded-xl overflow-hidden flex flex-col justify-between h-full">
+            <div>
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrD2XqQnkwkk4KkZkanl6TkW4-2Uv5Di7yRec6q7UbWTgtqrkxsmTg3XNqRFzutHxvYEEaJChlsBBgq1Nml2VqwsRqZI_GQEhIq564BS0OQPLcJkZE8JGTnel83q-gFNxnQ8iWW2QJnAbgLO7rk9Vf0LoSPVGj9SA3pIKovj6CM9Jjex8lSKzDUDu4Utc6J4NiMNPG81QCr0XwpI-Vxabp_r_bMD-Oe3O6of5KzUB0JNQ12lbmB0yJILwGzyog" alt="Royal Business Hotel Delhi" class="w-full h-44 object-cover">
+              <div class="p-standard flex flex-col gap-compact">
+                <span class="text-label-sm text-light-on-primary-container font-medium">Hotel + Dining</span>
+                <h3 class="font-title text-title-lg">Royal Business Hotel · Delhi</h3>
+                <p class="text-body-sm text-light-muted">100 executive rooms near business district with express check-in.</p>
+              </div>
+            </div>
+            <div class="px-standard pb-standard flex items-center justify-between">
+              <span class="font-mono text-body-sm font-semibold">From ₹6,200/nt</span>
+              <a href="../portal-desktop-booking/HotelBookingDesktop.html" class="text-label-md text-light-on-primary-container underline">Book Stay</a>
+            </div>
+          </article>
+
+          <article class="bg-light-surface border border-light-outline-variant rounded-xl overflow-hidden flex flex-col justify-between h-full">
+            <div>
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAQZoYoMmAyNDvrOAjXdoEg5e0KI44A3VBvi_wa_75EMJaptQ5diIPW8N-2xlX7Xr6AAsRvbeVVH_uQ6mVbNHl-Ivorf0avw-3sd2sjzjfdk9eygBRV-fu__Xosgp6A2jMgdr6xDs6QL8uec1c-syL8mDb0N2PTKug1DB5QZ0kBweDmrTOYNoMh4iRk-xtOFjZfYEE0kXPyjSVfcoD8E_jjCBLeFJWp99igYUHdLdEfepoqBTWFwqu8ovQmZvISJv47LsAZ" alt="Royal Fine Dine Noida" class="w-full h-44 object-cover">
+              <div class="p-standard flex flex-col gap-compact">
+                <span class="text-label-sm text-light-on-success-container font-medium">Restaurant Only</span>
+                <h3 class="font-title text-title-lg">Royal Fine Dine · Noida</h3>
+                <p class="text-body-sm text-light-muted">Contemporary North Indian dining, takeaway &amp; local delivery.</p>
+              </div>
+            </div>
+            <div class="px-standard pb-standard flex items-center justify-between">
+              <span class="font-mono text-body-sm font-semibold">Open till 23:30</span>
+              <a href="../portal-desktop-menu/RestaurantMenuDesktop.html" class="text-label-md text-light-on-primary-container underline">Order Food</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+</body></html>

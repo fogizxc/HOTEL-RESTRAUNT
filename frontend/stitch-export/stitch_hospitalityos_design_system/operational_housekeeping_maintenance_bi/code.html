@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operational, Housekeeping &amp; Maintenance BI — HospitalityOS (Reports &amp; BI)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <aside class="fixed lg:sticky top-0 left-0 z-40 w-[252px] min-h-[1024px] shrink-0 bg-light-surface/95 border-r border-light-outline-variant hidden lg:flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro">
+          <div class="w-8 h-8 rounded bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-label-lg font-semibold">BI</div>
+          <div><p class="font-title text-title-md leading-none">Reports &amp; BI</p><p class="text-label-sm text-light-muted uppercase mt-micro">Royal Hospitality Group</p></div>
+        </div>
+        <nav aria-label="Reports &amp; BI Navigation" class="flex flex-col gap-compact text-body-sm">
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p>
+            <a href="../bi-overview/BusinessIntelligenceOverview.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">analytics</span><span>Executive BI</span></a>
+            <a href="../bi-comparison/CrossPropertyComparison.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">compare</span><span>Property Comparison</span></a>
+            <a href="../bi-dashboards/SavedDashboardsLibrary.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Saved Dashboards</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Domain Analytics</p>
+            <a href="../bi-hotel/HotelAnalytics.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">hotel</span><span>Hotel Analytics</span></a>
+            <a href="../bi-restaurant/RestaurantMenuAnalytics.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">restaurant</span><span>Restaurant &amp; Menu</span></a>
+            <a href="../bi-financial/FinancialAndInventoryBI.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">account_balance</span><span>Finance &amp; Inventory</span></a>
+            <a href="../bi-people-customer/WorkforceAndCustomerBI.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">groups</span><span>People &amp; Customers</span></a>
+            <a href="OperationalHousekeepingBI.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container text-light-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">engineering</span><span>Operations &amp; HK</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Builder, Planning &amp; Trust</p>
+            <a href="../bi-report-builder/CustomReportBuilder.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">build</span><span>Custom Report Builder</span></a>
+            <a href="../bi-schedules/ScheduledReportsExport.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">schedule_send</span><span>Schedules &amp; Exports</span></a>
+            <a href="../bi-forecasting/ForecastingAndInsights.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">trending_up</span><span>Forecasting &amp; Insights</span></a>
+            <a href="../bi-governance/DataQualityAndMetricGovernance.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">verified</span><span>Data Quality &amp; Governance</span></a>
+            <a href="../bi-audit-settings/ReportAccessAuditSettings.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">policy</span><span>Audit &amp; BI Settings</span></a>
+            <a href="../bi-mobile/ManagerBIMobile.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">smartphone</span><span>Manager BI (390px)</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant">
+        <div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low">
+          <div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-md font-semibold">RS</div>
+          <div><p class="text-label-md">Raghav Singhania</p><p class="text-label-sm text-light-muted">Managing Director</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 backdrop-blur-md border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+        <div>
+          <h1 class="font-headline text-title-lg leading-tight">Operational, Housekeeping &amp; Maintenance BI</h1>
+          <p class="text-body-sm text-light-muted">Room turnaround velocity, inspection pass rates, preventive vs reactive maintenance &amp; OOO room impact</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-compact text-body-sm">
+          <select aria-label="Property Filter" class="rounded border-light-outline-variant bg-light-surface-container-low text-body-sm py-micro">
+            <option>All Properties (2 Hotels + 2 Rest.)</option>
+            <option>Royal Grand Hotel · Meerut</option>
+            <option>Royal Business Hotel · Delhi</option>
+          </select>
+          <button type="button" class="min-h-[36px] px-standard rounded bg-light-primary text-light-on-primary text-label-md whitespace-nowrap">Export Ops Brief</button>
+        </div>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <!-- KPI Strip -->
+        <section aria-label="Operational KPIs" class="grid grid-cols-2 sm:grid-cols-4 gap-component">
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component"><p class="text-label-sm text-light-muted uppercase">Avg Room Turnaround</p><p class="font-headline text-title-lg font-mono tabular-nums mt-micro">34 mins</p><p class="text-label-sm text-light-on-success-container mt-micro">-4m vs Oct · Target ≤38m</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component"><p class="text-label-sm text-light-muted uppercase">Inspection Pass Rate</p><p class="font-headline text-title-lg font-mono tabular-nums text-light-on-success-container mt-micro">94.8%</p><p class="text-label-sm text-light-muted mt-micro">1,420 rooms audited MTD</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component"><p class="text-label-sm text-light-muted uppercase">Work Order SLA Met</p><p class="font-headline text-title-lg font-mono tabular-nums mt-micro">89.2%</p><p class="text-label-sm text-light-on-warning-container mt-micro">HVAC delays in Delhi wing</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component"><p class="text-label-sm text-light-muted uppercase">OOO Room Revenue Loss</p><p class="font-headline text-title-lg font-mono tabular-nums text-light-on-error-container mt-micro">₹1,92,600</p><p class="text-label-sm text-light-muted mt-micro">30 room-nights out of order</p></div>
+        </section>
+
+        <!-- Hotel Housekeeping & Engineering Comparison -->
+        <section class="bg-light-surface border border-light-outline-variant rounded-lg overflow-hidden">
+          <div class="p-standard border-b border-light-outline-variant flex items-center justify-between">
+            <h2 class="font-title text-title-md">Housekeeping &amp; Engineering Performance by Hotel</h2>
+            <span class="text-label-sm text-light-muted">Room turnaround metrics apply only to hotel properties</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-body-sm">
+              <thead>
+                <tr class="border-b border-light-outline-variant text-label-sm text-light-muted uppercase bg-light-surface-container-low">
+                  <th class="py-component px-standard">Hotel Property</th>
+                  <th class="py-component px-standard text-right">Avg Turnaround</th>
+                  <th class="py-component px-standard text-right">1st-Pass Inspect</th>
+                  <th class="py-component px-standard text-right">PM vs Reactive</th>
+                  <th class="py-component px-standard text-right">MTTR (Work Orders)</th>
+                  <th class="py-component px-standard text-right">Linen / Chem Cost / Occ Rm</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-light-outline-variant">
+                <tr>
+                  <td class="py-component px-standard font-medium">Royal Grand Hotel · Meerut (140 Rms)</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">31 mins</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums text-light-on-success-container">96.2%</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">74% / 26%</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">2.1 hrs</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">₹148</td>
+                </tr>
+                <tr>
+                  <td class="py-component px-standard font-medium">Royal Business Hotel · Delhi (100 Rms)</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">38 mins</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">92.4%</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums text-light-on-warning-container">58% / 42%</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums text-light-on-warning-container">4.6 hrs</td>
+                  <td class="py-component px-standard text-right font-mono tabular-nums">₹164</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Maintenance Breakdown & Guest Request SLA -->
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-section">
+          <section class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+            <h2 class="font-title text-title-md">Top Reactive Work Order Categories (MTD)</h2>
+            <div class="flex flex-col gap-compact text-body-sm">
+              <div class="p-component rounded bg-light-surface-container-low flex items-center justify-between">
+                <div><p class="font-medium">HVAC &amp; Chiller Units</p><p class="text-label-sm text-light-muted">38 tickets · Avg resolution 5.2 hrs</p></div>
+                <span class="font-mono text-label-md font-semibold text-light-on-warning-container">₹84,500</span>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low flex items-center justify-between">
+                <div><p class="font-medium">Plumbing &amp; Hot Water Valves</p><p class="text-label-sm text-light-muted">29 tickets · Avg resolution 1.8 hrs</p></div>
+                <span class="font-mono text-label-md font-semibold">₹31,200</span>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low flex items-center justify-between">
+                <div><p class="font-medium">Kitchen Cold-Room &amp; Exhaust (All 4 Props)</p><p class="text-label-sm text-light-muted">14 tickets · Avg resolution 2.4 hrs</p></div>
+                <span class="font-mono text-label-md font-semibold">₹46,800</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+            <h2 class="font-title text-title-md">Guest Request &amp; Incident Resolution</h2>
+            <div class="grid grid-cols-2 gap-component text-body-sm">
+              <div class="p-component rounded bg-light-surface-container-low">
+                <p class="text-label-sm text-light-muted">In-Room Amenity Requests</p>
+                <p class="font-mono text-title-md font-semibold mt-micro">11.4 mins</p>
+                <p class="text-label-sm text-light-on-success-container mt-micro">97.1% under 15m SLA</p>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low">
+                <p class="text-label-sm text-light-muted">Lost &amp; Found Recovery Rate</p>
+                <p class="font-mono text-title-md font-semibold mt-micro">88.5%</p>
+                <p class="text-label-sm text-light-muted mt-micro">26 of 29 items returned</p>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low">
+                <p class="text-label-sm text-light-muted">Safety / Hygiene Incidents</p>
+                <p class="font-mono text-title-md font-semibold text-light-on-success-container mt-micro">0 Open</p>
+                <p class="text-label-sm text-light-muted mt-micro">2 minor resolved in 4 hrs</p>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low">
+                <p class="text-label-sm text-light-muted">Energy Cost / Occ Room</p>
+                <p class="font-mono text-title-md font-semibold mt-micro">₹412</p>
+                <p class="text-label-sm text-light-muted mt-micro">-3.2% vs Oct 2026</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

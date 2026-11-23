@@ -1,0 +1,452 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organisation Onboarding — HospitalityOS Super Admin</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background dark:bg-dark-background dark:text-dark-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <!-- Persistent Sidebar -->
+    <aside id="app-sidebar" class="fixed lg:sticky top-0 left-0 z-40 w-[248px] min-h-[1024px] shrink-0 bg-light-surface/95 dark:bg-dark-surface/95 border-r border-light-outline-variant dark:border-dark-outline-variant flex flex-col justify-between -translate-x-full lg:translate-x-0 transition-transform duration-drawer-slide" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro">
+          <div class="w-8 h-8 rounded bg-light-primary dark:bg-dark-primary text-light-on-primary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-title-lg" aria-hidden="true">apartment</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-title text-title-md text-light-on-surface dark:text-dark-on-surface leading-none">HospitalityOS</span>
+            <span class="font-label text-label-sm text-light-muted uppercase mt-micro">Platform Control</span>
+          </div>
+        </div>
+        <div class="px-compact">
+          <span class="inline-flex items-center gap-compact px-compact py-micro rounded-full bg-light-surface-container dark:bg-dark-surface-container text-label-sm border border-light-outline-variant dark:border-dark-outline-variant">
+            <span class="w-1.5 h-1.5 rounded-full bg-light-primary" aria-hidden="true"></span>Super Admin
+          </span>
+        </div>
+        <nav aria-label="Super Admin Navigation" class="flex flex-col gap-component">
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase tracking-wider">Overview</p>
+            <a href="../super-admin-overview/PlatformOverview.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container text-body-sm"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Dashboard</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase tracking-wider">Organisations</p>
+            <a href="../super-admin-organisations/OrganisationDirectory.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container text-body-sm"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">corporate_fare</span><span>Organisation Directory</span></a>
+            <a href="../super-admin-organisation-detail/OrganisationDetail.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container text-body-sm"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">domain</span><span>Properties Directory</span></a>
+            <a href="OrganisationOnboarding.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container dark:bg-dark-primary-container/40 text-light-on-primary-container dark:text-dark-on-primary-container font-medium text-body-sm"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">add_business</span><span>Organisation Onboarding</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase tracking-wider">Subscriptions &amp; Revenue</p>
+            <a href="../super-admin-entitlements/ModuleFeatureControl.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container text-body-sm"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">tune</span><span>Module &amp; Feature Entitlements</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant dark:border-dark-outline-variant">
+        <div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low dark:bg-dark-surface-container">
+          <div class="w-8 h-8 rounded-full bg-light-primary-container text-light-on-primary-container flex items-center justify-center text-label-md font-semibold">AM</div>
+          <div class="min-w-0 flex-1"><p class="text-label-md truncate">Arjun Mehta</p><p class="text-label-sm text-light-muted truncate">Platform Owner</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md border-b border-light-outline-variant dark:border-dark-outline-variant px-section py-component flex items-center justify-between gap-standard">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-compact text-body-sm">
+          <a href="../super-admin-organisations/OrganisationDirectory.html" class="text-light-muted hover:text-light-on-surface">Organisations</a>
+          <span class="material-symbols-outlined text-body-sm text-light-muted" aria-hidden="true">chevron_right</span>
+          <span class="text-label-lg text-light-on-surface dark:text-dark-on-surface">Organisation Onboarding</span>
+        </nav>
+        <div class="flex items-center gap-compact">
+          <button type="button" onclick="document.documentElement.classList.toggle(&#39;dark&#39;)" aria-label="Toggle theme" class="p-compact rounded hover:bg-light-surface-container">
+            <span class="material-symbols-outlined text-title-md dark:hidden" aria-hidden="true">dark_mode</span>
+            <span class="material-symbols-outlined text-title-md hidden dark:inline-block" aria-hidden="true">light_mode</span>
+          </button>
+          <a href="../super-admin-organisations/OrganisationDirectory.html" class="px-component py-micro rounded border border-light-outline text-label-md hover:bg-light-surface-container-low">Exit wizard</a>
+        </div>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-5xl w-full mx-auto flex flex-col gap-section">
+        <div>
+          <h1 data-design-text-token="headline-lg" class="font-headline text-headline-lg text-light-on-surface dark:text-dark-on-surface">Onboard new organisation</h1>
+          <p class="text-body-md text-light-on-surface-variant dark:text-dark-on-surface-variant mt-micro">Provision a tenant, initial properties, subscription plan, feature entitlements, quotas, and primary administrator in one guided flow.</p>
+        </div>
+
+        <!-- 8-Step Progress Stepper -->
+        <nav aria-label="Onboarding steps" class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-standard overflow-x-auto">
+          <ol class="flex items-center justify-between gap-compact min-w-[680px]">
+            <li><button type="button" onclick="goToStep(1)" class="step-pill flex items-center gap-compact text-label-md text-light-primary font-semibold" data-step="1"><span class="w-6 h-6 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-sm">1</span><span>Organisation</span></button></li>
+            <li><button type="button" onclick="goToStep(2)" class="step-pill flex items-center gap-compact text-label-md text-light-muted" data-step="2"><span class="w-6 h-6 rounded-full bg-light-surface-container text-light-on-surface-variant flex items-center justify-center text-label-sm">2</span><span>Business</span></button></li>
+            <li><button type="button" onclick="goToStep(3)" class="step-pill flex items-center gap-compact text-label-md text-light-muted" data-step="3"><span class="w-6 h-6 rounded-full bg-light-surface-container text-light-on-surface-variant flex items-center justify-center text-label-sm">3</span><span>Properties</span></button></li>
+            <li><button type="button" onclick="goToStep(4)" class="step-pill flex items-center gap-compact text-label-md text-light-muted" data-step="4"><span class="w-6 h-6 rounded-full bg-light-surface-container text-light-on-surface-variant flex items-center justify-center text-label-sm">4</span><span>Subscription</span></button></li>
+            <li><button type="button" onclick="goToStep(5)" class="step-pill flex items-center gap-compact text-label-md text-light-muted" data-step="5"><span class="w-6 h-6 rounded-full bg-light-surface-container text-light-on-surface-variant flex items-center justify-center text-label-sm">5</span><span>Modules</span></button></li>
+            <li><button type="button" onclick="goToStep(6)" class="step-pill flex items-center gap-compact text-label-md text-light-muted" data-step="6"><span class="w-6 h-6 rounded-full bg-light-surface-container text-light-on-surface-variant flex items-center justify-center text-label-sm">6</span><span>Limits</span></button></li>
+            <li><button type="button" onclick="goToStep(7)" class="step-pill flex items-center gap-compact text-label-md text-light-muted" data-step="7"><span class="w-6 h-6 rounded-full bg-light-surface-container text-light-on-surface-variant flex items-center justify-center text-label-sm">7</span><span>Admin</span></button></li>
+            <li><button type="button" onclick="goToStep(8)" class="step-pill flex items-center gap-compact text-label-md text-light-muted" data-step="8"><span class="w-6 h-6 rounded-full bg-light-surface-container text-light-on-surface-variant flex items-center justify-center text-label-sm">8</span><span>Activate</span></button></li>
+          </ol>
+        </nav>
+
+        <!-- Wizard Panels -->
+        <section class="bg-light-surface dark:bg-dark-surface border border-light-outline-variant dark:border-dark-outline-variant rounded-lg p-section shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+          <!-- STEP 1: Organisation Information -->
+          <div id="step-1" class="step-panel flex flex-col gap-section">
+            <div>
+              <h2 class="text-title-lg text-light-on-surface dark:text-dark-on-surface">Step 1 — Organisation information</h2>
+              <p class="text-body-sm text-light-on-surface-variant">Legal identity, regional defaults, and unique tenant identifier.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-standard">
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Legal organisation name *</span><input type="text" value="Royal Heritage Hospitality Pvt. Ltd." class="h-10 rounded border-light-outline dark:border-dark-outline bg-light-surface dark:bg-dark-surface-container text-body-md" aria-label="Legal organisation name "></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Business display name *</span><input type="text" value="Royal Grand Group" class="h-10 rounded border-light-outline dark:border-dark-outline bg-light-surface dark:bg-dark-surface-container text-body-md" aria-label="Business display name "></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Unique organisation identifier (auto-generated)</span><input type="text" value="ORG-RGG-0249" class="h-10 rounded font-mono border-light-outline dark:border-dark-outline bg-light-surface-container-low dark:bg-dark-surface-container text-body-md" aria-label="Unique organisation identifier (auto-generated)"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Registration / CIN number</span><input type="text" value="U55101DL2021PTC384920" class="h-10 rounded font-mono border-light-outline dark:border-dark-outline bg-light-surface dark:bg-dark-surface-container text-body-md" aria-label="Registration / CIN number"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Country / State / City</span><input type="text" value="India · Uttar Pradesh · Meerut" class="h-10 rounded border-light-outline dark:border-dark-outline bg-light-surface dark:bg-dark-surface-container text-body-md" aria-label="Country / State / City"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Primary contact email *</span><input type="email" value="operations@royalgrand.in" class="h-10 rounded border-light-outline dark:border-dark-outline bg-light-surface dark:bg-dark-surface-container text-body-md" aria-label="Primary contact email "></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Timezone &amp; Currency</span><input type="text" value="Asia/Kolkata (IST) · INR (₹)" class="h-10 rounded border-light-outline dark:border-dark-outline bg-light-surface dark:bg-dark-surface-container text-body-md" aria-label="Timezone &amp; Currency"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Contact phone</span><input type="tel" value="+91 98100 44210" class="h-10 rounded font-mono border-light-outline dark:border-dark-outline bg-light-surface dark:bg-dark-surface-container text-body-md" aria-label="Contact phone"></label>
+            </div>
+          </div>
+
+          <!-- STEP 2: Business Configuration -->
+          <div id="step-2" class="step-panel hidden flex flex-col gap-section">
+            <div>
+              <h2 class="text-title-lg">Step 2 — Business configuration</h2>
+              <p class="text-body-sm text-light-on-surface-variant">Select operational model and expected multi-property scale.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-standard">
+              <label class="p-standard rounded-lg border border-light-outline-variant cursor-pointer flex flex-col gap-compact hover:border-light-primary">
+                <input type="radio" name="biz_type" class="text-light-primary">
+                <span class="text-title-md">A. Standalone Hotel</span>
+                <span class="text-body-sm text-light-on-surface-variant">Unlocks PMS, Room Management, Front Desk, Housekeeping, and Guest Folios.</span>
+              </label>
+              <label class="p-standard rounded-lg border border-light-outline-variant cursor-pointer flex flex-col gap-compact hover:border-light-primary">
+                <input type="radio" name="biz_type" class="text-light-primary">
+                <span class="text-title-md">B. Standalone Restaurant</span>
+                <span class="text-body-sm text-light-on-surface-variant">Unlocks Restaurant POS, Table Management, QR Ordering, and Kitchen Display.</span>
+              </label>
+              <label class="p-standard rounded-lg border-2 border-light-primary bg-light-primary-container/30 cursor-pointer flex flex-col gap-compact">
+                <input type="radio" name="biz_type" checked class="text-light-primary">
+                <span class="text-title-md">C. Hotel + Restaurant Group</span>
+                <span class="text-body-sm text-light-on-surface-variant">Full hospitality suite: Hotel PMS + Multi-outlet F&amp;B POS, Room Service &amp; KDS.</span>
+              </label>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-standard">
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Property structure</span><select class="h-10 rounded border-light-outline" aria-label="Property structure"><option>Multiple properties</option><option>Single property</option></select></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Expected properties</span><input type="number" value="4" class="h-10 rounded font-mono border-light-outline" aria-label="Expected properties"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Expected employees</span><input type="number" value="180" class="h-10 rounded font-mono border-light-outline" aria-label="Expected employees"></label>
+            </div>
+          </div>
+
+          <!-- STEP 3: Initial Property & Outlet Setup -->
+          <div id="step-3" class="step-panel hidden flex flex-col gap-section">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-title-lg">Step 3 — Initial property &amp; outlet setup</h2>
+                <p class="text-body-sm text-light-on-surface-variant">Configure initial properties and dining/service outlets.</p>
+              </div>
+              <button type="button" onclick="showToast(&#39;Additional property row added&#39;)" class="px-component py-micro rounded border border-light-outline text-label-md">+ Add property</button>
+            </div>
+            <div class="p-standard rounded-lg border border-light-outline-variant bg-light-surface-container-low dark:bg-dark-surface-container flex flex-col gap-standard">
+              <div class="flex items-center justify-between">
+                <span class="text-title-md">Property 1: Royal Grand Hotel (Meerut)</span>
+                <span class="font-mono text-label-sm text-light-muted">PROP-RGH-01 · Asia/Kolkata</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-compact text-body-sm">
+                <div class="p-component rounded bg-light-surface dark:bg-dark-surface border border-light-outline-variant">Main Restaurant</div>
+                <div class="p-component rounded bg-light-surface dark:bg-dark-surface border border-light-outline-variant">Rooftop Restaurant</div>
+                <div class="p-component rounded bg-light-surface dark:bg-dark-surface border border-light-outline-variant">Coffee Lounge</div>
+                <div class="p-component rounded bg-light-surface dark:bg-dark-surface border border-light-outline-variant">Room Service Kitchen</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Subscription Configuration -->
+          <div id="step-4" class="step-panel hidden flex flex-col gap-section">
+            <div>
+              <h2 class="text-title-lg">Step 4 — Subscription configuration</h2>
+              <p class="text-body-sm text-light-on-surface-variant">Select commercial modules, plan tier, billing interval, and trial terms.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-standard">
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Purchased modules</span><select class="h-10 rounded border-light-outline" aria-label="Purchased modules"><option>Both (Hotel + Restaurant)</option><option>Hotel Management only</option><option>Restaurant Management only</option></select></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Subscription plan</span><select class="h-10 rounded border-light-outline" aria-label="Subscription plan"><option>Enterprise (₹95,000/mo)</option><option>Business (₹48,000/mo)</option><option>Professional (₹24,500/mo)</option></select></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Billing frequency</span><select class="h-10 rounded border-light-outline" aria-label="Billing frequency"><option>Annual (15% discount · ₹9,69,000/yr)</option><option>Monthly (₹95,000/mo)</option></select></label>
+            </div>
+            <div class="p-standard rounded-lg bg-light-surface-container-low dark:bg-dark-surface-container border border-light-outline-variant flex items-center justify-between">
+              <div>
+                <p class="text-label-md text-light-on-surface">Live subscription summary</p>
+                <p class="text-body-sm text-light-on-surface-variant">14-day trial · Activates Nov 23, 2026 · Next renewal Dec 07, 2026</p>
+              </div>
+              <span class="font-mono text-mono-lg tabular-nums text-light-primary">₹9,69,000/yr</span>
+            </div>
+          </div>
+
+          <!-- STEP 5: Module Entitlements -->
+          <div id="step-5" class="step-panel hidden flex flex-col gap-section">
+            <div>
+              <h2 class="text-title-lg">Step 5 — Module entitlements &amp; dependencies</h2>
+              <p class="text-body-sm text-light-on-surface-variant">QR Ordering requires Digital Menu and an active Restaurant POS or Room Service capability.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-standard text-body-sm">
+              <div class="p-standard rounded border border-light-outline-variant flex flex-col gap-compact">
+                <h3 class="text-title-md">Hotel Features</h3>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Property Management (PMS)</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Room &amp; Reservation Mgmt</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Front Desk &amp; Guest Folios</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Housekeeping &amp; Maintenance</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Room QR Ordering</span></label>
+              </div>
+              <div class="p-standard rounded border border-light-outline-variant flex flex-col gap-compact">
+                <h3 class="text-title-md">Restaurant Features</h3>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Restaurant POS</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Table &amp; Floor Management</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Digital Menus &amp; QR Ordering</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Kitchen Display System (KDS)</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" class="rounded-sm text-light-primary"><span>Takeaway &amp; Delivery</span></label>
+              </div>
+              <div class="p-standard rounded border border-light-outline-variant flex flex-col gap-compact">
+                <h3 class="text-title-md">Shared Modules</h3>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Inventory &amp; Procurement</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Finance &amp; CRM</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Business Intelligence</span></label>
+                <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>API Access &amp; Integrations</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 6: Usage Limits -->
+          <div id="step-6" class="step-panel hidden flex flex-col gap-section">
+            <div>
+              <h2 class="text-title-lg">Step 6 — Usage limit configuration</h2>
+              <p class="text-body-sm text-light-on-surface-variant">Set operational quotas enforced across tenant workspaces.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-standard">
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Max properties</span><input type="text" value="10" class="h-10 rounded font-mono border-light-outline" aria-label="Max properties"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Max outlets</span><input type="text" value="40" class="h-10 rounded font-mono border-light-outline" aria-label="Max outlets"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Max employees</span><input type="text" value="500" class="h-10 rounded font-mono border-light-outline" aria-label="Max employees"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Max rooms</span><input type="text" value="800" class="h-10 rounded font-mono border-light-outline" aria-label="Max rooms"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Max tables</span><input type="text" value="300" class="h-10 rounded font-mono border-light-outline" aria-label="Max tables"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Active QR codes</span><input type="text" value="1,200" class="h-10 rounded font-mono border-light-outline" aria-label="Active QR codes"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Storage (GB)</span><input type="text" value="250 GB" class="h-10 rounded font-mono border-light-outline" aria-label="Storage (GB)"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">API calls / day</span><input type="text" value="Unlimited" class="h-10 rounded font-mono border-light-outline" aria-label="API calls / day"></label>
+            </div>
+          </div>
+
+          <!-- STEP 7: Primary Organisation Administrator -->
+          <div id="step-7" class="step-panel hidden flex flex-col gap-section">
+            <div>
+              <h2 class="text-title-lg">Step 7 — Primary organisation administrator</h2>
+              <p class="text-body-sm text-light-on-surface-variant">Passwords are never generated or displayed in plaintext. Send a secure, time-limited onboarding invitation.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-standard">
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Full name *</span><input type="text" value="Devendra Pratap Singh" class="h-10 rounded border-light-outline" aria-label="Full name "></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Work email *</span><input type="email" value="devendra@royalgrand.in" class="h-10 rounded border-light-outline" aria-label="Work email "></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Mobile phone</span><input type="tel" value="+91 98100 44219" class="h-10 rounded font-mono border-light-outline" aria-label="Mobile phone"></label>
+              <label class="flex flex-col gap-compact"><span class="text-label-md">Designation</span><input type="text" value="Managing Director" class="h-10 rounded border-light-outline" aria-label="Designation"></label>
+            </div>
+            <div class="flex flex-wrap gap-section text-body-sm">
+              <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Send email invitation link</span></label>
+              <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Force password setup on first login</span></label>
+              <label class="flex items-center gap-compact"><input type="checkbox" checked class="rounded-sm text-light-primary"><span>Require MFA</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 8: Review and Activate -->
+          <div id="step-8" class="step-panel hidden flex flex-col gap-section">
+            <div id="review-state" class="flex flex-col gap-standard">
+              <h2 class="text-title-lg">Step 8 — Review &amp; activate</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-standard text-body-sm">
+                <div class="p-standard rounded bg-light-surface-container-low border border-light-outline-variant"><p class="text-label-sm text-light-muted">Organisation</p><p class="font-medium mt-micro">Royal Grand Group (ORG-RGG-0249)</p><p class="text-light-on-surface-variant">Meerut, Uttar Pradesh · Hotel + Restaurant Group</p></div>
+                <div class="p-standard rounded bg-light-surface-container-low border border-light-outline-variant"><p class="text-label-sm text-light-muted">Subscription &amp; Plan</p><p class="font-medium mt-micro">Enterprise · ₹9,69,000/yr (14-day trial)</p><p class="text-light-on-surface-variant">1 property, 4 outlets · 18 modules enabled</p></div>
+              </div>
+              <div class="flex justify-end">
+                <button type="button" onclick="activateOrg()" class="min-h-[44px] px-section rounded bg-light-primary text-light-on-primary text-label-lg hover:opacity-90">Create &amp; activate organisation</button>
+              </div>
+            </div>
+            <div id="success-state" class="hidden p-section rounded-lg bg-light-success-container/50 border border-light-success/30 flex flex-col gap-standard">
+              <div class="flex items-center gap-compact text-light-on-success-container">
+                <span class="material-symbols-outlined text-headline-md" aria-hidden="true">check_circle</span>
+                <h3 class="text-title-lg">Organisation successfully created</h3>
+              </div>
+              <p class="text-body-sm text-light-on-surface">Identifier <span class="font-mono font-semibold">ORG-RGG-0249</span> provisioned with 1 property, 4 outlets, Enterprise trial, and secure invitation sent to <span class="font-medium">devendra@royalgrand.in</span>.</p>
+              <div>
+                <a href="../super-admin-organisation-detail/OrganisationDetail.html" class="inline-flex items-center justify-center min-h-[40px] px-standard rounded bg-light-primary text-light-on-primary text-label-lg">Open organisation details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wizard Footer Navigation -->
+          <div id="wizard-footer" class="mt-section pt-standard border-t border-light-outline-variant dark:border-dark-outline-variant flex items-center justify-between">
+            <button type="button" id="prev-btn" onclick="stepNav(-1)" disabled class="min-h-[40px] px-standard rounded border border-light-outline text-label-lg disabled:opacity-40">Previous</button>
+            <button type="button" id="next-btn" onclick="stepNav(1)" class="min-h-[40px] px-standard rounded bg-light-primary text-light-on-primary text-label-lg">Next step</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="toast" role="status" class="hidden fixed bottom-section right-section z-50 bg-light-on-surface text-light-surface px-standard py-component rounded-lg shadow-lg text-body-sm"></div>
+
+  <script>
+    var currentStep = 1;
+    function goToStep(n) {
+      currentStep = n;
+      document.querySelectorAll('.step-panel').forEach(function(p, i) { p.classList.toggle('hidden', i + 1 !== n); });
+      document.querySelectorAll('.step-pill').forEach(function(pill) {
+        var s = parseInt(pill.dataset.step, 10);
+        var badge = pill.querySelector('span');
+        if (s === n) {
+          pill.classList.add('text-light-primary', 'font-semibold'); pill.classList.remove('text-light-muted');
+          badge.classList.add('bg-light-primary', 'text-light-on-primary'); badge.classList.remove('bg-light-surface-container', 'text-light-on-surface-variant');
+        } else {
+          pill.classList.remove('text-light-primary', 'font-semibold'); pill.classList.add('text-light-muted');
+          badge.classList.remove('bg-light-primary', 'text-light-on-primary'); badge.classList.add('bg-light-surface-container', 'text-light-on-surface-variant');
+        }
+      });
+      document.getElementById('prev-btn').disabled = (n === 1);
+      document.getElementById('next-btn').classList.toggle('hidden', n === 8);
+    }
+    function stepNav(delta) {
+      var next = Math.max(1, Math.min(8, currentStep + delta));
+      goToStep(next);
+    }
+    function activateOrg() {
+      document.getElementById('review-state').classList.add('hidden');
+      document.getElementById('wizard-footer').classList.add('hidden');
+      document.getElementById('success-state').classList.remove('hidden');
+    }
+    function showToast(msg) {
+      var t = document.getElementById('toast');
+      t.textContent = msg; t.classList.remove('hidden');
+      setTimeout(function() { t.classList.add('hidden'); }, 2500);
+    }
+  </script>
+
+
+</body></html>

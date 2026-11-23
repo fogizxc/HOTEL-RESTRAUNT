@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline POS &amp; Draft Recovery (Mobile) — HospitalityOS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[884px] max-w-[430px] mx-auto flex flex-col pb-section" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <!-- Persistent Offline Status Banner -->
+    <header class="sticky top-0 z-20 bg-light-warning-container text-light-on-warning-container border-b border-light-outline-variant px-standard py-component flex items-center justify-between gap-compact">
+      <div class="flex items-center gap-compact">
+        <span class="material-symbols-outlined text-[20px]">wifi_off</span>
+        <div>
+          <p class="text-label-md font-medium leading-tight">Offline Floor Mode Active</p>
+          <p class="text-label-sm leading-tight">Orders saved locally · 3 pending sync</p>
+        </div>
+      </div>
+      <button type="button" onclick="simulateSync()" id="mobile-sync-btn" class="min-h-[36px] px-component rounded-md bg-light-surface text-light-on-surface border border-light-outline text-label-sm font-medium shrink-0">Retry Sync</button>
+    </header>
+
+    <main class="flex-1 p-standard flex flex-col gap-standard">
+      <!-- Sync Feedback Banner (Hidden until clicked) -->
+      <div id="sync-banner" class="hidden p-component rounded-lg bg-light-success-container text-light-on-success-container text-body-sm font-medium">
+        Prototype: Connection restored. 3 queued KOTs &amp; 1 draft order synced without duplicates.
+      </div>
+
+      <!-- Preserved Active Order Draft -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-component">
+        <div class="flex items-center justify-between">
+          <div class="min-w-0 pr-compact">
+            <span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm font-medium">Preserved Draft</span>
+            <h1 class="font-title text-title-lg mt-micro truncate">Table T-08 · Fine Dine</h1>
+          </div>
+          <span class="font-mono text-title-md font-semibold">₹1,640</span>
+        </div>
+
+        <div class="flex flex-col gap-compact text-body-sm border-t border-b border-light-outline-variant py-component">
+          <div class="flex justify-between">
+            <span>2× Paneer Tikka Masala</span>
+            <span class="font-mono">₹980</span>
+          </div>
+          <div class="flex justify-between">
+            <span>3× Garlic Naan</span>
+            <span class="font-mono">₹360</span>
+          </div>
+          <div class="flex justify-between">
+            <span>2× Fresh Lime Soda</span>
+            <span class="font-mono">₹300</span>
+          </div>
+        </div>
+
+        <div>
+          <label for="offline-kot-note" class="block text-label-sm text-light-muted mb-micro">Kitchen Note (Saved Locally)</label>
+          <input id="offline-kot-note" type="text" value="Less spicy · Serve starters first" class="w-full min-h-[40px] rounded-md border-light-outline bg-light-surface-container-low px-component text-body-sm">
+        </div>
+
+        <div class="grid grid-cols-2 gap-compact">
+          <button type="button" onclick="simulateSync()" class="min-h-[44px] rounded-md bg-light-primary text-light-on-primary text-label-md font-medium">Queue KOT Locally</button>
+          <a href="../pos-terminal/POSOrdering.html" class="min-h-[44px] rounded-md border border-light-outline text-label-md font-medium inline-flex items-center justify-center">Open Full POS</a>
+        </div>
+      </section>
+
+      <!-- Offline Sync Queue -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-component">
+        <div class="flex items-center justify-between">
+          <h2 class="font-title text-title-md">Local Sync Queue (3)</h2>
+          <span class="text-label-sm text-light-muted">Idempotent keys</span>
+        </div>
+
+        <div class="flex flex-col gap-compact text-body-sm">
+          <div class="p-component rounded-lg bg-light-surface-container-low border border-light-outline-variant flex items-center justify-between">
+            <div>
+              <p class="font-medium">KOT-OFF-104 · Table T-03</p>
+              <p class="text-label-sm text-light-muted">4 items · Captured 2m ago</p>
+            </div>
+            <span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm">Queued</span>
+          </div>
+
+          <div class="p-component rounded-lg bg-light-surface-container-low border border-light-outline-variant flex items-center justify-between">
+            <div>
+              <p class="font-medium">PAY-OFF-089 · Table T-11</p>
+              <p class="text-label-sm text-light-muted">Cash ₹2,450 · Captured 5m ago</p>
+            </div>
+            <span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm">Queued</span>
+          </div>
+
+          <div class="p-component rounded-lg bg-light-surface-container-low border border-light-outline-variant flex items-center justify-between">
+            <div>
+              <p class="font-medium">KOT-OFF-103 · Table T-06</p>
+              <p class="text-label-sm text-light-muted">2 items · Captured 9m ago</p>
+            </div>
+            <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">Printer Local OK</span>
+          </div>
+        </div>
+
+        <p class="text-label-sm text-light-muted">Card/UPI gateway settlements pause while offline; cash receipts and local thermal KOT printing remain available.</p>
+      </section>
+
+      <div class="text-center text-label-sm">
+        <a href="../system-recovery/OfflineAndEmptyStates.html" class="text-light-on-primary-container underline">View Desktop Offline &amp; Empty States</a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function simulateSync() {
+      document.getElementById('sync-banner').classList.remove('hidden');
+    }
+  </script>
+
+
+</body></html>

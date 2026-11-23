@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walk-in Booking — Royal Grand Hotel (PMS)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background dark:bg-dark-background dark:text-dark-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <aside class="fixed lg:sticky top-0 left-0 z-40 w-[252px] min-h-[1024px] shrink-0 bg-light-surface/95 dark:bg-dark-surface/95 border-r border-light-outline-variant hidden lg:flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro"><div class="w-8 h-8 rounded bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-label-lg font-semibold">PM</div><div><p class="font-title text-title-md leading-none">Hotel PMS</p><p class="text-label-sm text-light-muted uppercase mt-micro">Royal Grand · Meerut</p></div></div>
+        <nav aria-label="Hotel PMS Navigation" class="flex flex-col gap-compact text-body-sm">
+          <div><p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p><a href="../pms-overview/HotelOverview.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Hotel Dashboard</span></a></div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Reservations</p>
+            <a href="../pms-reservations/ReservationDirectory.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">list_alt</span><span>Reservation Directory</span></a>
+            <a href="WalkInReservation.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container text-light-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">directions_walk</span><span>Walk-in Booking</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant"><div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low"><div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-md font-semibold">AV</div><div><p class="text-label-md">Ananya Verma</p><p class="text-label-sm text-light-muted">Front Office Manager</p></div></div></div>
+    </aside>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md border-b border-light-outline-variant px-section py-component flex items-center justify-between gap-standard">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-compact text-body-sm"><span class="text-light-muted">Front Desk</span><span class="material-symbols-outlined text-body-sm text-light-muted" aria-hidden="true">chevron_right</span><span class="text-label-lg">Express Walk-in Check-in</span></nav>
+        <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">14 Clean Rooms Available</span>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-section text-body-sm">
+          <div class="lg:col-span-2 bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-standard">
+            <h1 class="text-title-lg">Guest &amp; Immediate Room Assignment</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-standard">
+              <label class="flex flex-col gap-micro"><span class="text-label-md">Guest name</span><input type="text" value="Aarav Deshpande" class="h-10 rounded border border-light-outline px-component" aria-label="Guest name"></label>
+              <label class="flex flex-col gap-micro"><span class="text-label-md">Mobile number</span><input type="text" value="+91 98180 55102" class="h-10 rounded border border-light-outline px-component font-mono" aria-label="Mobile number"></label>
+              <label class="flex flex-col gap-micro"><span class="text-label-md">ID Verification</span><select class="h-10 rounded border border-light-outline px-component" aria-label="ID Verification"><option>Verified — Aadhaar •••• 3901</option><option>Passport</option></select></label>
+              <label class="flex flex-col gap-micro"><span class="text-label-md">Guests</span><input type="text" value="2 Adults, 0 Children" class="h-10 rounded border border-light-outline px-component" aria-label="Guests"></label>
+              <label class="flex flex-col gap-micro"><span class="text-label-md">Check-in (Today)</span><input type="text" value="23 Nov 2026 (Now)" readonly class="h-10 rounded border border-light-outline px-component bg-light-surface-container-low" aria-label="Check-in (Today)"></label>
+              <label class="flex flex-col gap-micro"><span class="text-label-md">Expected checkout</span><input type="date" value="2026-11-24" class="h-10 rounded border border-light-outline px-component" aria-label="Expected checkout"></label>
+            </div>
+            <div>
+              <p class="text-label-md mb-compact">Select Ready Room (Inspected only)</p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-compact">
+                <button type="button" class="p-compact rounded border border-light-primary bg-light-primary-container text-light-on-primary-container text-left"><p class="font-mono font-semibold">202</p><p class="text-label-sm">Deluxe · ₹7,500</p></button>
+                <button type="button" class="p-compact rounded border border-light-outline-variant hover:bg-light-surface-container text-left"><p class="font-mono font-semibold">205</p><p class="text-label-sm">Deluxe · ₹7,500</p></button>
+                <button type="button" class="p-compact rounded border border-light-outline-variant hover:bg-light-surface-container text-left"><p class="font-mono font-semibold">304</p><p class="text-label-sm">Exec · ₹9,800</p></button>
+                <button type="button" class="p-compact rounded border border-light-outline-variant hover:bg-light-surface-container text-left"><p class="font-mono font-semibold">401</p><p class="text-label-sm">Jr Suite · ₹14,500</p></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col justify-between gap-standard">
+            <div class="flex flex-col gap-component">
+              <h2 class="text-title-lg">Walk-in Settlement</h2>
+              <div class="flex justify-between"><span class="text-light-muted">Room 202 (1 Night)</span><span class="font-mono">₹7,500</span></div>
+              <div class="flex justify-between"><span class="text-light-muted">GST (12%)</span><span class="font-mono">₹900</span></div>
+              <div class="flex justify-between font-medium text-title-md pt-compact border-t border-light-outline-variant"><span>Total Due</span><span class="font-mono">₹8,400</span></div>
+              <label class="flex flex-col gap-micro mt-compact"><span class="text-label-md">Payment method</span><select class="h-10 rounded border border-light-outline px-component" aria-label="Payment method"><option>UPI QR (Instant)</option><option>Card Terminal</option><option>Cash</option></select></label>
+            </div>
+            <button type="button" class="w-full min-h-[40px] rounded bg-light-primary text-light-on-primary text-label-lg whitespace-nowrap">Assign Room 202 &amp; Check In</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

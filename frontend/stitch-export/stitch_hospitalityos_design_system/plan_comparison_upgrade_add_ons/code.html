@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Comparison, Add-ons &amp; Upgrade — HospitalityOS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <header class="sticky top-0 z-20 bg-light-surface/95 border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+      <div>
+        <div class="flex items-center gap-compact">
+          <a href="../org-billing/SubscriptionBilling.html" class="text-label-md text-light-on-primary-container underline">Subscription &amp; Billing</a>
+          <span class="text-label-sm text-light-muted">/</span>
+          <span class="text-label-md text-light-muted">Plan &amp; Add-ons</span>
+        </div>
+        <h1 class="font-headline text-title-lg leading-tight mt-micro">Plan Comparison, Add-ons &amp; Upgrade</h1>
+        <p class="text-body-sm text-light-muted">Covers D2 (Plan Comparison &amp; Upgrade/Downgrade), D3 (Module Add-ons &amp; Seat Expansion) &amp; D4 (Proration Preview)</p>
+      </div>
+      <div class="flex items-center gap-compact">
+        <a href="../org-billing/PlanUsageLimits.html" class="min-h-[36px] px-standard rounded-md border border-light-outline text-label-md inline-flex items-center">Usage &amp; Limits</a>
+        <a href="../org-billing-recovery/PaymentMethodAndGraceRecovery.html" class="min-h-[36px] px-standard rounded-md bg-light-primary text-light-on-primary text-label-md inline-flex items-center font-medium">Payment &amp; Recovery</a>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-[1280px] w-full mx-auto p-section lg:p-major flex flex-col gap-section">
+      <!-- Billing Cycle & Current Plan Summary -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-wrap items-center justify-between gap-standard">
+        <div>
+          <span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm font-medium">Current Plan · Growth Multi-Property</span>
+          <p class="text-body-md mt-compact">Royal Hospitality Group · 2 Properties · 45 Active Staff Seats · Renews 01 Dec 2026</p>
+        </div>
+        <div class="inline-flex rounded-lg bg-light-surface-container p-micro border border-light-outline-variant" role="group" aria-label="Billing cycle toggle">
+          <button type="button" id="btn-monthly" onclick="setCycle(&#39;monthly&#39;)" class="min-h-[36px] px-standard rounded-md text-label-md text-light-on-surface">Monthly</button>
+          <button type="button" id="btn-annual" onclick="setCycle(&#39;annual&#39;)" class="min-h-[36px] px-standard rounded-md bg-light-surface text-light-on-surface font-medium shadow-sm">Annual (Save 18%)</button>
+        </div>
+      </section>
+
+      <!-- D2: Tier Comparison Cards -->
+      <section aria-labelledby="plans-heading" class="flex flex-col gap-component">
+        <div class="flex items-center justify-between">
+          <h2 id="plans-heading" class="font-title text-title-lg">D2 · Compare HospitalityOS Plans</h2>
+          <span class="text-label-sm text-light-muted">Prototype preview · Pricing simulated in INR</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-standard">
+          <!-- Starter -->
+          <article class="bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col justify-between gap-standard">
+            <div class="flex flex-col gap-compact">
+              <div class="flex items-center justify-between">
+                <h3 class="font-title text-title-md">Essential Single-Site</h3>
+                <span class="text-label-sm text-light-muted">Downgrade</span>
+              </div>
+              <p class="font-mono text-mono-lg" data-monthly="₹7,999 / mo" data-annual="₹6,499 / mo">₹6,499 / mo</p>
+              <p class="text-body-sm text-light-muted">For standalone restaurants or boutique guesthouses.</p>
+              <ul class="text-body-sm flex flex-col gap-micro pt-compact border-t border-light-outline-variant">
+                <li>• 1 Property · up to 15 staff seats</li>
+                <li>• PMS or POS + KDS core</li>
+                <li>• Standard GST &amp; daily close reports</li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectPlan(&#39;Essential Single-Site&#39;, -8500)" class="min-h-[40px] w-full rounded-md border border-light-outline text-label-md font-medium">Review Downgrade</button>
+          </article>
+
+          <!-- Growth (Current) -->
+          <article class="bg-light-surface border-2 border-light-primary rounded-xl p-standard flex flex-col justify-between gap-standard">
+            <div class="flex flex-col gap-compact">
+              <div class="flex items-center justify-between">
+                <h3 class="font-title text-title-md">Growth Multi-Property</h3>
+                <span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm font-medium">Current</span>
+              </div>
+              <p class="font-mono text-mono-lg" data-monthly="₹17,999 / mo" data-annual="₹14,999 / mo">₹14,999 / mo</p>
+              <p class="text-body-sm text-light-muted">Unified hotel, restaurant, inventory, finance &amp; HR.</p>
+              <ul class="text-body-sm flex flex-col gap-micro pt-compact border-t border-light-outline-variant">
+                <li>• Up to 3 Properties · 50 staff seats</li>
+                <li>• Full PMS, POS, KDS, HK, Inventory, Finance &amp; HR</li>
+                <li>• Customer &amp; Guest Portal included</li>
+              </ul>
+            </div>
+            <button type="button" disabled class="min-h-[40px] w-full rounded-md bg-light-surface-container text-light-muted text-label-md font-medium cursor-not-allowed">Active Plan</button>
+          </article>
+
+          <!-- Enterprise -->
+          <article class="bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col justify-between gap-standard">
+            <div class="flex flex-col gap-compact">
+              <div class="flex items-center justify-between">
+                <h3 class="font-title text-title-md">Enterprise Group</h3>
+                <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm font-medium">Recommended</span>
+              </div>
+              <p class="font-mono text-mono-lg" data-monthly="₹34,999 / mo" data-annual="₹28,999 / mo">₹28,999 / mo</p>
+              <p class="text-body-sm text-light-muted">Multi-entity chains, custom BI, and dedicated SLA.</p>
+              <ul class="text-body-sm flex flex-col gap-micro pt-compact border-t border-light-outline-variant">
+                <li>• Unlimited Properties · 250 staff seats</li>
+                <li>• Multi-entity consolidation &amp; BI Report Builder</li>
+                <li>• SSO / SAML, Audit Exports &amp; 99.95% SLA</li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectPlan(&#39;Enterprise Group&#39;, 14000)" class="min-h-[40px] w-full rounded-md bg-light-primary text-light-on-primary text-label-md font-medium">Select Enterprise</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- D3 & D4: Add-ons, Seat Expansion & Proration Summary -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-section items-start">
+        <section class="lg:col-span-7 bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-standard">
+          <h2 class="font-title text-title-lg">D3 · Module Add-ons &amp; Capacity Expansion</h2>
+          <div class="flex flex-col gap-component">
+            <div class="p-component rounded-lg bg-light-surface-container-low border border-light-outline-variant flex flex-wrap items-center justify-between gap-component">
+              <div>
+                <p class="font-medium text-body-md">Additional Staff Seats</p>
+                <p class="text-label-sm text-light-muted">₹250 / seat / month · Currently 45 of 50 used</p>
+              </div>
+              <div class="flex items-center gap-compact">
+                <label for="extra-seats" class="text-label-sm text-light-muted">Add seats</label>
+                <input id="extra-seats" type="number" min="0" max="200" value="10" oninput="recalcProration()" class="w-20 min-h-[36px] rounded-md border-light-outline bg-light-surface px-compact text-body-sm font-mono">
+              </div>
+            </div>
+
+            <label class="p-component rounded-lg bg-light-surface-container-low border border-light-outline-variant flex items-center justify-between gap-component cursor-pointer">
+              <div>
+                <p class="font-medium text-body-md">WhatsApp &amp; SMS Guest Automation Pack</p>
+                <p class="text-label-sm text-light-muted">25,000 monthly template messages · ₹3,500 / mo</p>
+              </div>
+              <input id="addon-whatsapp" type="checkbox" checked onchange="recalcProration()" class="rounded border-light-outline text-light-primary">
+            </label>
+
+            <label class="p-component rounded-lg bg-light-surface-container-low border border-light-outline-variant flex items-center justify-between gap-component cursor-pointer">
+              <div>
+                <p class="font-medium text-body-md">Custom BI &amp; Scheduled Warehouse Export</p>
+                <p class="text-label-sm text-light-muted">Nightly S3 / BigQuery sync · ₹4,500 / mo</p>
+              </div>
+              <input id="addon-bi" type="checkbox" onchange="recalcProration()" class="rounded border-light-outline text-light-primary">
+            </label>
+          </div>
+        </section>
+
+        <!-- D4: Proration & Effective Date -->
+        <section class="lg:col-span-5 bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-standard">
+          <h2 class="font-title text-title-lg">D4 · Proration &amp; Effective Summary</h2>
+          <div class="flex flex-col gap-compact text-body-sm border-b border-light-outline-variant pb-standard">
+            <div class="flex justify-between">
+              <span class="text-light-muted">Selected Plan</span>
+              <span id="summary-plan" class="font-medium">Enterprise Group (Upgrade)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-light-muted">Effective Timing</span>
+              <span class="font-medium">Immediate (Prorated 12 days)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-light-muted">Plan Difference</span>
+              <span id="summary-plan-diff" class="font-mono">₹14,000 / mo</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-light-muted">Add-ons &amp; Seats</span>
+              <span id="summary-addons" class="font-mono">₹6,000 / mo</span>
+            </div>
+            <div class="flex justify-between pt-compact border-t border-light-outline-variant text-body-md font-semibold">
+              <span>Due Today (Prorated + 18% GST)</span>
+              <span id="summary-due" class="font-mono">₹9,440</span>
+            </div>
+          </div>
+          <div class="p-compact rounded-md bg-light-warning-container text-light-on-warning-container text-label-sm">
+            Downgrades take effect at next renewal (01 Dec 2026) so active rooms, POS terminals, and staff accounts are never interrupted mid-cycle.
+          </div>
+          <div class="flex flex-col gap-compact">
+            <a href="../org-billing-recovery/PaymentMethodAndGraceRecovery.html" class="min-h-[44px] w-full rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium inline-flex items-center justify-center">Confirm &amp; Proceed to Hosted Checkout</a>
+            <a href="../org-billing/SubscriptionBilling.html" class="min-h-[40px] w-full rounded-md border border-light-outline text-label-md inline-flex items-center justify-center">Cancel &amp; Keep Current Plan</a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let selectedDiff = 14000;
+    function setCycle(mode) {
+      document.querySelectorAll('[data-monthly]').forEach(el => {
+        el.textContent = mode === 'monthly' ? el.dataset.monthly : el.dataset.annual;
+      });
+      const mBtn = document.getElementById('btn-monthly');
+      const aBtn = document.getElementById('btn-annual');
+      if (mode === 'monthly') {
+        mBtn.className = 'min-h-[36px] px-standard rounded-md bg-light-surface text-light-on-surface font-medium shadow-sm';
+        aBtn.className = 'min-h-[36px] px-standard rounded-md text-label-md text-light-on-surface';
+      } else {
+        aBtn.className = 'min-h-[36px] px-standard rounded-md bg-light-surface text-light-on-surface font-medium shadow-sm';
+        mBtn.className = 'min-h-[36px] px-standard rounded-md text-label-md text-light-on-surface';
+      }
+    }
+    function selectPlan(name, diff) {
+      selectedDiff = diff;
+      document.getElementById('summary-plan').textContent = name + (diff >= 0 ? ' (Upgrade)' : ' (Downgrade at Renewal)');
+      document.getElementById('summary-plan-diff').textContent = (diff >= 0 ? '₹' + diff.toLocaleString('en-IN') : '-₹' + Math.abs(diff).toLocaleString('en-IN')) + ' / mo';
+      recalcProration();
+    }
+    function recalcProration() {
+      const seats = Math.max(0, Number(document.getElementById('extra-seats').value || 0));
+      const wa = document.getElementById('addon-whatsapp').checked ? 3500 : 0;
+      const bi = document.getElementById('addon-bi').checked ? 4500 : 0;
+      const addons = seats * 250 + wa + bi;
+      document.getElementById('summary-addons').textContent = '₹' + addons.toLocaleString('en-IN') + ' / mo';
+      const monthlyDelta = Math.max(0, selectedDiff) + addons;
+      const prorated = Math.round((monthlyDelta * 12 / 30) * 1.18);
+      document.getElementById('summary-due').textContent = '₹' + prorated.toLocaleString('en-IN');
+    }
+  </script>
+
+
+</body></html>

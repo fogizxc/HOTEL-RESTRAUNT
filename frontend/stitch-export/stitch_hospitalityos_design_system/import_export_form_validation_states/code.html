@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk Import, Export &amp; Form Validation States — HospitalityOS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <header class="sticky top-0 z-20 bg-light-surface/95 border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+      <div>
+        <h1 class="font-headline text-title-lg leading-tight">Bulk Import / Export Lifecycle &amp; Form Validation States</h1>
+        <p class="text-body-sm text-light-muted">Covers E8 (Upload, Mapping, Validation Errors, Progress &amp; Summary) &amp; E9 (Field Errors, Unsaved Changes &amp; Submission)</p>
+      </div>
+      <a href="../org-overview/BusinessOverview.html" class="min-h-[36px] px-standard rounded-md border border-light-outline text-label-md inline-flex items-center">Return to Workspace</a>
+    </header>
+
+    <main class="flex-1 max-w-[1280px] w-full mx-auto p-section lg:p-major flex flex-col gap-section">
+      <!-- E8: Bulk Import / Export Lifecycle -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-standard">
+        <div class="flex flex-wrap items-center justify-between gap-component">
+          <div>
+            <h2 class="font-title text-title-lg">E8 · Bulk Import &amp; Export Lifecycle</h2>
+            <p class="text-body-sm text-light-muted">Example: Menu Items &amp; Tax Catalogue CSV Import (Royal Fine Dine)</p>
+          </div>
+          <span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm font-medium">Step 3 of 4 · Validation Complete</span>
+        </div>
+
+        <!-- Stepper -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-compact text-label-sm">
+          <div class="p-compact rounded-lg bg-light-success-container text-light-on-success-container font-medium">1. Upload CSV (240 rows)</div>
+          <div class="p-compact rounded-lg bg-light-success-container text-light-on-success-container font-medium">2. Column Mapping</div>
+          <div class="p-compact rounded-lg bg-light-primary-container text-light-on-primary-container font-medium">3. Validation (3 Errors)</div>
+          <div class="p-compact rounded-lg bg-light-surface-container text-light-muted">4. Import Summary</div>
+        </div>
+
+        <!-- Progress & Result Summary -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-standard items-start">
+          <div class="lg:col-span-7 flex flex-col gap-compact">
+            <p class="text-label-md font-medium">Row Validation Errors (Downloadable Error Report)</p>
+            <div class="overflow-x-auto border border-light-outline-variant rounded-lg">
+              <table class="w-full text-left border-collapse text-body-sm">
+                <thead>
+                  <tr class="bg-light-surface-container-low border-b border-light-outline-variant text-label-sm text-light-muted">
+                    <th class="py-compact px-component">Row</th>
+                    <th class="py-compact px-component">Column</th>
+                    <th class="py-compact px-component">Issue</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-light-outline-variant">
+                  <tr>
+                    <td class="py-compact px-component font-mono">14</td>
+                    <td class="py-compact px-component">gst_slab</td>
+                    <td class="py-compact px-component text-light-error">Invalid GST rate “8%” (expected 0, 5, 12, or 18)</td>
+                  </tr>
+                  <tr>
+                    <td class="py-compact px-component font-mono">89</td>
+                    <td class="py-compact px-component">sku_code</td>
+                    <td class="py-compact px-component text-light-error">Duplicate SKU “RFD-204”</td>
+                  </tr>
+                  <tr>
+                    <td class="py-compact px-component font-mono">142</td>
+                    <td class="py-compact px-component">base_price</td>
+                    <td class="py-compact px-component text-light-error">Missing numeric price</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-light-surface-container-low border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+            <p class="text-label-md font-medium">Import &amp; Export Queue</p>
+            <div>
+              <div class="flex justify-between text-label-sm mb-micro">
+                <span>237 valid rows ready</span>
+                <span class="font-mono">98.7%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-light-surface-container-high overflow-hidden">
+                <div class="h-full bg-light-primary w-[98%]"></div>
+              </div>
+            </div>
+            <p class="text-label-sm text-light-muted">Scheduled exports (Daily GST Register CSV, Payroll Bank Advice) appear in <a href="../bi-schedules/ScheduledReportsExport.html" class="text-light-on-primary-container underline">Scheduled Reports &amp; Exports</a>.</p>
+            <div class="flex flex-wrap gap-compact">
+              <button type="button" class="min-h-[40px] px-standard rounded-md bg-light-primary text-light-on-primary text-label-md font-medium">Import 237 Valid Rows</button>
+              <button type="button" class="min-h-[40px] px-standard rounded-md border border-light-outline text-label-md">Download Error CSV</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- E9: Standard Form Validation & Submission States -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-standard">
+        <div class="flex flex-wrap items-center justify-between gap-component">
+          <div>
+            <h2 class="font-title text-title-lg">E9 · Standard Form Validation, Unsaved Changes &amp; Submission States</h2>
+            <p class="text-body-sm text-light-muted">Consistent inline validation, error summary banner, and unsaved-changes guard across all 12 workspaces.</p>
+          </div>
+          <span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm font-medium">Unsaved Changes Detected</span>
+        </div>
+
+        <div class="p-component rounded-lg bg-light-error-container text-light-on-error-container text-body-sm flex items-center gap-compact" role="alert">
+          <span class="material-symbols-outlined text-[20px]">error</span>
+          <span>Please fix 2 highlighted fields below before saving property tax settings.</span>
+        </div>
+
+        <form onsubmit="event.preventDefault(); document.getElementById(&#39;save-feedback&#39;).classList.remove(&#39;hidden&#39;);" class="grid grid-cols-1 md:grid-cols-2 gap-standard">
+          <div>
+            <label for="tax-gstin" class="block text-label-md font-medium mb-micro">Legal GSTIN <span class="text-light-error">*</span></label>
+            <input id="tax-gstin" type="text" value="07AAACR5055K" aria-invalid="true" class="w-full min-h-[40px] rounded-md border-2 border-light-error bg-light-surface px-component text-body-sm font-mono">
+            <p class="text-label-sm text-light-error mt-micro">GSTIN must be 15 alphanumeric characters (currently 12).</p>
+          </div>
+          <div>
+            <label for="tax-email" class="block text-label-md font-medium mb-micro">Finance Notification Email <span class="text-light-error">*</span></label>
+            <input id="tax-email" type="email" value="accounts@royalgrand" aria-invalid="true" class="w-full min-h-[40px] rounded-md border-2 border-light-error bg-light-surface px-component text-body-sm">
+            <p class="text-label-sm text-light-error mt-micro">Enter a valid domain (e.g. accounts@royalgrand.in).</p>
+          </div>
+          <div class="md:col-span-2 flex flex-wrap items-center justify-between gap-component pt-compact border-t border-light-outline-variant">
+            <p id="save-feedback" class="hidden text-label-md text-light-success font-medium">Prototype: Form submitted with loading/disabled state guard.</p>
+            <div class="flex items-center gap-compact ml-auto">
+              <button type="button" class="min-h-[40px] px-standard rounded-md border border-light-outline text-label-md">Discard Unsaved Changes</button>
+              <button type="submit" class="min-h-[40px] px-section rounded-md bg-light-primary text-light-on-primary text-label-md font-medium">Save &amp; Validate</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+
+</body></html>

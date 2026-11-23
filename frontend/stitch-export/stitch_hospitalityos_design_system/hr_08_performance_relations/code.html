@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance, Training &amp; Employee Relations — HospitalityOS (HR &amp; Employees)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <aside class="fixed lg:sticky top-0 left-0 z-40 w-[252px] min-h-[1024px] shrink-0 bg-light-surface/95 border-r border-light-outline-variant hidden lg:flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro">
+          <div class="w-8 h-8 rounded bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-label-lg font-semibold">HR</div>
+          <div><p class="font-title text-title-md leading-none">HR &amp; Workforce</p><p class="text-label-sm text-light-muted uppercase mt-micro">Royal Hospitality Group</p></div>
+        </div>
+        <nav aria-label="HR &amp; Workforce Navigation" class="flex flex-col gap-compact text-body-sm">
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p>
+            <a href="../hr-overview/PeopleOverview.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>HR Dashboard</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">People &amp; Lifecycle</p>
+            <a href="../hr-directory/EmployeeDirectory.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">badge</span><span>Directory &amp; Org Chart</span></a>
+            <a href="../hr-profile/EmployeeProfileAndOnboarding.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">person_add</span><span>Profile &amp; Onboarding</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Time, Shifts &amp; Leave</p>
+            <a href="../hr-attendance/AttendanceAndBiometrics.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">fingerprint</span><span>Attendance &amp; Devices</span></a>
+            <a href="../hr-shifts/ShiftRosterScheduling.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">calendar_month</span><span>Shift Roster</span></a>
+            <a href="../hr-leave/LeaveManagement.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">event_available</span><span>Leave Management</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Payroll, Talent &amp; Mobile</p>
+            <a href="../hr-payroll/PayrollProcessing.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">payments</span><span>Payroll Processing</span></a>
+            <a href="PerformanceAndRelations.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container text-light-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">workspace_premium</span><span>Performance &amp; Relations</span></a>
+            <a href="../hr-ess-mobile/EmployeeSelfServiceMobile.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">smartphone</span><span>Employee Portal (390px)</span></a>
+            <a href="../hr-manager-mobile/HRManagerApprovalsMobile.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">approval</span><span>Manager Mobile</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant">
+        <div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low">
+          <div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-md font-semibold">PK</div>
+          <div><p class="text-label-md">Priya Kulkarni</p><p class="text-label-sm text-light-muted">VP People &amp; HR</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 backdrop-blur-md border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+        <div>
+          <h1 class="font-headline text-title-lg leading-tight">Performance, Training &amp; Employee Relations</h1>
+          <p class="text-body-sm text-light-muted">Quarterly appraisals, FSSAI / Fire Safety certifications &amp; restricted disciplinary / grievance case log</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-compact text-body-sm">
+          <span class="px-compact py-micro rounded bg-light-surface-container text-light-on-surface-variant text-label-sm">Least-Privilege Case Access Active</span>
+          <button type="button" class="min-h-[36px] px-standard rounded bg-light-primary text-light-on-primary text-label-md whitespace-nowrap">+ Start Appraisal Cycle</button>
+        </div>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <!-- Summary Cards -->
+        <section class="grid grid-cols-2 sm:grid-cols-4 gap-component">
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Q3 Appraisals Due</p>
+            <p class="font-headline text-title-lg font-mono mt-micro">42</p>
+            <p class="text-label-sm text-light-muted mt-micro">264 / 306 completed</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">FSSAI Hygiene Certified</p>
+            <p class="font-headline text-title-lg font-mono text-light-on-success-container mt-micro">96.4%</p>
+            <p class="text-label-sm text-light-muted mt-micro">4 renewals due in 15d</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Open Grievances</p>
+            <p class="font-headline text-title-lg font-mono text-light-on-warning-container mt-micro">2</p>
+            <p class="text-label-sm text-light-muted mt-micro">Restricted to VP HR</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Active PIP / Warnings</p>
+            <p class="font-headline text-title-lg font-mono text-light-on-error-container mt-micro">3</p>
+            <p class="text-label-sm text-light-muted mt-micro">Audit-logged access</p>
+          </div>
+        </section>
+
+        <!-- Performance Appraisals & Training Compliance -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-section">
+          <section class="xl:col-span-7 bg-light-surface border border-light-outline-variant rounded-lg overflow-hidden">
+            <div class="p-standard border-b border-light-outline-variant flex items-center justify-between">
+              <h2 class="font-title text-title-md">Q3 Performance &amp; Probation Reviews</h2>
+              <span class="text-label-sm text-light-muted">Cycle: Oct–Dec 2026</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-body-sm">
+                <thead>
+                  <tr class="border-b border-light-outline-variant text-label-sm text-light-muted uppercase bg-light-surface-container-low">
+                    <th class="py-component px-standard">Employee</th>
+                    <th class="py-component px-standard">Role &amp; Property</th>
+                    <th class="py-component px-standard">Reviewer</th>
+                    <th class="py-component px-standard">Score</th>
+                    <th class="py-component px-standard">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-light-outline-variant">
+                  <tr><td class="py-component px-standard font-medium">Meera Kapoor</td><td class="py-component px-standard">Front Office Mgr · Meerut</td><td class="py-component px-standard">GM Operations</td><td class="py-component px-standard font-mono">4.6 / 5</td><td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">Completed</span></td></tr>
+                  <tr><td class="py-component px-standard font-medium">Rohan Das</td><td class="py-component px-standard">Sous Chef · Noida Dine</td><td class="py-component px-standard">Executive Chef</td><td class="py-component px-standard font-mono">4.4 / 5</td><td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">Completed</span></td></tr>
+                  <tr><td class="py-component px-standard font-medium">Aarav Sharma</td><td class="py-component px-standard">Commis I (Probation) · Meerut</td><td class="py-component px-standard">Head Chef</td><td class="py-component px-standard font-mono">Pending</td><td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm">Due 30 Nov</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="xl:col-span-5 bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+            <h2 class="font-title text-title-md">Mandatory Hospitality Certifications</h2>
+            <div class="flex flex-col gap-compact text-body-sm">
+              <div class="p-component rounded bg-light-surface-container-low flex items-center justify-between">
+                <div><p class="font-medium">FSSAI FoSTaC Food Safety</p><p class="text-label-sm text-light-muted">Kitchen &amp; F&amp;B Service · 118 Staff</p></div>
+                <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm font-medium">96% Valid</span>
+              </div>
+              <div class="p-component rounded bg-light-surface-container-low flex items-center justify-between">
+                <div><p class="font-medium">Fire &amp; Evacuation Drill</p><p class="text-label-sm text-light-muted">All Property Staff · Quarterly</p></div>
+                <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm font-medium">100% Valid</span>
+              </div>
+              <div class="p-component rounded bg-light-warning-container flex items-center justify-between">
+                <div><p class="font-medium text-light-on-warning-container">POSH Awareness &amp; Compliance</p><p class="text-label-sm text-light-on-warning-container">Annual Mandatory · 14 Pending</p></div>
+                <span class="text-label-sm font-medium text-light-on-warning-container">Send Reminder</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Restricted Disciplinary & Grievance Records -->
+        <section class="bg-light-surface border border-light-outline-variant rounded-lg overflow-hidden">
+          <div class="p-standard border-b border-light-outline-variant flex flex-wrap items-center justify-between gap-component">
+            <div>
+              <h2 class="font-title text-title-md">Restricted Employee Relations &amp; Disciplinary Log</h2>
+              <p class="text-label-sm text-light-muted">Visible only to VP People &amp; Legal · All views &amp; exports are written to immutable HR Audit Trail</p>
+            </div>
+            <span class="px-compact py-micro rounded bg-light-error-container text-light-on-error-container text-label-sm font-medium">Confidential · RBAC Enforced</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-body-sm">
+              <thead>
+                <tr class="border-b border-light-outline-variant text-label-sm text-light-muted uppercase bg-light-surface-container-low">
+                  <th class="py-component px-standard">Case ID</th>
+                  <th class="py-component px-standard">Subject</th>
+                  <th class="py-component px-standard">Category</th>
+                  <th class="py-component px-standard">Assigned Owner</th>
+                  <th class="py-component px-standard">Stage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-light-outline-variant">
+                <tr><td class="py-component px-standard font-mono">REL-2026-019</td><td class="py-component px-standard font-medium">Repeated Unscheduled Absence (EMP-0311)</td><td class="py-component px-standard">Written Warning</td><td class="py-component px-standard">Priya Kulkarni (VP HR)</td><td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm">PIP · 30d Review</span></td></tr>
+                <tr><td class="py-component px-standard font-mono">GRV-2026-008</td><td class="py-component px-standard font-medium">Night Shift Allowance Dispute · Delhi</td><td class="py-component px-standard">Payroll Grievance</td><td class="py-component px-standard">HR Operations Lead</td><td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm">Under Review</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

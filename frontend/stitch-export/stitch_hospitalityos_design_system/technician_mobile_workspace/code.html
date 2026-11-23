@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technician Mobile — Ramesh Sharma</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[884px] flex flex-col items-center py-section px-standard" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <div class="w-full max-w-[390px] bg-light-surface border border-light-outline-variant rounded-xl shadow-sm overflow-hidden flex flex-col">
+      <header class="bg-light-surface border-b border-light-outline-variant p-standard flex items-center justify-between">
+        <div>
+          <p class="text-label-sm text-light-muted uppercase">HVAC &amp; Plumbing · Evening Shift</p>
+          <h1 class="font-headline text-title-lg">Ramesh Sharma</h1>
+        </div>
+        <span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm font-medium">On Duty</span>
+      </header>
+
+      <div class="grid grid-cols-3 divide-x divide-light-outline-variant border-b border-light-outline-variant bg-light-surface-container-low text-center py-component">
+        <div><p class="text-label-sm text-light-muted">Work Orders</p><p class="font-mono text-title-md font-semibold">4</p></div>
+        <div><p class="text-label-sm text-light-muted">Urgent</p><p class="font-mono text-title-md font-semibold text-light-on-error-container">1</p></div>
+        <div><p class="text-label-sm text-light-muted">Preventive</p><p class="font-mono text-title-md font-semibold">2</p></div>
+      </div>
+
+      <main class="p-standard flex flex-col gap-standard">
+        <article class="border-2 border-light-error rounded-lg p-standard flex flex-col gap-component bg-light-surface">
+          <div class="flex items-start justify-between">
+            <div><span class="px-compact py-micro rounded bg-light-error-container text-light-on-error-container text-label-sm font-semibold">CRITICAL · WO-841</span><h2 class="font-headline text-title-lg mt-micro">Room 205 · Split AC</h2></div>
+            <span class="font-mono text-label-md text-light-muted">Est 45m</span>
+          </div>
+          <p class="text-body-sm text-light-muted">Compressor trip · Room currently Out of Order in PMS. Parts: 45µF Capacitor.</p>
+          <div class="flex flex-col gap-compact pt-compact">
+            <button type="button" class="min-h-[44px] w-full rounded bg-light-primary text-light-on-primary text-label-lg font-semibold">Complete &amp; Request Inspection</button>
+            <div class="grid grid-cols-2 gap-compact">
+              <button type="button" class="min-h-[40px] rounded border border-light-outline-variant text-label-sm font-medium">Request Parts</button>
+              <button type="button" class="min-h-[40px] rounded border border-light-outline-variant text-label-sm font-medium">Upload Photo</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="border border-light-outline-variant rounded-lg p-standard flex items-center justify-between gap-component">
+          <div><p class="font-semibold">WO-838 · Room 108 Basin</p><p class="text-body-sm text-light-muted">Awaiting post-repair verification</p></div>
+          <span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm">Verify</span>
+        </article>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

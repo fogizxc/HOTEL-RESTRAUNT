@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Overview — Royal Hospitality Group</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background dark:bg-dark-background dark:text-dark-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-light-on-surface/30 z-30 hidden lg:hidden" onclick="toggleSidebar(false)"></div>
+
+    <!-- Persistent Organisation Management Sidebar -->
+    <aside id="app-sidebar" class="fixed lg:sticky top-0 left-0 z-40 w-[248px] min-h-[1024px] shrink-0 bg-light-surface/95 dark:bg-dark-surface/95 border-r border-light-outline-variant dark:border-dark-outline-variant flex flex-col justify-between -translate-x-full lg:translate-x-0 transition-transform duration-drawer-slide" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center justify-between gap-compact px-compact pt-micro">
+          <div class="flex items-center gap-component">
+            <div class="w-8 h-8 rounded bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-label-lg font-semibold shrink-0">RH</div>
+            <div class="min-w-0">
+              <p class="font-title text-title-md text-light-on-surface dark:text-dark-on-surface leading-none truncate">Royal Hospitality</p>
+              <p class="text-label-sm text-light-muted uppercase tracking-wider mt-micro">Management</p>
+            </div>
+          </div>
+          <button type="button" onclick="toggleSidebar(false)" aria-label="Close navigation" class="lg:hidden p-micro rounded hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">close</span></button>
+        </div>
+
+        <nav aria-label="Organisation Management Navigation" class="flex flex-col gap-component text-body-sm">
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p>
+            <a href="BusinessOverview.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container dark:bg-dark-primary-container/40 text-light-on-primary-container dark:text-dark-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>Business Overview</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Business Structure</p>
+            <a href="../org-properties/Properties.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">domain</span><span>Properties</span></a>
+            <a href="../org-outlets/RestaurantOutlets.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">restaurant</span><span>Restaurant Outlets</span></a>
+            <a href="#departments" onclick="showToast(&#39;Departments queued&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">account_tree</span><span>Departments</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">People &amp; Access</p>
+            <a href="../org-employees/EmployeesTeam.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">group</span><span>Employees &amp; Team</span></a>
+            <a href="../org-roles/RolesPermissions.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">verified_user</span><span>Roles &amp; Permissions</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Modules &amp; Subscription</p>
+            <a href="../org-modules/ModulesFeatures.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">apps</span><span>Modules &amp; Workspaces</span></a>
+            <a href="#subscription" onclick="showToast(&#39;Subscription &amp; Billing queued&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">credit_card</span><span>Subscription &amp; Billing</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Configuration</p>
+            <a href="#settings" onclick="showToast(&#39;Business Settings queued&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">settings</span><span>Business Settings</span></a>
+            <a href="#audit" onclick="showToast(&#39;Business Audit queued&#39;)" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">history</span><span>Activity &amp; Audit</span></a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="p-standard border-t border-light-outline-variant dark:border-dark-outline-variant flex flex-col gap-compact">
+        <div class="flex items-center justify-between px-compact py-micro text-label-sm text-light-on-surface-variant">
+          <span class="inline-flex items-center gap-compact"><span class="w-2 h-2 rounded-full bg-light-success" aria-hidden="true"></span>Enterprise Active</span>
+          <button type="button" onclick="document.documentElement.classList.toggle(&#39;dark&#39;)" aria-label="Toggle theme" class="p-micro rounded hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-md dark:hidden" aria-hidden="true">dark_mode</span><span class="material-symbols-outlined text-title-md hidden dark:inline-block" aria-hidden="true">light_mode</span></button>
+        </div>
+        <div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low dark:bg-dark-surface-container">
+          <div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-md font-semibold shrink-0">VS</div>
+          <div class="min-w-0 flex-1"><p class="text-label-md truncate">Vikramaditya Singh</p><p class="text-label-sm text-light-muted truncate">Organisation Owner</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="flex-1 min-w-0 flex flex-col">
+      <!-- Top Navigation with Property Context Selector -->
+      <header class="sticky top-0 z-20 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+        <div class="flex items-center gap-component">
+          <button type="button" onclick="toggleSidebar(true)" aria-label="Open navigation" class="lg:hidden p-compact rounded hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">menu</span></button>
+          <nav aria-label="Breadcrumb" class="flex items-center gap-compact text-body-sm">
+            <span class="text-light-muted">Royal Hospitality Group</span>
+            <span class="material-symbols-outlined text-body-sm text-light-muted" aria-hidden="true">chevron_right</span>
+            <span class="text-label-lg">Business Overview</span>
+          </nav>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-compact">
+          <!-- Property Context Selector -->
+          <div class="flex items-center gap-micro">
+            <span class="text-label-sm text-light-muted hidden sm:inline">Property context:</span>
+            <select id="property-context" onchange="switchPropertyContext(this.value)" aria-label="Property context selector" class="h-9 rounded px-component bg-light-surface-container-low dark:bg-dark-surface-container border border-light-outline text-label-md text-light-on-surface dark:text-dark-on-surface">
+              <option value="all">All Properties (4)</option>
+              <option value="grand">Royal Grand Hotel — Meerut</option>
+              <option value="business">Royal Business Hotel — Delhi</option>
+              <option value="finedine">Royal Fine Dine — Noida</option>
+              <option value="rooftop">Royal Rooftop Restaurant — Meerut</option>
+            </select>
+          </div>
+          <a href="../org-properties/Properties.html" class="min-h-[36px] inline-flex items-center gap-micro px-standard rounded bg-light-primary text-light-on-primary text-label-md hover:opacity-90">
+            <span class="material-symbols-outlined text-title-md" aria-hidden="true">add</span>
+            <span>Add property</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-standard">
+          <div>
+            <h1 class="font-headline text-headline-lg">Business Overview</h1>
+            <p id="context-subtitle" class="text-body-md text-light-on-surface-variant mt-micro">Your complete hospitality business at a glance · Viewing All Properties (Fictional Demo · INR · IST).</p>
+          </div>
+          <div class="flex items-center gap-compact">
+            <select aria-label="Date range" class="h-9 rounded border-light-outline text-body-sm"><option>Today · Nov 23, 2026</option><option>Last 30 days</option><option>This quarter</option></select>
+            <button type="button" onclick="showToast(&#39;Business summary exported&#39;)" class="h-9 px-component rounded border border-light-outline text-label-md hover:bg-light-surface-container-low">Export</button>
+          </div>
+        </div>
+
+        <!-- Section A: Business Summary -->
+        <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-component">
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-standard"><p class="text-label-sm text-light-muted">Properties</p><p id="kpi-props" class="font-mono text-mono-lg mt-micro">4 / 4</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-standard"><p class="text-label-sm text-light-muted">Restaurant outlets</p><p id="kpi-outlets" class="font-mono text-mono-lg mt-micro">7</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-standard"><p class="text-label-sm text-light-muted">Hotel rooms</p><p id="kpi-rooms" class="font-mono text-mono-lg mt-micro">225</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-standard"><p class="text-label-sm text-light-muted">Active employees</p><p id="kpi-staff" class="font-mono text-mono-lg mt-micro">342</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-standard"><p class="text-label-sm text-light-muted">Consolidated rev (MTD)</p><p id="kpi-rev" class="font-mono text-mono-lg text-light-primary mt-micro">₹1.42 Cr</p></div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-standard"><p class="text-label-sm text-light-muted">Subscription</p><p class="font-medium text-title-md text-light-on-success-container mt-micro">Enterprise</p></div>
+        </section>
+
+        <!-- Section B: Hotel vs Restaurant Performance (Separated cleanly) -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-section">
+          <article id="hotel-perf-card" class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-standard">
+            <div class="flex items-center justify-between"><h2 class="text-title-lg">Hotel performance</h2><span class="text-label-sm text-light-muted">2 properties · 225 rooms</span></div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-standard">
+              <div><p class="text-label-sm text-light-muted">Occupancy rate</p><p class="font-mono text-mono-lg mt-micro">86.2%</p></div>
+              <div><p class="text-label-sm text-light-muted">ADR</p><p class="font-mono text-mono-lg mt-micro">₹7,850</p></div>
+              <div><p class="text-label-sm text-light-muted">RevPAR</p><p class="font-mono text-mono-lg mt-micro">₹6,766</p></div>
+              <div><p class="text-label-sm text-light-muted">Available rooms</p><p class="font-mono text-mono-lg mt-micro">31</p></div>
+              <div><p class="text-label-sm text-light-muted">Check-ins today</p><p class="font-mono text-mono-lg mt-micro">44</p></div>
+              <div><p class="text-label-sm text-light-muted">Check-outs today</p><p class="font-mono text-mono-lg mt-micro">38</p></div>
+            </div>
+          </article>
+
+          <article id="rest-perf-card" class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-standard">
+            <div class="flex items-center justify-between"><h2 class="text-title-lg">Restaurant performance</h2><span class="text-label-sm text-light-muted">7 outlets · POS &amp; QR</span></div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-standard">
+              <div><p class="text-label-sm text-light-muted">Total orders (today)</p><p class="font-mono text-mono-lg mt-micro">418</p></div>
+              <div><p class="text-label-sm text-light-muted">Restaurant sales</p><p class="font-mono text-mono-lg mt-micro">₹6,84,200</p></div>
+              <div><p class="text-label-sm text-light-muted">Avg order value</p><p class="font-mono text-mono-lg mt-micro">₹1,636</p></div>
+              <div><p class="text-label-sm text-light-muted">Active tables</p><p class="font-mono text-mono-lg mt-micro">54 / 92</p></div>
+              <div><p class="text-label-sm text-light-muted">Pending KDS tickets</p><p class="font-mono text-mono-lg text-light-warning mt-micro">12</p></div>
+              <div><p class="text-label-sm text-light-muted">Top outlet</p><p class="font-medium text-body-md mt-micro">Rooftop (Meerut)</p></div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Section C: Property Performance Comparison -->
+        <section class="bg-light-surface border border-light-outline-variant rounded-lg overflow-hidden">
+          <div class="p-section border-b border-light-outline-variant flex items-center justify-between">
+            <h2 class="text-title-lg">Property performance comparison</h2>
+            <a href="../org-properties/Properties.html" class="text-label-md text-light-primary hover:underline">Manage properties</a>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-body-sm">
+              <thead><tr class="border-b border-light-outline-variant bg-light-surface-container-low"><th class="py-component px-standard">Property</th><th class="py-component px-standard">Category</th><th class="py-component px-standard">City</th><th class="py-component px-standard">Modules</th><th class="py-component px-standard text-right">Staff</th><th class="py-component px-standard text-right">MTD Revenue (Demo)</th><th class="py-component px-standard">Alerts</th></tr></thead>
+              <tbody class="divide-y divide-light-outline-variant">
+                <tr><td class="py-component px-standard font-medium">Royal Grand Hotel</td><td class="py-component px-standard">Mixed Hotel &amp; Restaurant</td><td class="py-component px-standard">Meerut</td><td class="py-component px-standard">PMS, POS, KDS, QR</td><td class="py-component px-standard text-right font-mono">148</td><td class="py-component px-standard text-right font-mono">₹64,20,000</td><td class="py-component px-standard"><span class="px-compact py-micro rounded-full bg-light-warning-container text-light-on-warning-container text-label-sm">1 maintenance</span></td></tr>
+                <tr><td class="py-component px-standard font-medium">Royal Business Hotel</td><td class="py-component px-standard">Hotel</td><td class="py-component px-standard">Delhi</td><td class="py-component px-standard">PMS, Housekeeping</td><td class="py-component px-standard text-right font-mono">96</td><td class="py-component px-standard text-right font-mono">₹48,50,000</td><td class="py-component px-standard"><span class="px-compact py-micro rounded-full bg-light-success-container text-light-on-success-container text-label-sm">Clear</span></td></tr>
+                <tr><td class="py-component px-standard font-medium">Royal Fine Dine</td><td class="py-component px-standard">Restaurant</td><td class="py-component px-standard">Noida</td><td class="py-component px-standard">POS, KDS, QR</td><td class="py-component px-standard text-right font-mono">54</td><td class="py-component px-standard text-right font-mono">₹18,90,000</td><td class="py-component px-standard"><span class="px-compact py-micro rounded-full bg-light-warning-container text-light-on-warning-container text-label-sm">Low inventory</span></td></tr>
+                <tr><td class="py-component px-standard font-medium">Royal Rooftop Restaurant</td><td class="py-component px-standard">Restaurant</td><td class="py-component px-standard">Meerut</td><td class="py-component px-standard">POS, KDS, QR</td><td class="py-component px-standard text-right font-mono">44</td><td class="py-component px-standard text-right font-mono">₹10,40,000</td><td class="py-component px-standard"><span class="px-compact py-micro rounded-full bg-light-success-container text-light-on-success-container text-label-sm">Clear</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section E, F, G: Alerts, Activity & Quick Actions -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-section">
+          <article class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-component text-body-sm">
+            <h2 class="text-title-lg">Important alerts</h2>
+            <div class="p-component rounded bg-light-warning-container/40 border border-light-warning/25"><p class="font-medium">HVAC maintenance · Royal Grand (Suite 304)</p><p class="text-label-sm text-light-on-surface-variant">Assigned to Engineering · Due today 16:00 IST</p></div>
+            <div class="p-component rounded bg-light-surface-container-low border border-light-outline-variant"><p class="font-medium">Low saffron &amp; olive oil stock · Royal Fine Dine</p><p class="text-label-sm text-light-on-surface-variant">Procurement PO #442 awaiting approval</p></div>
+          </article>
+
+          <article class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-component text-body-sm">
+            <h2 class="text-title-lg">Recent business activity</h2>
+            <ul class="divide-y divide-light-outline-variant">
+              <li class="py-compact"><p class="font-medium">New employee invited · Riya Verma</p><p class="text-label-sm text-light-muted">Front Desk · Royal Business Hotel Delhi</p></li>
+              <li class="py-compact"><p class="font-medium">Room QR Ordering enabled</p><p class="text-label-sm text-light-muted">Royal Grand Hotel Meerut · Today 00:12 IST</p></li>
+              <li class="py-compact"><p class="font-medium">44 reservations checked in</p><p class="text-label-sm text-light-muted">Across Meerut &amp; Delhi properties</p></li>
+            </ul>
+          </article>
+
+          <article class="bg-light-surface border border-light-outline-variant rounded-lg p-section flex flex-col gap-component text-body-sm">
+            <h2 class="text-title-lg">Quick actions</h2>
+            <div class="grid grid-cols-1 gap-compact">
+              <a href="../org-properties/Properties.html" class="px-standard py-compact rounded border border-light-outline hover:bg-light-surface-container-low flex items-center justify-between"><span>Add property</span><span class="material-symbols-outlined text-title-md" aria-hidden="true">chevron_right</span></a>
+              <a href="../org-outlets/RestaurantOutlets.html" class="px-standard py-compact rounded border border-light-outline hover:bg-light-surface-container-low flex items-center justify-between"><span>Manage restaurant outlets</span><span class="material-symbols-outlined text-title-md" aria-hidden="true">chevron_right</span></a>
+              <a href="../org-employees/EmployeesTeam.html" class="px-standard py-compact rounded border border-light-outline hover:bg-light-surface-container-low flex items-center justify-between"><span>Invite employee</span><span class="material-symbols-outlined text-title-md" aria-hidden="true">chevron_right</span></a>
+              <a href="../org-modules/ModulesFeatures.html" class="px-standard py-compact rounded bg-light-primary text-light-on-primary flex items-center justify-between"><span>Open connected workspaces</span><span class="material-symbols-outlined text-title-md" aria-hidden="true">open_in_new</span></a>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="toast" role="status" class="hidden fixed bottom-section right-section z-50 bg-light-on-surface text-light-surface px-standard py-component rounded-lg shadow-lg text-body-sm"></div>
+
+  <script>
+    function toggleSidebar(open) {
+      var el = document.getElementById('app-sidebar'), bd = document.getElementById('sidebar-backdrop');
+      if (open) { el.classList.remove('-translate-x-full'); bd.classList.remove('hidden'); }
+      else { el.classList.add('-translate-x-full'); bd.classList.add('hidden'); }
+    }
+    function switchPropertyContext(val) {
+      var map = {
+        all: { sub: 'Viewing All Properties (Fictional Demo · INR · IST).', p: '4 / 4', o: '7', r: '225', s: '342', rev: '₹1.42 Cr', hotel: true, rest: true },
+        grand: { sub: 'Context: Royal Grand Hotel — Meerut (Mixed Hotel + 4 Outlets).', p: '1', o: '4', r: '130', s: '148', rev: '₹64.2 L', hotel: true, rest: true },
+        business: { sub: 'Context: Royal Business Hotel — Delhi (Hotel Operations only).', p: '1', o: '0', r: '95', s: '96', rev: '₹48.5 L', hotel: true, rest: false },
+        finedine: { sub: 'Context: Royal Fine Dine — Noida (Independent Restaurant).', p: '1', o: '2', r: '0', s: '54', rev: '₹18.9 L', hotel: false, rest: true },
+        rooftop: { sub: 'Context: Royal Rooftop Restaurant — Meerut (Independent Outlet).', p: '1', o: '1', r: '0', s: '44', rev: '₹10.4 L', hotel: false, rest: true }
+      };
+      var d = map[val] || map.all;
+      document.getElementById('context-subtitle').textContent = d.sub;
+      document.getElementById('kpi-props').textContent = d.p;
+      document.getElementById('kpi-outlets').textContent = d.o;
+      document.getElementById('kpi-rooms').textContent = d.r;
+      document.getElementById('kpi-staff').textContent = d.s;
+      document.getElementById('kpi-rev').textContent = d.rev;
+      document.getElementById('hotel-perf-card').classList.toggle('hidden', !d.hotel);
+      document.getElementById('rest-perf-card').classList.toggle('hidden', !d.rest);
+    }
+    function showToast(msg) {
+      var t = document.getElementById('toast');
+      t.textContent = msg; t.classList.remove('hidden');
+      setTimeout(function() { t.classList.add('hidden'); }, 2500);
+    }
+  </script>
+
+
+</body></html>

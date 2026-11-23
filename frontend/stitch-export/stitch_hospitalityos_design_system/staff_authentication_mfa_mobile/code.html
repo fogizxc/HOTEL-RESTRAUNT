@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Authentication &amp; MFA (Mobile) — HospitalityOS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[884px] max-w-[430px] mx-auto flex flex-col justify-between p-standard gap-standard" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <!-- Top Brand & Mode Switcher -->
+    <header class="flex flex-col gap-component pt-compact">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-compact">
+          <span class="w-9 h-9 rounded-lg bg-light-primary text-light-on-primary inline-flex items-center justify-center font-headline font-semibold text-title-md">H</span>
+          <div>
+            <p class="font-headline text-title-md leading-tight">HospitalityOS</p>
+            <p class="text-label-sm text-light-muted">Staff Mobile Access</p>
+          </div>
+        </div>
+        <span class="px-compact py-micro rounded bg-light-surface-container-high text-label-sm text-light-on-surface">Prototype</span>
+      </div>
+
+      <div class="grid grid-cols-3 gap-micro p-micro rounded-lg bg-light-surface-container border border-light-outline-variant" role="tablist" aria-label="Authentication mode">
+        <button type="button" role="tab" aria-selected="true" id="tab-signin" onclick="switchAuthTab(&#39;signin&#39;)" class="min-h-[36px] rounded-md bg-light-surface text-light-on-surface text-label-sm font-medium shadow-sm">Sign In</button>
+        <button type="button" role="tab" aria-selected="false" id="tab-mfa" onclick="switchAuthTab(&#39;mfa&#39;)" class="min-h-[36px] rounded-md text-label-sm text-light-on-surface">MFA / OTP</button>
+        <button type="button" role="tab" aria-selected="false" id="tab-lock" onclick="switchAuthTab(&#39;lock&#39;)" class="min-h-[36px] rounded-md text-label-sm text-light-on-surface">Shift Lock</button>
+      </div>
+    </header>
+
+    <!-- Main Card -->
+    <main class="flex-1 flex flex-col justify-center">
+      <!-- Sign In Panel -->
+      <section id="panel-signin" class="bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-standard">
+        <div>
+          <h1 class="font-headline text-headline-md leading-tight">Sign in to your shift</h1>
+          <p class="text-body-sm text-light-muted mt-micro">Royal Grand Hotel · Meerut</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); switchAuthTab(&#39;mfa&#39;);" class="flex flex-col gap-component">
+          <div>
+            <label for="mobile-staff-id" class="block text-label-md font-medium mb-micro">Work Email or Staff ID</label>
+            <input id="mobile-staff-id" type="text" value="priya.kapoor@royalgrand.in" class="w-full min-h-[44px] rounded-md border-light-outline bg-light-surface-container-low px-component text-body-md">
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-micro">
+              <label for="mobile-staff-pass" class="text-label-md font-medium">Password</label>
+              <a href="../auth-login/WorkspaceLogin.html" class="text-label-sm text-light-on-primary-container underline">Forgot?</a>
+            </div>
+            <input id="mobile-staff-pass" type="password" value="••••••••••••" class="w-full min-h-[44px] rounded-md border-light-outline bg-light-surface-container-low px-component text-body-md">
+          </div>
+          <button type="submit" class="min-h-[44px] w-full rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium mt-micro">Continue to Verification</button>
+        </form>
+
+        <div class="pt-compact border-t border-light-outline-variant flex flex-col gap-compact">
+          <button type="button" onclick="switchAuthTab(&#39;lock&#39;)" class="min-h-[40px] w-full rounded-md border border-light-outline text-label-md font-medium inline-flex items-center justify-center gap-compact">
+            <span class="material-symbols-outlined text-[18px]">pin</span>
+            Quick Switch with 4-Digit Shift PIN
+          </button>
+        </div>
+      </section>
+
+      <!-- MFA / OTP Panel -->
+      <section id="panel-mfa" class="hidden bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-standard">
+        <div>
+          <span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm font-medium">2-Step Verification</span>
+          <h1 class="font-headline text-headline-md leading-tight mt-compact">Enter 6-digit code</h1>
+          <p class="text-body-sm text-light-muted mt-micro">Open your authenticator app or use the SMS code sent to •••• 4812.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); document.getElementById(&#39;mfa-ok&#39;).classList.remove(&#39;hidden&#39;);" class="flex flex-col gap-component">
+          <div>
+            <label for="mobile-otp" class="block text-label-md font-medium mb-micro">Verification Code</label>
+            <input id="mobile-otp" type="text" inputmode="numeric" maxlength="6" value="482910" class="w-full min-h-[48px] rounded-md border-light-outline bg-light-surface-container-low px-standard text-center font-mono text-mono-lg tracking-widest">
+          </div>
+          <label class="flex items-center gap-compact text-body-sm">
+            <input id="trust-device" type="checkbox" checked class="rounded border-light-outline text-light-primary">
+            <span>Trust this handheld for 12-hour shift</span>
+          </label>
+          <button type="submit" class="min-h-[44px] w-full rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium">Verify &amp; Open Workspace</button>
+          <p id="mfa-ok" class="hidden p-compact rounded-md bg-light-success-container text-light-on-success-container text-label-sm font-medium">Prototype: Verified. Routing to assigned mobile workspace.</p>
+        </form>
+
+        <div class="flex items-center justify-between text-label-sm pt-compact border-t border-light-outline-variant">
+          <button type="button" class="text-light-on-primary-container underline">Use Backup Code</button>
+          <button type="button" class="text-light-on-primary-container underline">Resend SMS (28s)</button>
+        </div>
+      </section>
+
+      <!-- Session Lock / Re-Auth Panel -->
+      <section id="panel-lock" class="hidden bg-light-surface border border-light-outline-variant rounded-xl p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component">
+          <span class="w-11 h-11 rounded-full bg-light-warning-container text-light-on-warning-container inline-flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[22px]">lock_clock</span>
+          </span>
+          <div>
+            <h1 class="font-title text-title-lg leading-tight">Session Locked (15m Idle)</h1>
+            <p class="text-body-sm text-light-muted">Priya Kapoor · Housekeeping Lead</p>
+          </div>
+        </div>
+
+        <p class="text-body-sm text-light-muted">Your unsaved room inspection checklist is preserved. Enter your 4-digit shift PIN to resume.</p>
+
+        <form onsubmit="event.preventDefault(); document.getElementById(&#39;pin-ok&#39;).classList.remove(&#39;hidden&#39;);" class="flex flex-col gap-component">
+          <div>
+            <label for="shift-pin" class="block text-label-md font-medium mb-micro">4-Digit Shift PIN</label>
+            <input id="shift-pin" type="password" inputmode="numeric" maxlength="4" value="2580" class="w-full min-h-[48px] rounded-md border-light-outline bg-light-surface-container-low px-standard text-center font-mono text-mono-lg tracking-widest">
+          </div>
+          <button type="submit" class="min-h-[44px] w-full rounded-md bg-light-primary text-light-on-primary text-label-lg font-medium">Unlock &amp; Resume Checklist</button>
+          <p id="pin-ok" class="hidden p-compact rounded-md bg-light-success-container text-light-on-success-container text-label-sm font-medium">Prototype: Session unlocked with preserved state.</p>
+        </form>
+
+        <button type="button" onclick="switchAuthTab(&#39;signin&#39;)" class="text-label-sm text-light-on-primary-container underline text-center">Sign in as a different staff member</button>
+      </section>
+    </main>
+
+    <footer class="text-center text-label-sm text-light-muted pb-compact">
+      <a href="../auth-login/WorkspaceLogin.html" class="text-light-on-primary-container underline">Desktop Sign-In</a> ·
+      <a href="../system-errors/HttpErrorAndMaintenance.html" class="text-light-on-primary-container underline">System Status</a>
+    </footer>
+  </div>
+
+  <script>
+    const tabs = ['signin', 'mfa', 'lock'];
+    function switchAuthTab(active) {
+      tabs.forEach(t => {
+        const panel = document.getElementById('panel-' + t);
+        const tab = document.getElementById('tab-' + t);
+        if (t === active) {
+          panel.classList.remove('hidden');
+          tab.className = 'min-h-[36px] rounded-md bg-light-surface text-light-on-surface text-label-sm font-medium shadow-sm';
+          tab.setAttribute('aria-selected', 'true');
+        } else {
+          panel.classList.add('hidden');
+          tab.className = 'min-h-[36px] rounded-md text-label-sm text-light-on-surface';
+          tab.setAttribute('aria-selected', 'false');
+        }
+      });
+    }
+  </script>
+
+
+</body></html>

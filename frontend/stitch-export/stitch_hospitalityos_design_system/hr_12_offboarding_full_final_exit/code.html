@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offboarding, Clearance &amp; Full &amp; Final Exit — HospitalityOS (HR &amp; Employees)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-background': '#F5F5F7',
+        'light-on-background': '#1D1D1F',
+        'light-surface': '#FFFFFF',
+        'light-on-surface': '#1D1D1F',
+        'light-surface-container-low': '#FAFAFC',
+        'light-surface-container': '#F5F5F7',
+        'light-surface-container-high': '#EBEBF0',
+        'light-on-surface-variant': '#6E6E73',
+        'light-muted': '#68686D',
+        'light-primary': '#0071E3',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#ECF4FF',
+        'light-on-primary-container': '#003B7A',
+        'light-outline': '#D2D2D7',
+        'light-outline-variant': '#E5E5EA',
+        'light-success': '#1E8E3E',
+        'light-on-success': '#101010',
+        'light-success-container': '#EAF7EE',
+        'light-on-success-container': '#0B4619',
+        'light-warning': '#9A5B00',
+        'light-on-warning': '#FFFFFF',
+        'light-warning-container': '#FFF4E0',
+        'light-on-warning-container': '#492900',
+        'light-error': '#D93025',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FDECEC',
+        'light-on-error-container': '#690002',
+        'dark-background': '#111113',
+        'dark-on-background': '#F5F5F7',
+        'dark-surface': '#1C1C1E',
+        'dark-on-surface': '#F5F5F7',
+        'dark-surface-container-low': '#161618',
+        'dark-surface-container': '#242426',
+        'dark-surface-container-high': '#2C2C2E',
+        'dark-on-surface-variant': '#A1A1A6',
+        'dark-muted': '#8E8E93',
+        'dark-primary': '#2997FF',
+        'dark-on-primary': '#001B3F',
+        'dark-primary-container': '#00458F',
+        'dark-on-primary-container': '#D7E2FF',
+        'dark-outline': '#38383A',
+        'dark-outline-variant': '#2C2C2E',
+        'dark-success': '#30D158',
+        'dark-on-success': '#002108',
+        'dark-success-container': '#003912',
+        'dark-on-success-container': '#C6FFC6',
+        'dark-warning': '#FFB340',
+        'dark-on-warning': '#2C1700',
+        'dark-warning-container': '#492900',
+        'dark-on-warning-container': '#FFDCBC',
+        'dark-error': '#FF453A',
+        'dark-on-error': '#410002',
+        'dark-error-container': '#690002',
+        'dark-on-error-container': '#FFDAD5',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '18px',
+        'full': '9999px',
+      },
+      spacing: {
+        'micro': '4px',
+        'compact': '8px',
+        'component': '12px',
+        'standard': '16px',
+        'section': '24px',
+        'major': '32px',
+        'page': '48px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.8px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '20px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'drawer-slide': '280ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Code+Pro:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }</style>
+</head>
+<body class="bg-light-background text-light-on-background font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <aside class="fixed lg:sticky top-0 left-0 z-40 w-[252px] min-h-[1024px] shrink-0 bg-light-surface/95 border-r border-light-outline-variant hidden lg:flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="p-standard flex flex-col gap-standard">
+        <div class="flex items-center gap-component px-compact pt-micro">
+          <div class="w-8 h-8 rounded bg-light-primary-container text-light-on-primary-container flex items-center justify-center font-headline text-label-lg font-semibold">HR</div>
+          <div><p class="font-title text-title-md leading-none">HR &amp; Workforce</p><p class="text-label-sm text-light-muted uppercase mt-micro">Royal Hospitality Group</p></div>
+        </div>
+        <nav aria-label="HR &amp; Workforce Navigation" class="flex flex-col gap-compact text-body-sm">
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Overview</p>
+            <a href="../hr-overview/PeopleOverview.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">dashboard</span><span>HR Dashboard</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">People &amp; Lifecycle</p>
+            <a href="../hr-directory/EmployeeDirectory.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">badge</span><span>Directory &amp; Org Chart</span></a>
+            <a href="../hr-recruitment/RecruitmentPipeline.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">work</span><span>Recruitment Pipeline</span></a>
+            <a href="../hr-profile/EmployeeProfileAndOnboarding.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">person_add</span><span>Profile &amp; Onboarding</span></a>
+            <a href="OffboardingAndExit.html" aria-current="page" class="flex items-center gap-component px-compact py-compact rounded bg-light-primary-container text-light-on-primary-container font-medium"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">logout</span><span>Offboarding &amp; Exits</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Time, Shifts &amp; Leave</p>
+            <a href="../hr-attendance/AttendanceAndBiometrics.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">fingerprint</span><span>Attendance &amp; Devices</span></a>
+            <a href="../hr-shifts/ShiftRosterScheduling.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">calendar_month</span><span>Shift Roster</span></a>
+            <a href="../hr-leave/LeaveManagement.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">event_available</span><span>Leave Management</span></a>
+          </div>
+          <div>
+            <p class="px-compact py-micro text-label-sm text-light-muted uppercase">Payroll, Config &amp; Insights</p>
+            <a href="../hr-payroll/PayrollProcessing.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">payments</span><span>Payroll Processing</span></a>
+            <a href="../hr-salary-statutory/SalaryStructureAndStatutory.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">account_balance_wallet</span><span>Salary &amp; Statutory</span></a>
+            <a href="../hr-performance-relations/PerformanceAndRelations.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">workspace_premium</span><span>Performance &amp; Relations</span></a>
+            <a href="../hr-analytics-audit/WorkforceAnalyticsAndAudit.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">monitoring</span><span>Analytics &amp; Audit</span></a>
+            <a href="../hr-settings/HRPayrollSettings.html" class="flex items-center gap-component px-compact py-compact rounded text-light-on-surface-variant hover:bg-light-surface-container"><span class="material-symbols-outlined text-title-lg" aria-hidden="true">settings</span><span>HR &amp; Payroll Settings</span></a>
+          </div>
+        </nav>
+      </div>
+      <div class="p-standard border-t border-light-outline-variant">
+        <div class="flex items-center gap-component px-compact py-compact rounded bg-light-surface-container-low">
+          <div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center text-label-md font-semibold">PK</div>
+          <div><p class="text-label-md">Priya Kulkarni</p><p class="text-label-sm text-light-muted">VP People &amp; HR</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="sticky top-0 z-20 bg-light-surface/90 backdrop-blur-md border-b border-light-outline-variant px-section py-component flex flex-wrap items-center justify-between gap-standard">
+        <div>
+          <h1 class="font-headline text-title-lg leading-tight">Offboarding, Clearance &amp; Full &amp; Final Exit</h1>
+          <p class="text-body-sm text-light-muted">Notice period tracking, asset/uniform recovery, F&amp;F settlement &amp; Panel 02 RBAC account deactivation</p>
+        </div>
+        <button type="button" class="min-h-[36px] px-standard rounded bg-light-primary text-light-on-primary text-label-md whitespace-nowrap">+ Initiate Exit / Resignation</button>
+      </header>
+
+      <main class="flex-1 p-section lg:p-major max-w-[1440px] w-full mx-auto flex flex-col gap-section">
+        <!-- Summary Cards -->
+        <section class="grid grid-cols-2 sm:grid-cols-4 gap-component">
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">In Notice Period</p>
+            <p class="font-headline text-title-lg font-mono text-light-on-error-container mt-micro">3</p>
+            <p class="text-label-sm text-light-muted mt-micro">Last working day within 30d</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">Clearances Pending</p>
+            <p class="font-headline text-title-lg font-mono text-light-on-warning-container mt-micro">2</p>
+            <p class="text-label-sm text-light-muted mt-micro">Uniforms &amp; POS keycard</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">F&amp;F Settlement Queue</p>
+            <p class="font-headline text-title-lg font-mono mt-micro">₹1,14,800</p>
+            <p class="text-label-sm text-light-muted mt-micro">Includes EL encashment</p>
+          </div>
+          <div class="bg-light-surface border border-light-outline-variant rounded-lg p-component">
+            <p class="text-label-sm text-light-muted uppercase">RBAC Revocations</p>
+            <p class="font-headline text-title-lg font-mono text-light-on-success-container mt-micro">Auto-Scheduled</p>
+            <p class="text-label-sm text-light-muted mt-micro">Synced to Panel 02 at 23:59 LWD</p>
+          </div>
+        </section>
+
+        <!-- Active Exits Table -->
+        <section class="bg-light-surface border border-light-outline-variant rounded-lg overflow-hidden">
+          <div class="p-standard border-b border-light-outline-variant"><h2 class="font-title text-title-md">Active Offboarding Cases (3)</h2></div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-body-sm">
+              <thead>
+                <tr class="border-b border-light-outline-variant text-label-sm text-light-muted uppercase bg-light-surface-container-low">
+                  <th class="py-component px-standard">Employee</th>
+                  <th class="py-component px-standard">Property &amp; Dept</th>
+                  <th class="py-component px-standard">Exit Type</th>
+                  <th class="py-component px-standard">Last Working Day</th>
+                  <th class="py-component px-standard">Clearance</th>
+                  <th class="py-component px-standard">F&amp;F Net</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-light-outline-variant">
+                <tr>
+                  <td class="py-component px-standard font-medium">Nitin Rawat <span class="font-mono text-label-sm text-light-muted">EMP-0142</span></td>
+                  <td class="py-component px-standard">Delhi Hotel · Front Office</td>
+                  <td class="py-component px-standard">Voluntary Resignation</td>
+                  <td class="py-component px-standard font-mono">30 Nov 2026</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm font-medium">3/5 Cleared</span></td>
+                  <td class="py-component px-standard font-mono">₹48,200</td>
+                </tr>
+                <tr>
+                  <td class="py-component px-standard font-medium">Pooja Sharma <span class="font-mono text-label-sm text-light-muted">EMP-0215</span></td>
+                  <td class="py-component px-standard">Meerut Grand · F&amp;B Service</td>
+                  <td class="py-component px-standard">Voluntary Resignation</td>
+                  <td class="py-component px-standard font-mono">25 Nov 2026</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm font-medium">5/5 Cleared</span></td>
+                  <td class="py-component px-standard font-mono">₹39,400</td>
+                </tr>
+                <tr>
+                  <td class="py-component px-standard font-medium">Manoj Tiwari <span class="font-mono text-label-sm text-light-muted">EMP-0360</span></td>
+                  <td class="py-component px-standard">Noida Dine · Stewarding</td>
+                  <td class="py-component px-standard">Contract End</td>
+                  <td class="py-component px-standard font-mono">28 Nov 2026</td>
+                  <td class="py-component px-standard"><span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm font-medium">2/5 Cleared</span></td>
+                  <td class="py-component px-standard font-mono">₹27,200</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Department Clearance Checklist & F&F Breakdown -->
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-section">
+          <section class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+            <h2 class="font-title text-title-md">Clearance Checklist — Nitin Rawat (EMP-0142)</h2>
+            <div class="flex flex-col gap-compact text-body-sm">
+              <div class="p-compact rounded bg-light-surface-container-low flex justify-between items-center"><span>1. Uniforms, ID Badge &amp; Locker Key (Housekeeping)</span><span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">Returned</span></div>
+              <div class="p-compact rounded bg-light-surface-container-low flex justify-between items-center"><span>2. PMS / POS Terminal Access &amp; Cash Float (Finance)</span><span class="px-compact py-micro rounded bg-light-success-container text-light-on-success-container text-label-sm">Zero Float</span></div>
+              <div class="p-compact rounded bg-light-surface-container-low flex justify-between items-center"><span>3. Staff Accommodation / Meal Card Settlement</span><span class="px-compact py-micro rounded bg-light-warning-container text-light-on-warning-container text-label-sm">Pending Sign-off</span></div>
+              <div class="p-compact rounded bg-light-surface-container-low flex justify-between items-center"><span>4. Panel 02 RBAC &amp; Biometric Deactivation</span><span class="px-compact py-micro rounded bg-light-primary-container text-light-on-primary-container text-label-sm">Queued 30 Nov</span></div>
+            </div>
+          </section>
+
+          <section class="bg-light-surface border border-light-outline-variant rounded-lg p-standard flex flex-col gap-component">
+            <h2 class="font-title text-title-md">Full &amp; Final Settlement Preview</h2>
+            <div class="flex flex-col gap-compact text-body-sm">
+              <div class="p-compact rounded bg-light-surface-container-low flex justify-between"><span>Pro-rata Nov Salary (30 Days)</span><span class="font-mono">₹34,500</span></div>
+              <div class="p-compact rounded bg-light-surface-container-low flex justify-between"><span>Earned Leave Encashment (14 Days)</span><span class="font-mono">₹16,100</span></div>
+              <div class="p-compact rounded bg-light-surface-container-low flex justify-between"><span>Less: Statutory PF / TDS &amp; Meal Balance</span><span class="font-mono text-light-on-error-container">-₹2,400</span></div>
+              <div class="p-compact rounded bg-light-success-container flex justify-between font-semibold"><span class="text-light-on-success-container">Net F&amp;F Payable (After Clearance)</span><span class="font-mono text-light-on-success-container">₹48,200</span></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>
