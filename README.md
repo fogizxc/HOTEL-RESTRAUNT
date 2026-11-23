@@ -17,7 +17,7 @@ Download it from the repository root and unzip it once to inspect the original S
 ### 2. Complete implementation handoff
 **File:** `HospitalityOS_COMPLETE_MASTER_PACKAGE_v1.0.0.zip`
 
-This consolidated package contains the 233 frontend page exports plus the implementation documentation:
+This consolidated package contains all 233 frontend page exports plus the implementation documentation:
 - 12 panel specifications.
 - 6 shared-engine specifications.
 - Architecture, modular boundaries, multi-tenancy and data isolation.
@@ -29,13 +29,13 @@ This consolidated package contains the 233 frontend page exports plus the implem
 - Deployment, migration, integration and operations runbooks.
 - Screen inventory and screen-to-implementation traceability sheets.
 
-**Extraction note:** to keep the complete handoff compact, this outer ZIP contains `HospitalityOS_SOURCE.tar.xz`. First unzip the outer package, then extract the source archive with:
+**Extraction note:** to keep the complete handoff compact, this outer ZIP contains `HospitalityOS_SOURCE.tar.xz`. First unzip the outer package, then extract the source archive:
 
 ```bash
 tar -xJf HospitalityOS_SOURCE.tar.xz
 ```
 
-Start with `HospitalityOS_Engineering_Handoff/README.md` inside the extracted source.
+The extracted source root contains `README.md`, `panels/`, `engines/`, `docs/`, `security/`, `testing/`, `operations/`, `contracts/`, `decisions/`, and `frontend/`.
 
 ## Screen inventory
 
@@ -73,4 +73,3 @@ Do not claim production readiness merely because the design exports and document
 
 - Original Stitch ZIP SHA-256: `25e258f98a84424c0a414dcd99eead4b2ddcfc2f4c37b5c74b497b8a4ee1f198`
 - Complete handoff ZIP SHA-256: `99725a6a140213ca0c7036d548ffff4346f4aea9f8b572e95b449124af400976`
-
