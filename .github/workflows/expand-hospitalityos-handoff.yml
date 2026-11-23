@@ -1,0 +1,99 @@
+name: Expand HospitalityOS handoff
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "HospitalityOS_COMPLETE_MASTER_PACKAGE_v1.0.0.zip"
+      - ".github/workflows/expand-hospitalityos-handoff.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hospitalityos-handoff-expansion
+  cancel-in-progress: false
+
+jobs:
+  expand:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify package integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s HospitalityOS_COMPLETE_MASTER_PACKAGE_v1.0.0.zip
+          echo "99725a6a140213ca0c7036d548ffff4346f4aea9f8b572e95b449124af400976  HospitalityOS_COMPLETE_MASTER_PACKAGE_v1.0.0.zip" | sha256sum --check
+          unzip -tq HospitalityOS_COMPLETE_MASTER_PACKAGE_v1.0.0.zip
+
+      - name: Extract and verify all source files
+        shell: bash
+        run: |
+          set -euo pipefail
+          TEMP_ROOT="$(mktemp -d)"
+          trap 'rm -rf "$TEMP_ROOT"' EXIT
+
+          mkdir -p "$TEMP_ROOT/outer" "$TEMP_ROOT/source"
+          unzip -q HospitalityOS_COMPLETE_MASTER_PACKAGE_v1.0.0.zip -d "$TEMP_ROOT/outer"
+          test -s "$TEMP_ROOT/outer/HospitalityOS_SOURCE.tar.xz"
+          tar -xJf "$TEMP_ROOT/outer/HospitalityOS_SOURCE.tar.xz" -C "$TEMP_ROOT/source"
+
+          SCREEN_ROOT="$TEMP_ROOT/source/frontend/stitch-export/stitch_hospitalityos_design_system"
+          test -d "$SCREEN_ROOT"
+          SCREEN_COUNT="$(find "$SCREEN_ROOT" -type f -name code.html | wc -l | tr -d ' ')"
+          test "$SCREEN_COUNT" = "233"
+          test -s "$SCREEN_ROOT/hospitalityos_design_system.md"
+
+          for required in panels engines docs security testing operations decisions contracts; do
+            test -d "$TEMP_ROOT/source/$required"
+          done
+          test -s "$TEMP_ROOT/source/CLAUDE_MASTER_IMPLEMENTATION_PROMPT.md"
+          test -s "$TEMP_ROOT/source/PACKAGE-MANIFEST.json"
+
+          # Put implementation documents in their own namespace; preserve the
+          # repository root README and the two downloadable source archives.
+          mkdir -p handoff frontend
+          for required in panels engines docs security testing operations decisions contracts; do
+            rm -rf "handoff/$required"
+            cp -a "$TEMP_ROOT/source/$required" "handoff/$required"
+          done
+          for file in CLAUDE_MASTER_IMPLEMENTATION_PROMPT.md PACKAGE-MANIFEST.json LICENSE-NOTICE.md GITHUB-PUSH-STATUS.md README.md .gitignore; do
+            if test -f "$TEMP_ROOT/source/$file"; then
+              cp "$TEMP_ROOT/source/$file" "handoff/$file"
+            fi
+          done
+
+          # Keep all original page folder names and code.html exports.
+          rm -rf frontend/stitch-export
+          cp -a "$TEMP_ROOT/source/frontend/stitch-export" frontend/
+          for file in SCREEN-INVENTORY.csv SCREEN-TRACEABILITY.csv SCREEN-TRACEABILITY-TEMPLATE.csv SCREEN-TRACEABILITY.md STITCH-IMPORT-INSTRUCTIONS.md; do
+            if test -f "$TEMP_ROOT/source/frontend/$file"; then
+              cp "$TEMP_ROOT/source/frontend/$file" "frontend/$file"
+            fi
+          done
+
+          FINAL_COUNT="$(find frontend/stitch-export/stitch_hospitalityos_design_system -type f -name code.html | wc -l | tr -d ' ')"
+          test "$FINAL_COUNT" = "233"
+          echo "Verified and extracted $FINAL_COUNT Stitch screens."
+          echo "Documentation groups: panels, engines, docs, security, testing, operations, decisions, contracts."
+
+      - name: Commit expanded handoff
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add handoff frontend
+          if git diff --cached --quiet; then
+            echo "Expanded handoff is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "docs: unpack HospitalityOS specifications and all 233 Stitch screens [skip ci]"
+          git push origin HEAD:main
